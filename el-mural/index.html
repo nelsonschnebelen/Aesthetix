@@ -8,6 +8,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<script>
+  try {
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("cine-on");
+    }
+  } catch (e) {}
+</script>
 <style>
   :root {
     --red: #FF3737;
@@ -22,10 +29,10 @@
     --warm-deep: #E8E4E0;
     --line: #E2DDD7;
     --char: #020202;
-    --char-card: #171717;
     --on-dark: #F5F2EE;
     --on-dark-sub: #B0ACA7;
     --radius: 14px;
+    --stage-scrub: 300vh;
     --font-display: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
     --font-body: 'Inter', 'Helvetica Neue', system-ui, sans-serif;
   }
@@ -44,7 +51,6 @@
   }
 
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-  .wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 24px; }
 
   a { color: inherit; }
   a:focus-visible, button:focus-visible {
@@ -75,28 +81,38 @@
 
   .num { font-variant-numeric: tabular-nums; }
 
-  /* ---------- Nav ---------- */
+  /* ---------- Nav (dark over the stage, lite after) ---------- */
   .nav {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(2,2,2,0.42);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: background 0.35s ease, border-color 0.35s ease;
   }
   .nav-inner {
     display: flex; align-items: center; justify-content: space-between;
     padding: 14px 24px; max-width: 1080px; margin: 0 auto;
   }
-  .logo-link { display: inline-flex; align-items: center; color: var(--ink); }
+  .logo-link { display: inline-flex; align-items: center; color: #FFFFFF; transition: color 0.35s ease; }
   .logo { height: 26px; width: auto; display: block; }
   .logo-link-foot { color: #FFFFFF; }
   .logo-link-foot .logo { height: 20px; }
   .nav-right { display: flex; align-items: center; gap: 20px; }
   .nav-phone {
-    font-size: 14px; font-weight: 600; color: var(--sub);
+    font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.75);
     text-decoration: none; white-space: nowrap;
+    transition: color 0.35s ease;
   }
-  .nav-phone:hover { color: var(--ink); }
+  .nav-phone:hover { color: #FFFFFF; }
   @media (max-width: 640px) { .nav-phone { display: none; } }
+
+  .nav.nav-lite {
+    background: rgba(255,255,255,0.92);
+    border-bottom-color: var(--line);
+  }
+  .nav.nav-lite .logo-link { color: var(--ink); }
+  .nav.nav-lite .nav-phone { color: var(--sub); }
+  .nav.nav-lite .nav-phone:hover { color: var(--ink); }
 
   .btn {
     display: inline-block;
@@ -105,47 +121,201 @@
     padding: 12px 24px;
     border-radius: 999px;
     text-decoration: none;
-    transition: transform 0.15s ease, background 0.15s ease;
+    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
     white-space: nowrap;
   }
   .btn-red { background: var(--red); color: #FFFFFF; }
   .btn-red:hover { background: var(--red-deep); transform: translateY(-1px); }
-  .btn-ghost-dark { border: 1.5px solid var(--line); color: var(--ink); }
-  .btn-ghost-dark:hover { border-color: var(--ink); }
   .btn-ghost-light { border: 1.5px solid rgba(255,255,255,0.35); color: #FFFFFF; }
   .btn-ghost-light:hover { border-color: #FFFFFF; }
-  .btn-white { background: #FFFFFF; color: var(--ink); }
-  .btn-white:hover { background: var(--warm-deep); transform: translateY(-1px); }
 
-  /* ---------- Hero ---------- */
-  .hero { padding: 88px 0 64px; background: var(--paper); }
-  .hero h1 {
-    font-size: clamp(40px, 6.4vw, 72px);
+  /* ================== CINEMATIC STAGE ================== */
+  .stagewrap { position: relative; height: 100svh; min-height: 660px; background: var(--char); }
+  .cine-on .stagewrap { height: 400vh; min-height: 0; }
+  .stage {
+    position: sticky; top: 0;
+    height: 100svh; min-height: 660px;
+    overflow: hidden;
+    background: var(--char);
+  }
+
+  /* Backdrop: red glow + giant outline type, dollies in across the timeline */
+  .backdrop { position: absolute; inset: 0; z-index: 0; transform: scale(1.1); }
+  .glow {
+    position: absolute; inset: -20%;
+    background:
+      radial-gradient(42% 46% at 68% 38%, rgba(255,55,55,0.34), transparent 70%),
+      radial-gradient(30% 34% at 22% 78%, rgba(255,55,55,0.16), transparent 70%),
+      radial-gradient(55% 60% at 50% 50%, rgba(255,255,255,0.045), transparent 72%);
+  }
+  .giant {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(120px, 24vw, 340px);
+    line-height: 0.86; letter-spacing: -0.02em;
+    color: rgba(255,55,55,0.07);
+    user-select: none;
+  }
+  @supports ((-webkit-text-stroke: 1px red) or (text-stroke: 1px red)) {
+    .giant { color: transparent; -webkit-text-stroke: 1.5px rgba(255,55,55,0.22); }
+  }
+
+  /* Still-hero legibility gradient (hidden in cinematic mode) */
+  .veil-static {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(90deg, rgba(2,2,2,0.92) 30%, rgba(2,2,2,0.7) 55%, rgba(2,2,2,0.3));
+  }
+  .cine-on .veil-static { display: none; }
+
+  /* Uniform veil, cinematic only: the scene comes to light as it lifts */
+  .veil { display: none; }
+  .cine-on .veil {
+    display: block; position: absolute; inset: 0; z-index: 2;
+    background: var(--char); opacity: 0.82;
+  }
+
+  .acts { position: relative; z-index: 5; height: 100%; }
+  .act-title, .act-line { display: none; }
+  .cine-on .act {
+    position: absolute; inset: 0; z-index: 5;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 0 24px;
+    pointer-events: none;
+  }
+  .cine-on .act a { pointer-events: auto; }
+  .cine-on .act-title, .cine-on .act-line { display: flex; }
+  .cine-on .act-line, .cine-on .act-final { opacity: 0; visibility: hidden; }
+
+  .act-title .mark-big {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(58px, 12vw, 168px);
+    line-height: 0.92; letter-spacing: -0.03em;
+    color: var(--on-dark);
+  }
+  .act-title .mark-byline {
+    margin-top: 26px;
+    font-size: clamp(12px, 1.4vw, 15px); font-weight: 700;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--red);
+  }
+
+  .act-line .promise {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(36px, 6.4vw, 88px);
+    line-height: 1.04; letter-spacing: -0.02em;
+    color: var(--on-dark); max-width: 20ch;
+  }
+  .act-line .promise em { font-style: normal; color: var(--red); }
+  .act-line .promise-sub {
+    margin-top: 24px; font-size: clamp(15px, 1.8vw, 19px);
+    color: var(--on-dark-sub); max-width: 44ch;
+  }
+
+  /* Act III: the resolution AND the still hero */
+  .act-final { position: relative; height: 100%; }
+  .cine-on .act-final { text-align: left; padding: 0; }
+  .final-shade { display: none; }
+  .cine-on .final-shade {
+    display: block; position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(2,2,2,0.92) 30%, rgba(2,2,2,0.7) 55%, rgba(2,2,2,0.3));
+  }
+  .final-inner {
+    position: relative;
+    display: flex; height: 100%; width: 100%; max-width: 1080px; margin: 0 auto;
+    flex-direction: column; justify-content: center; align-items: flex-start;
+    padding: 96px 24px 56px;
+  }
+  .final-inner h1 {
+    color: var(--on-dark);
+    font-size: clamp(38px, 5.6vw, 68px);
     max-width: 15ch;
-    margin-bottom: 26px;
   }
-  .hero h1 em { font-style: normal; color: var(--red); }
-  .hero-sub {
-    font-size: 20px; color: var(--sub); max-width: 56ch; margin-bottom: 34px;
+  .final-inner h1 em { font-style: normal; color: var(--red); }
+  .final-sub {
+    margin-top: 22px; font-size: clamp(16px, 2vw, 20px);
+    color: var(--on-dark-sub); max-width: 52ch;
   }
-  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-  .hero-meta {
-    margin-top: 48px; padding-top: 22px; border-top: 1px solid var(--line);
+  .final-ctas { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .final-meta {
+    margin-top: 44px; padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.14);
     display: flex; flex-wrap: wrap; gap: 10px 40px;
-    font-size: 14px; color: var(--sub);
+    font-size: 14px; color: var(--on-dark-sub);
   }
-  .hero-meta strong { display: block; color: var(--ink); font-weight: 600; }
-  .hero-meta a { color: var(--red); font-weight: 600; text-decoration: none; }
-  .hero-meta a:hover { text-decoration: underline; }
+  .final-meta strong { display: block; color: var(--on-dark); font-weight: 600; }
+  .final-meta a { color: var(--red); font-weight: 600; text-decoration: none; }
+  .final-meta a:hover { text-decoration: underline; }
+
+  .hint { display: none; }
+  .cine-on .hint {
+    position: absolute; z-index: 6; inset-inline: 0; bottom: 26px;
+    display: flex; justify-content: center;
+    opacity: 0.6;
+    font: 700 11px/1 var(--font-body); letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--on-dark-sub);
+  }
+
+  /* -------- Engine 1: CSS scroll timelines -------- */
+  @supports (animation-timeline: scroll()) {
+    @keyframes cine-backdrop {
+      from { transform: scale(1.04); }
+      to { transform: scale(1.3) translateY(-2%); }
+    }
+    @keyframes cine-veil {
+      0% { opacity: 0.82; } 45% { opacity: 0.4; } 100% { opacity: 0.3; }
+    }
+    @keyframes cine-title {
+      0% { opacity: 1; transform: none; visibility: visible; }
+      12% { opacity: 1; transform: scale(1.04); visibility: visible; }
+      37%, 100% { opacity: 0; transform: scale(1.34) translateY(-6%); visibility: hidden; }
+    }
+    @keyframes cine-line {
+      0%, 33% { opacity: 0; transform: translateY(64px); visibility: hidden; }
+      50%, 72% { opacity: 1; transform: none; visibility: visible; }
+      88%, 100% { opacity: 0; transform: translateY(-64px); visibility: hidden; }
+    }
+    @keyframes cine-final {
+      0%, 84% { opacity: 0; transform: translateY(48px); visibility: hidden; }
+      97%, 100% { opacity: 1; transform: none; visibility: visible; }
+    }
+    @keyframes cine-hint {
+      0% { opacity: 0.6; } 10%, 100% { opacity: 0; }
+    }
+    .cine-on .backdrop,
+    .cine-on .veil,
+    .cine-on .act-title,
+    .cine-on .act-line,
+    .cine-on .act-final,
+    .cine-on .hint {
+      animation: linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 var(--stage-scrub);
+    }
+    .cine-on .backdrop { animation-name: cine-backdrop; }
+    .cine-on .veil { animation-name: cine-veil; }
+    .cine-on .act-title { animation-name: cine-title; }
+    .cine-on .act-line { animation-name: cine-line; }
+    .cine-on .act-final { animation-name: cine-final; }
+    .cine-on .hint { animation-name: cine-hint; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .backdrop, .veil, .act-title, .act-line, .act-final, .hint {
+      animation: none !important;
+    }
+  }
 
   /* ---------- Stat band ---------- */
-  .statband { background: var(--char); color: var(--on-dark); padding: 56px 0; }
-  .statgrid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px;
+  .statband { background: var(--char); color: var(--on-dark); padding: 76px 0; position: relative; }
+  .statband::before {
+    content: ""; position: absolute; top: 0; left: 24px; right: 24px;
+    border-top: 1px solid rgba(255,255,255,0.1);
   }
+  .statgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; }
   .stat .stat-n {
     font-family: var(--font-display);
-    font-weight: 800; font-size: clamp(34px, 4vw, 48px);
+    font-weight: 800; font-size: clamp(34px, 4vw, 52px);
     letter-spacing: -0.02em; line-height: 1; color: #FFFFFF;
   }
   .stat .stat-n em { font-style: normal; color: var(--red); }
@@ -190,9 +360,7 @@
   .tablecard h3 { font-size: 18px; }
   .tablecard .range { font-size: 13px; color: var(--muted); font-weight: 500; }
   .tscroll { overflow-x: auto; }
-  table {
-    width: 100%; border-collapse: collapse; font-size: 15px; min-width: 520px;
-  }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 520px; }
   th, td { padding: 12px 22px; text-align: right; white-space: nowrap; }
   th:first-child, td:first-child { text-align: left; }
   thead th {
@@ -248,8 +416,10 @@
     background: var(--red);
     min-width: 3px;
     position: relative;
-    transition: opacity 0.15s ease;
+    transform-origin: left center;
+    transition: opacity 0.15s ease, transform 1s cubic-bezier(0.22, 1, 0.36, 1);
   }
+  .hbar.pre { transform: scaleX(0); }
   .hbar.teal { background: var(--teal); }
   .hbar-track:hover .hbar { opacity: 0.85; }
   .hbar-val {
@@ -298,7 +468,13 @@
   .method p + p { margin-top: 8px; }
 
   /* ---------- CTA ---------- */
-  .cta { background: var(--char); color: var(--on-dark); padding: 96px 0; text-align: center; }
+  .cta { background: var(--char); color: var(--on-dark); padding: 96px 0; text-align: center; position: relative; overflow: hidden; }
+  .cta::before {
+    content: ""; position: absolute; inset: -30%;
+    background: radial-gradient(38% 44% at 50% 20%, rgba(255,55,55,0.18), transparent 70%);
+    pointer-events: none;
+  }
+  .cta .wrap { position: relative; }
   .cta h2 {
     color: #FFFFFF; font-size: clamp(32px, 4.6vw, 54px);
     max-width: 20ch; margin: 0 auto 18px;
@@ -324,6 +500,8 @@
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
     .btn { transition: none; }
+    .hbar { transition: opacity 0.15s ease; }
+    .hbar.pre { transform: none; }
   }
 </style>
 </head>
@@ -339,30 +517,59 @@
   </div>
 </nav>
 
-<header class="hero">
-  <div class="wrap">
-    <span class="eyebrow">Case Study &middot; El Mural Cantina</span>
-    <h1>Cinco de Mayo is won <em>three weeks early.</em></h1>
-    <p class="hero-sub">How El Mural Cantina turned about $1,370 of paid media into its biggest Cinco de Mayo yet &mdash; twice, on the same budget.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-red" href="https://dineline.co/discovery/">Book a Demo</a>
-      <a class="btn btn-ghost-dark num" href="tel:+17863984394">Call (786) 398-4394</a>
+<section class="stagewrap" id="top">
+  <div class="stage">
+    <div class="backdrop" aria-hidden="true">
+      <div class="glow"></div>
+      <div class="giant"><span>CINCO</span></div>
     </div>
-    <div class="hero-meta">
-      <div><strong>Client</strong> El Mural Cantina &middot; <a href="https://www.instagram.com/elmural_cantina/">@elmural_cantina</a></div>
-      <div><strong>Playbook</strong> Google + Meta paid media, powered by Dishio</div>
-      <div><strong>Window</strong> April 14 &ndash; May 6, run in 2025 &amp; 2026</div>
+    <div class="veil-static" aria-hidden="true"></div>
+    <div class="veil" aria-hidden="true"></div>
+
+    <div class="acts">
+      <!-- Act I: the name (cinematic only) -->
+      <div class="act act-title" aria-hidden="true">
+        <p class="mark-big">EL&nbsp;MURAL</p>
+        <p class="mark-byline">Cantina &middot; A Dineline Case Study</p>
+      </div>
+
+      <!-- Act II: the promise (cinematic only; visual duplicate of the h1) -->
+      <div class="act act-line" aria-hidden="true">
+        <p class="promise">Cinco de Mayo is won <em>three weeks early.</em></p>
+        <p class="promise-sub">Same budget, two years running. Nearly double the foot traffic.</p>
+      </div>
+
+      <!-- Act III: the resolution AND the still hero -->
+      <div class="act act-final">
+        <div class="final-shade" aria-hidden="true"></div>
+        <div class="final-inner">
+          <span class="eyebrow">Case Study &middot; El Mural Cantina</span>
+          <h1>Cinco de Mayo is won <em>three weeks early.</em></h1>
+          <p class="final-sub">How El Mural Cantina turned about $1,370 of paid media into its biggest Cinco de Mayo yet &mdash; twice, on the same budget.</p>
+          <div class="final-ctas">
+            <a class="btn btn-red" href="https://dineline.co/discovery/">Book a Demo</a>
+            <a class="btn btn-ghost-light num" href="tel:+17863984394">Call (786) 398-4394</a>
+          </div>
+          <div class="final-meta">
+            <div><strong>Client</strong> El Mural Cantina &middot; <a href="https://www.instagram.com/elmural_cantina/">@elmural_cantina</a></div>
+            <div><strong>Playbook</strong> Google + Meta paid media, powered by Dishio</div>
+            <div><strong>Window</strong> April 14 &ndash; May 6, run in 2025 &amp; 2026</div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div class="hint" aria-hidden="true">Scroll &darr;</div>
   </div>
-</header>
+</section>
 
 <section class="statband" aria-label="Headline results">
   <div class="wrap">
     <div class="statgrid">
-      <div class="stat reveal"><div class="stat-n num">$12,600</div><div class="stat-l">Cinco de Mayo sales, from El Mural&rsquo;s POS</div></div>
-      <div class="stat reveal"><div class="stat-n num"><em>+81%</em></div><div class="stat-l">Cinco sales jump year over year</div></div>
-      <div class="stat reveal"><div class="stat-n num">+90%</div><div class="stat-l">Tracked Google store visits, on flat ad spend</div></div>
-      <div class="stat reveal"><div class="stat-n num">1,056</div><div class="stat-l">Dishio scans &amp; Smart Site Visits</div></div>
+      <div class="stat reveal"><div class="stat-n num"><span class="count" data-target="12600" data-prefix="$">$12,600</span></div><div class="stat-l">Cinco de Mayo sales, from El Mural&rsquo;s POS</div></div>
+      <div class="stat reveal"><div class="stat-n num"><em><span class="count" data-target="81" data-prefix="+" data-suffix="%">+81%</span></em></div><div class="stat-l">Cinco sales jump year over year</div></div>
+      <div class="stat reveal"><div class="stat-n num"><span class="count" data-target="90" data-prefix="+" data-suffix="%">+90%</span></div><div class="stat-l">Tracked Google store visits, on flat ad spend</div></div>
+      <div class="stat reveal"><div class="stat-n num"><span class="count" data-target="1056">1,056</span></div><div class="stat-l">Dishio scans &amp; Smart Site Visits</div></div>
     </div>
   </div>
 </section>
@@ -556,20 +763,151 @@
 </footer>
 
 <script>
-  (function () {
-    var els = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window) ||
-        window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      els.forEach(function (el) { el.classList.add('in'); });
-      return;
+/* -------- Engine 2: damped rAF fallback + optional debug -------- */
+(function () {
+  var cssPath = CSS.supports("animation-timeline: scroll()");
+  var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (new URLSearchParams(location.search).has("motion-debug")) {
+    var box = document.createElement("div");
+    box.style.cssText =
+      "position:fixed;bottom:12px;left:12px;z-index:9999;background:#000;color:#fff;" +
+      "font:12px/1.6 monospace;padding:10px 14px;border:1px solid #FF3737;white-space:pre;pointer-events:none";
+    document.body.appendChild(box);
+    (function readout() {
+      var t = document.querySelector(".act-title");
+      box.textContent = [
+        "engine: " + (reduced ? "OFF (reduced motion)" : cssPath ? "CSS scroll-timeline" : "JS fallback"),
+        "scrollY: " + Math.round(scrollY),
+        "act I opacity: " + (t ? (+getComputedStyle(t).opacity).toFixed(2) : "n/a"),
+      ].join("\n");
+      requestAnimationFrame(readout);
+    })();
+  }
+
+  if (cssPath || reduced) return;
+
+  var TRACKS = [
+    { sel: ".backdrop", yu: "%", kf: [[0, { s: [1.04, 1.3], y: [0, -2] }], [100, {}]] },
+    { sel: ".veil", kf: [[0, { o: [0.82, 0.4] }], [45, { o: [0.4, 0.3] }], [100, {}]] },
+    { sel: ".act-title", yu: "%", kf: [[0, { o: [1, 1], s: [1, 1.04], y: [0, 0] }], [12, { o: [1, 0], s: [1.04, 1.34], y: [0, -6] }], [37, { o: [0, 0], s: [1.34, 1.34], y: [-6, -6] }], [100, {}]] },
+    { sel: ".act-line", yu: "px", kf: [[0, { o: [0, 0], y: [64, 64] }], [33, { o: [0, 1], y: [64, 0] }], [50, { o: [1, 1], y: [0, 0] }], [72, { o: [1, 0], y: [0, -64] }], [88, { o: [0, 0], y: [-64, -64] }], [100, {}]] },
+    { sel: ".act-final", yu: "px", kf: [[0, { o: [0, 0], y: [48, 48] }], [84, { o: [0, 1], y: [48, 0] }], [97, { o: [1, 1], y: [0, 0] }], [100, {}]] },
+    { sel: ".hint", kf: [[0, { o: [0.6, 0] }], [10, { o: [0, 0] }], [100, {}]] },
+  ];
+  var BACKDROPS = { ".backdrop": 1, ".veil": 1 };
+
+  var els = TRACKS.map(function (t) {
+    return { t: t, el: document.querySelector(t.sel) };
+  }).filter(function (x) { return x.el; });
+
+  function clamp01(v) { return Math.min(1, Math.max(0, v)); }
+  function mix(a, b, t) { return a + (b - a) * t; }
+
+  function applyAll(p100) {
+    els.forEach(function (x) {
+      var kf = x.t.kf, i = 0;
+      while (i < kf.length - 2 && p100 >= kf[i + 1][0]) i++;
+      var seg = kf[i][1], t = clamp01((p100 - kf[i][0]) / Math.max(kf[i + 1][0] - kf[i][0], 0.0001));
+      if (seg.o) {
+        var o = mix(seg.o[0], seg.o[1], t);
+        x.el.style.opacity = o;
+        if (!BACKDROPS[x.t.sel]) x.el.style.visibility = o <= 0.01 ? "hidden" : "visible";
+      }
+      var tr = [];
+      if (seg.s) tr.push("scale(" + mix(seg.s[0], seg.s[1], t) + ")");
+      if (seg.y) tr.push("translateY(" + mix(seg.y[0], seg.y[1], t) + (x.t.yu || "px") + ")");
+      if (tr.length) x.el.style.transform = tr.join(" ");
+    });
+  }
+
+  var target = scrollY, eased = target, running = false;
+  var SCRUB = innerHeight * 3;
+
+  function tick() {
+    eased += (target - eased) * 0.12;
+    applyAll(clamp01(eased / SCRUB) * 100);
+    if (Math.abs(target - eased) > 0.4) requestAnimationFrame(tick);
+    else { eased = target; applyAll(clamp01(eased / SCRUB) * 100); running = false; }
+  }
+  function wake() {
+    target = scrollY;
+    SCRUB = innerHeight * 3;
+    if (!running) { running = true; requestAnimationFrame(tick); }
+  }
+  wake();
+  addEventListener("scroll", wake, { passive: true });
+  addEventListener("resize", wake, { passive: true });
+})();
+
+/* -------- Nav restyle once past the stage -------- */
+(function () {
+  var nav = document.querySelector(".nav");
+  var stage = document.querySelector(".stagewrap");
+  if (!nav || !stage) return;
+  var lite = false;
+  function check() {
+    var past = scrollY > stage.offsetHeight - 70;
+    if (past !== lite) { lite = past; nav.classList.toggle("nav-lite", past); }
+  }
+  check();
+  addEventListener("scroll", check, { passive: true });
+  addEventListener("resize", check, { passive: true });
+})();
+
+/* -------- Reveals, count-ups, bar draws -------- */
+(function () {
+  var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reveals = document.querySelectorAll(".reveal");
+  var counts = document.querySelectorAll(".count");
+  var bars = document.querySelectorAll(".hbar");
+
+  function fmt(n, pre, suf) {
+    return (pre || "") + Math.round(n).toLocaleString("en-US") + (suf || "");
+  }
+
+  function runCount(el) {
+    var target = +el.getAttribute("data-target");
+    var pre = el.getAttribute("data-prefix") || "";
+    var suf = el.getAttribute("data-suffix") || "";
+    var t0 = null, DUR = 1300;
+    function step(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / DUR);
+      var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(target * e, pre, suf);
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = fmt(target, pre, suf);
     }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-    els.forEach(function (el) { io.observe(el); });
-  })();
+    requestAnimationFrame(step);
+  }
+
+  if (reduced || !("IntersectionObserver" in window)) {
+    reveals.forEach(function (el) { el.classList.add("in"); });
+    return;
+  }
+
+  bars.forEach(function (b) { b.classList.add("pre"); });
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      io.unobserve(el);
+      if (el.classList.contains("reveal")) el.classList.add("in");
+      if (el.classList.contains("count")) runCount(el);
+      if (el.classList.contains("chartcard") || el.classList.contains("cmp-panel")) {
+        el.querySelectorAll(".hbar.pre").forEach(function (b, i) {
+          setTimeout(function () { b.classList.remove("pre"); }, 120 * i);
+        });
+      }
+    });
+  }, { threshold: 0.2, rootMargin: "0px 0px -40px 0px" });
+
+  reveals.forEach(function (el) { io.observe(el); });
+  counts.forEach(function (el) { io.observe(el); });
+  document.querySelectorAll(".chartcard, .cmp-panel").forEach(function (el) { io.observe(el); });
+})();
 </script>
 
 </body>
