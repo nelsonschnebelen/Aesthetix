@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El Mural Cinco Playbook</title>
+<meta name="description" content="How El Mural Cantina turned ~$1,370 of paid media into its biggest Cinco de Mayo yet — twice, on the same budget. A Dineline case study.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --red: #FF3737;
+    --red-deep: #D92020;
+    --teal: #0D9488;
+    --ink: #141414;
+    --ink-soft: #3A3A3A;
+    --sub: #52525C;
+    --muted: #8A8580;
+    --paper: #FFFFFF;
+    --warm: #F5F2EE;
+    --warm-deep: #E8E4E0;
+    --line: #E2DDD7;
+    --char: #020202;
+    --char-card: #171717;
+    --on-dark: #F5F2EE;
+    --on-dark-sub: #B0ACA7;
+    --radius: 14px;
+    --font-display: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+    --font-body: 'Inter', 'Helvetica Neue', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  .wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--red);
+    display: block;
+    margin-bottom: 18px;
+  }
+
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 24px; max-width: 1080px; margin: 0 auto;
+  }
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 800; font-size: 22px; letter-spacing: -0.03em;
+    color: var(--red); text-decoration: none;
+  }
+  .wordmark span { color: var(--ink); }
+  .nav-right { display: flex; align-items: center; gap: 20px; }
+  .nav-phone {
+    font-size: 14px; font-weight: 600; color: var(--sub);
+    text-decoration: none; white-space: nowrap;
+  }
+  .nav-phone:hover { color: var(--ink); }
+  @media (max-width: 640px) { .nav-phone { display: none; } }
+
+  .btn {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 700; font-size: 15px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.15s ease, background 0.15s ease;
+    white-space: nowrap;
+  }
+  .btn-red { background: var(--red); color: #FFFFFF; }
+  .btn-red:hover { background: var(--red-deep); transform: translateY(-1px); }
+  .btn-ghost-dark { border: 1.5px solid var(--line); color: var(--ink); }
+  .btn-ghost-dark:hover { border-color: var(--ink); }
+  .btn-ghost-light { border: 1.5px solid rgba(255,255,255,0.35); color: #FFFFFF; }
+  .btn-ghost-light:hover { border-color: #FFFFFF; }
+  .btn-white { background: #FFFFFF; color: var(--ink); }
+  .btn-white:hover { background: var(--warm-deep); transform: translateY(-1px); }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 88px 0 64px; background: var(--paper); }
+  .hero h1 {
+    font-size: clamp(40px, 6.4vw, 72px);
+    max-width: 15ch;
+    margin-bottom: 26px;
+  }
+  .hero h1 em { font-style: normal; color: var(--red); }
+  .hero-sub {
+    font-size: 20px; color: var(--sub); max-width: 56ch; margin-bottom: 34px;
+  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .hero-meta {
+    margin-top: 48px; padding-top: 22px; border-top: 1px solid var(--line);
+    display: flex; flex-wrap: wrap; gap: 10px 40px;
+    font-size: 14px; color: var(--sub);
+  }
+  .hero-meta strong { display: block; color: var(--ink); font-weight: 600; }
+  .hero-meta a { color: var(--red); font-weight: 600; text-decoration: none; }
+  .hero-meta a:hover { text-decoration: underline; }
+
+  /* ---------- Stat band ---------- */
+  .statband { background: var(--char); color: var(--on-dark); padding: 56px 0; }
+  .statgrid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px;
+  }
+  .stat .stat-n {
+    font-family: var(--font-display);
+    font-weight: 800; font-size: clamp(34px, 4vw, 48px);
+    letter-spacing: -0.02em; line-height: 1; color: #FFFFFF;
+  }
+  .stat .stat-n em { font-style: normal; color: var(--red); }
+  .stat .stat-l { margin-top: 10px; font-size: 14px; color: var(--on-dark-sub); max-width: 24ch; }
+  @media (max-width: 860px) { .statgrid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .statgrid { grid-template-columns: 1fr; } }
+
+  /* ---------- Sections ---------- */
+  section.block { padding: 84px 0; }
+  section.block.warm { background: var(--warm); }
+  .block h2 { font-size: clamp(28px, 3.6vw, 42px); margin-bottom: 20px; max-width: 22ch; }
+  .block .lead { font-size: 19px; color: var(--sub); max-width: 62ch; margin-bottom: 16px; }
+  .block p + p { margin-top: 16px; }
+  .prose { max-width: 62ch; color: var(--ink-soft); }
+  .prose strong { color: var(--ink); }
+
+  .pull {
+    margin: 40px 0;
+    padding: 26px 30px;
+    background: var(--paper);
+    border-left: 4px solid var(--red);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-family: var(--font-display);
+    font-weight: 700; font-size: 21px; line-height: 1.4;
+    color: var(--ink);
+    max-width: 620px;
+  }
+  section.block:not(.warm) .pull { background: var(--warm); }
+
+  /* ---------- Tables ---------- */
+  .tablecard {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 28px 0 10px;
+  }
+  .tablecard header {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+    padding: 18px 22px 4px; flex-wrap: wrap;
+  }
+  .tablecard h3 { font-size: 18px; }
+  .tablecard .range { font-size: 13px; color: var(--muted); font-weight: 500; }
+  .tscroll { overflow-x: auto; }
+  table {
+    width: 100%; border-collapse: collapse; font-size: 15px; min-width: 520px;
+  }
+  th, td { padding: 12px 22px; text-align: right; white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th {
+    font-size: 12px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--muted);
+    border-bottom: 1px solid var(--line);
+  }
+  tbody td { border-bottom: 1px solid var(--warm); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  tbody td:first-child { color: var(--ink); font-weight: 500; }
+  tbody tr:last-child td { border-bottom: none; }
+  tr.total td {
+    border-top: 1px solid var(--line);
+    font-weight: 700; color: var(--ink);
+    background: var(--warm);
+  }
+  .footnote { font-size: 13px; color: var(--muted); max-width: 68ch; margin-top: 10px; }
+
+  /* ---------- Callout cards ---------- */
+  .callouts { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 34px; }
+  @media (max-width: 720px) { .callouts { grid-template-columns: 1fr; } }
+  .callout {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 24px;
+  }
+  section.block:not(.warm) .callout { background: var(--warm); border-color: var(--warm-deep); }
+  .callout .k {
+    font-family: var(--font-display); font-weight: 800; font-size: 26px;
+    color: var(--ink); letter-spacing: -0.02em;
+  }
+  .callout .k em { font-style: normal; color: var(--red); }
+  .callout p { font-size: 15px; color: var(--sub); margin-top: 8px; }
+
+  /* ---------- Charts ---------- */
+  .chartcard {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 26px 26px 22px; margin: 30px 0 8px;
+  }
+  .chartcard h3 { font-size: 18px; margin-bottom: 4px; }
+  .chartcard .chart-sub { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+
+  .legend { display: flex; gap: 18px; margin-bottom: 18px; font-size: 13px; color: var(--sub); }
+  .legend .chip { display: inline-flex; align-items: center; gap: 7px; font-weight: 500; }
+  .swatch { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
+  .swatch.s25 { background: var(--teal); }
+  .swatch.s26 { background: var(--red); }
+
+  .hbar-row { display: grid; grid-template-columns: 150px 1fr; align-items: center; gap: 14px; margin-bottom: 14px; }
+  .hbar-row:last-child { margin-bottom: 0; }
+  .hbar-label { font-size: 14px; color: var(--ink); font-weight: 500; text-align: right; line-height: 1.3; }
+  .hbar-track { position: relative; height: 26px; display: flex; align-items: center; }
+  .hbar {
+    height: 22px; border-radius: 0 4px 4px 0;
+    background: var(--red);
+    min-width: 3px;
+    position: relative;
+    transition: opacity 0.15s ease;
+  }
+  .hbar.teal { background: var(--teal); }
+  .hbar-track:hover .hbar { opacity: 0.85; }
+  .hbar-val {
+    font-size: 13.5px; font-weight: 600; color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    margin-left: 9px; white-space: nowrap;
+  }
+  .hbar-val small { font-weight: 500; color: var(--muted); font-size: 12px; }
+  @media (max-width: 560px) {
+    .hbar-row { grid-template-columns: 108px 1fr; }
+    .hbar-label { font-size: 12.5px; }
+    .hbar { width: calc(var(--w) * 0.72%) !important; }
+  }
+
+  .cmp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; }
+  @media (max-width: 720px) { .cmp-grid { grid-template-columns: 1fr; } }
+  .cmp-panel .panel-t { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 14px; }
+  .cmp-panel .panel-t small { font-weight: 500; color: var(--muted); }
+  .cmp-delta { margin-top: 12px; font-size: 13px; color: var(--sub); }
+  .cmp-delta strong { color: var(--red); font-weight: 700; }
+
+  /* ---------- Structure shift ---------- */
+  .shift { display: grid; grid-template-columns: 1fr auto 1fr; gap: 22px; align-items: stretch; margin: 34px 0 8px; }
+  @media (max-width: 720px) { .shift { grid-template-columns: 1fr; } .shift-arrow { transform: rotate(90deg); justify-self: center; } }
+  .shift-col {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 24px;
+  }
+  .shift-col .yr {
+    font-family: var(--font-display); font-weight: 800; font-size: 15px;
+    letter-spacing: 0.02em; margin-bottom: 14px;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .shift-col .yr::before { content: ""; width: 10px; height: 10px; border-radius: 3px; }
+  .shift-col.y25 .yr::before { background: var(--teal); }
+  .shift-col.y26 .yr::before { background: var(--red); }
+  .shift-col ul { list-style: none; }
+  .shift-col li { padding: 8px 0; border-bottom: 1px solid var(--warm); font-size: 15px; color: var(--ink-soft); }
+  .shift-col li:last-child { border-bottom: none; }
+  .shift-arrow { align-self: center; color: var(--muted); font-size: 22px; }
+
+  /* ---------- Methodology ---------- */
+  .method { background: var(--warm-deep); padding: 44px 0; }
+  .method h3 { font-size: 15px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; color: var(--sub); font-family: var(--font-body); font-weight: 700; }
+  .method p { font-size: 14px; color: var(--sub); max-width: 82ch; }
+  .method p + p { margin-top: 8px; }
+
+  /* ---------- CTA ---------- */
+  .cta { background: var(--char); color: var(--on-dark); padding: 96px 0; text-align: center; }
+  .cta h2 {
+    color: #FFFFFF; font-size: clamp(32px, 4.6vw, 54px);
+    max-width: 20ch; margin: 0 auto 18px;
+  }
+  .cta h2 em { font-style: normal; color: var(--red); }
+  .cta .cta-sub { color: var(--on-dark-sub); font-size: 18px; max-width: 46ch; margin: 0 auto 36px; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .cta .fine { margin-top: 22px; font-size: 14px; color: var(--on-dark-sub); }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--char); border-top: 1px solid #262626; padding: 28px 0; }
+  .foot-inner {
+    max-width: 1080px; margin: 0 auto; padding: 0 24px;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+    font-size: 13.5px; color: var(--on-dark-sub);
+  }
+  .foot-inner .wordmark { font-size: 18px; }
+  .foot-inner .wordmark span { color: #FFFFFF; }
+  .foot-inner a { color: var(--on-dark-sub); text-decoration: none; }
+  .foot-inner a:hover { color: #FFFFFF; }
+
+  /* ---------- Reveal motion ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .btn { transition: none; }
+  }
+</style>
+</head>
+<body data-palette="#FF3737,#0D9488">
+
+<nav class="nav" aria-label="Main">
+  <div class="nav-inner">
+    <a class="wordmark" href="https://dineline.co/">dine<span>line</span></a>
+    <div class="nav-right">
+      <a class="nav-phone num" href="tel:+17863984394">(786) 398-4394</a>
+      <a class="btn btn-red" href="https://dineline.co/discovery/">Book a Demo</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Case Study &middot; El Mural Cantina</span>
+    <h1>Cinco de Mayo is won <em>three weeks early.</em></h1>
+    <p class="hero-sub">How El Mural Cantina turned about $1,370 of paid media into its biggest Cinco de Mayo yet &mdash; twice, on the same budget.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-red" href="https://dineline.co/discovery/">Book a Demo</a>
+      <a class="btn btn-ghost-dark num" href="tel:+17863984394">Call (786) 398-4394</a>
+    </div>
+    <div class="hero-meta">
+      <div><strong>Client</strong> El Mural Cantina &middot; <a href="https://www.instagram.com/elmural_cantina/">@elmural_cantina</a></div>
+      <div><strong>Playbook</strong> Google + Meta paid media, powered by Dishio</div>
+      <div><strong>Window</strong> April 14 &ndash; May 6, run in 2025 &amp; 2026</div>
+    </div>
+  </div>
+</header>
+
+<section class="statband" aria-label="Headline results">
+  <div class="wrap">
+    <div class="statgrid">
+      <div class="stat reveal"><div class="stat-n num">$12,600</div><div class="stat-l">Cinco de Mayo sales, from El Mural&rsquo;s POS</div></div>
+      <div class="stat reveal"><div class="stat-n num"><em>+81%</em></div><div class="stat-l">Cinco sales jump year over year</div></div>
+      <div class="stat reveal"><div class="stat-n num">+90%</div><div class="stat-l">Tracked Google store visits, on flat ad spend</div></div>
+      <div class="stat reveal"><div class="stat-n num">1,056</div><div class="stat-l">Dishio scans &amp; Smart Site Visits</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="challenge">
+  <div class="wrap">
+    <span class="eyebrow reveal">The Setup</span>
+    <h2 class="reveal">The biggest margarita day of the year landed on a Monday.</h2>
+    <div class="prose reveal">
+      <p>In 2025, Cinco de Mayo fell on <strong>Monday, May 5</strong> &mdash; historically one of the quietest shifts of the week. Most restaurants fight for attention with a post on the day itself, when everyone has already decided where they&rsquo;re going.</p>
+      <p>Dineline&rsquo;s bet for El Mural was the opposite: <strong>the money is decided in the three weeks before the holiday, not on it.</strong> So the entire push &mdash; budget, offers, booking campaigns &mdash; ran from April 14 through the holiday week, reaching people while they were still choosing.</p>
+    </div>
+    <div class="pull reveal">By Monday afternoon, the dining room was full. The proof is in the data: Cinco day itself looked like any other day in the ad account &mdash; because the work was already done.</div>
+  </div>
+</section>
+
+<section class="block warm" id="playbook">
+  <div class="wrap">
+    <span class="eyebrow reveal">The 2025 Playbook</span>
+    <h2 class="reveal">Three weeks of build. Two channels. One job each.</h2>
+    <p class="lead reveal">From April 14 to May 6, 2025, El Mural ran <strong class="num">$1,368</strong> across Google and Meta &mdash; roughly <span class="num">110,000</span> impressions and <span class="num">4,015</span> clicks &mdash; each channel doing what it does best.</p>
+
+    <div class="tablecard reveal">
+      <header>
+        <h3>Google &mdash; drive people through the door</h3>
+        <span class="range">Apr 14 &ndash; May 6, 2025</span>
+      </header>
+      <div class="tscroll">
+        <table>
+          <thead><tr><th scope="col">Campaign</th><th scope="col">Spend</th><th scope="col">Impressions</th><th scope="col">Clicks</th><th scope="col">Store visits</th></tr></thead>
+          <tbody>
+            <tr><td>Performance Max</td><td>$612.53</td><td>38,369</td><td>1,074</td><td>121</td></tr>
+            <tr><td>Search</td><td>$455.90</td><td>8,640</td><td>518</td><td>57</td></tr>
+            <tr class="total"><td>Total</td><td>$1,068.43</td><td>47,009</td><td>1,592</td><td>178</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="footnote">Conversions tracked as Google store visits &mdash; people who saw or clicked an ad, then walked into the restaurant.</p>
+
+    <div class="callouts">
+      <div class="callout reveal">
+        <div class="k num">Apr 25 <em>&middot;</em> 21 visits</div>
+        <p>The single biggest push landed ten days out: <span class="num">$155</span> in spend drove <span class="num">149</span> clicks and <span class="num">21</span> store visits in one day &mdash; squarely inside the three-week build.</p>
+      </div>
+      <div class="callout reveal">
+        <div class="k num">Cinco day <em>&middot;</em> in line</div>
+        <p>May 5 itself ran <span class="num">93</span> clicks and <span class="num">10</span> store visits &mdash; on par with the surrounding days. The holiday didn&rsquo;t spike the ads; the ads had already filled the holiday.</p>
+      </div>
+    </div>
+
+    <div class="chartcard reveal">
+      <h3>Meta &mdash; catch them when they&rsquo;re ready to book</h3>
+      <p class="chart-sub">Clicks by campaign &middot; $299.73 total &middot; 62,858 impressions &middot; Apr 14 &ndash; May 6, 2025</p>
+      <div class="hbar-row">
+        <div class="hbar-label">Cinco de Mayo &mdash; Reservation</div>
+        <div class="hbar-track" title="Cinco de Mayo — Reservation: 1,359 clicks on $100.00">
+          <div class="hbar" style="--w: 88; width: 88%;"></div>
+          <span class="hbar-val num">1,359 <small>&middot; $100.00</small></span>
+        </div>
+      </div>
+      <div class="hbar-row">
+        <div class="hbar-label">Online Ordering</div>
+        <div class="hbar-track" title="Online Ordering: 406 clicks on $65.37">
+          <div class="hbar" style="--w: 26.3; width: 26.3%;"></div>
+          <span class="hbar-val num">406 <small>&middot; $65.37</small></span>
+        </div>
+      </div>
+      <div class="hbar-row">
+        <div class="hbar-label">Private Events</div>
+        <div class="hbar-track" title="Private Events: 332 clicks on $66.53">
+          <div class="hbar" style="--w: 21.5; width: 21.5%;"></div>
+          <span class="hbar-val num">332 <small>&middot; $66.53</small></span>
+        </div>
+      </div>
+      <div class="hbar-row">
+        <div class="hbar-label">Catering</div>
+        <div class="hbar-track" title="Catering: 326 clicks on $67.83">
+          <div class="hbar" style="--w: 21.1; width: 21.1%;"></div>
+          <span class="hbar-val num">326 <small>&middot; $67.83</small></span>
+        </div>
+      </div>
+    </div>
+    <p class="footnote">The Reservation campaign is the &ldquo;hit them with the offer when they&rsquo;re ready to book&rdquo; piece &mdash; <span class="num">1,359</span> clicks on a booking objective for <span class="num">$100</span>, running weeks ahead of the holiday.</p>
+  </div>
+</section>
+
+<section class="block" id="compounding">
+  <div class="wrap">
+    <span class="eyebrow reveal">Running It Back</span>
+    <h2 class="reveal">2026: same window, same budget &mdash; nearly double the foot traffic.</h2>
+    <p class="lead reveal">The next year, Dineline re-ran the exact same three-week window with essentially identical spend &mdash; <span class="num">$1,368 &rarr; $1,373</span> &mdash; and a sharper structure. The results compounded.</p>
+
+    <div class="chartcard reveal">
+      <h3>Tracked Google store visits, year over year</h3>
+      <p class="chart-sub">Same Apr 14 &ndash; May 6 window, both years</p>
+      <div class="legend" aria-hidden="true">
+        <span class="chip"><span class="swatch s25"></span>2025</span>
+        <span class="chip"><span class="swatch s26"></span>2026</span>
+      </div>
+      <div class="cmp-grid">
+        <div class="cmp-panel">
+          <div class="panel-t">Full window <small>&middot; store visits</small></div>
+          <div class="hbar-row">
+            <div class="hbar-label">2025</div>
+            <div class="hbar-track" title="2025 window: 178 store visits">
+              <div class="hbar teal" style="--w: 42; width: 42%;"></div>
+              <span class="hbar-val num">178</span>
+            </div>
+          </div>
+          <div class="hbar-row">
+            <div class="hbar-label">2026</div>
+            <div class="hbar-track" title="2026 window: 338 store visits">
+              <div class="hbar" style="--w: 79.8; width: 79.8%;"></div>
+              <span class="hbar-val num">338</span>
+            </div>
+          </div>
+          <p class="cmp-delta"><strong>+90%</strong> on flat spend</p>
+        </div>
+        <div class="cmp-panel">
+          <div class="panel-t">Cinco day itself <small>&middot; May 5 store visits</small></div>
+          <div class="hbar-row">
+            <div class="hbar-label">2025</div>
+            <div class="hbar-track" title="Cinco day 2025: 10 store visits">
+              <div class="hbar teal" style="--w: 20.5; width: 20.5%;"></div>
+              <span class="hbar-val num">10</span>
+            </div>
+          </div>
+          <div class="hbar-row">
+            <div class="hbar-label">2026</div>
+            <div class="hbar-track" title="Cinco day 2026: 39 store visits">
+              <div class="hbar" style="--w: 79.8; width: 79.8%;"></div>
+              <span class="hbar-val num">39</span>
+            </div>
+          </div>
+          <p class="cmp-delta"><strong>3.9&times;</strong> the holiday-day visits</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="shift">
+      <div class="shift-col y25 reveal">
+        <div class="yr">2025 &mdash; prove the ramp</div>
+        <ul>
+          <li>Cinco de Mayo Reservation campaign</li>
+          <li>Catering</li>
+          <li>Private Events</li>
+          <li>Online Ordering</li>
+        </ul>
+      </div>
+      <div class="shift-arrow" aria-hidden="true">&rarr;</div>
+      <div class="shift-col y26 reveal">
+        <div class="yr">2026 &mdash; compound it</div>
+        <ul>
+          <li>Cinco Traffic</li>
+          <li>Loteria Night</li>
+          <li>Dishio retargeting</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footnote reveal">The 2026 structure leaned on the audience the 2025 ramp had already built &mdash; Dishio retargeting put the offer back in front of people who had scanned, visited, or ordered before. That layer alone accounted for <span class="num">1,056</span> Dishio scans and Smart Site Visits.</p>
+  </div>
+</section>
+
+<section class="method" aria-label="Sources and methodology">
+  <div class="wrap">
+    <h3>Sources &amp; methodology</h3>
+    <p>Ad spend, impressions, clicks, and store-visit conversions are reported from Google Ads and Meta Ads for April 14 &ndash; May 6 of 2025 and 2026. Google store visits are Google-modeled conversions. April 24, 2025 is missing from the ad-platform feed (a one-day data gap); totals shown are as reported.</p>
+    <p>Cinco de Mayo sales ($12,600), the 81% year-over-year sales jump, and the 1,056 Dishio scans &amp; Smart Site Visits come from El Mural&rsquo;s point of sale and the Dishio dashboard, not the ad platforms.</p>
+  </div>
+</section>
+
+<section class="cta" id="demo">
+  <div class="wrap">
+    <span class="eyebrow reveal">Your Turn</span>
+    <h2 class="reveal">Want your holiday won <em>three weeks early?</em></h2>
+    <p class="cta-sub reveal">Dineline is the done-for-you marketing system for restaurants, powered by Dishio. We&rsquo;ll walk you through the exact playbook we ran for El Mural.</p>
+    <div class="cta-btns reveal">
+      <a class="btn btn-red" href="https://dineline.co/discovery/">Book a Demo</a>
+      <a class="btn btn-ghost-light num" href="tel:+17863984394">Call (786) 398-4394</a>
+    </div>
+    <p class="fine reveal">45 minutes. No pressure. You keep the roadmap.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <a class="wordmark" href="https://dineline.co/">dine<span>line</span></a>
+    <div>Case study: <a href="https://www.instagram.com/elmural_cantina/">El Mural Cantina</a> &middot; powered by Dishio</div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window) ||
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
