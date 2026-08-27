@@ -494,6 +494,151 @@
   .foot-inner a { color: var(--on-dark-sub); text-decoration: none; }
   .foot-inner a:hover { color: #FFFFFF; }
 
+  /* ---------- Client badge ---------- */
+  .badge { display: block; width: 100%; height: auto; }
+  .act-title .badge-wrap { width: clamp(250px, 38vh, 400px); }
+  .act-title .mark-byline { margin-top: 30px; }
+  .setup-grid { display: grid; grid-template-columns: 1fr 320px; gap: 56px; align-items: center; }
+  .setup-grid .badge-wrap { padding: 10px; }
+  @media (max-width: 860px) {
+    .setup-grid { grid-template-columns: 1fr; }
+    .setup-grid .badge-wrap { max-width: 280px; margin: 8px auto 0; }
+  }
+
+  /* ---------- The Creative: ad mockups ---------- */
+  .adgrid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 34px; margin-top: 36px; align-items: start; }
+  @media (max-width: 860px) { .adgrid { grid-template-columns: 1fr; } }
+  .ad-col-label {
+    font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--sub); margin-bottom: 14px;
+    display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  }
+  .ad-col-label small { font-weight: 500; text-transform: none; letter-spacing: 0; color: var(--muted); }
+
+  /* Facebook post mockup */
+  .fb-card {
+    background: #FFFFFF; border: 1px solid var(--line); border-radius: 12px;
+    max-width: 400px; overflow: hidden;
+    box-shadow: 0 12px 32px rgba(20,20,20,0.08);
+    font-family: var(--font-body);
+  }
+  .fb-head { display: flex; align-items: center; gap: 10px; padding: 12px 14px 10px; }
+  .fb-avatar {
+    width: 40px; height: 40px; border-radius: 50%; flex: none;
+    background: #2B1B4D; display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .fb-avatar svg { width: 34px; height: auto; }
+  .fb-name { font-size: 14px; font-weight: 700; color: #050505; line-height: 1.25; }
+  .fb-meta { font-size: 12px; color: #65676B; }
+  .fb-copy { padding: 0 14px 12px; font-size: 14.5px; line-height: 1.45; color: #050505; }
+  .fb-linkbar {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    background: #F0F2F5; padding: 12px 14px;
+  }
+  .fb-linkbar .t1 { font-size: 11px; text-transform: uppercase; color: #65676B; }
+  .fb-linkbar .t2 { font-size: 14.5px; font-weight: 700; color: #050505; line-height: 1.2; }
+  .fb-btn {
+    flex: none; font-size: 14px; font-weight: 600; color: #050505;
+    background: #E4E6EB; border-radius: 6px; padding: 8px 14px; white-space: nowrap;
+  }
+  .fb-foot {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 14px; font-size: 13.5px; color: #65676B;
+    border-top: 1px solid #E4E6EB;
+  }
+  .fb-reactions { display: flex; align-items: center; gap: 6px; }
+  .fb-reactions .pips { letter-spacing: -4px; font-size: 15px; }
+
+  /* Poster creative (recreated) */
+  .poster {
+    position: relative; aspect-ratio: 4 / 5; overflow: hidden;
+    background:
+      radial-gradient(60% 45% at 50% 42%, rgba(242,183,5,0.32), transparent 70%),
+      radial-gradient(90% 70% at 50% 110%, rgba(196,43,31,0.5), transparent 65%),
+      linear-gradient(180deg, #2A0A08, #571310 55%, #3A0D0B);
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; padding: 26px 18px 0;
+    color: #FCE9C8;
+  }
+  .poster .picado {
+    position: absolute; top: 0; left: 0; right: 0; height: 12px;
+    background:
+      linear-gradient(135deg, transparent 50%, #571310 50%) 0 0 / 14px 12px repeat-x,
+      linear-gradient(225deg, transparent 50%, #571310 50%) 7px 0 / 14px 12px repeat-x,
+      linear-gradient(90deg, #F2B705 0 25%, #E8465A 0 50%, #2BB5A0 0 75%, #F28C28 0) 0 0 / 56px 12px;
+  }
+  .poster .p-kicker {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.34em; text-transform: uppercase;
+    color: #F2B705; margin-top: 10px;
+  }
+  .poster .p-title {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(40px, 11cqw, 58px); line-height: 0.94; letter-spacing: 0.01em;
+    color: #F2B705; margin-top: 8px;
+    text-shadow: 0 3px 0 #C42B1F, 0 6px 18px rgba(0,0,0,0.45);
+  }
+  .poster .p-badges {
+    display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 16px;
+  }
+  .poster .p-pill {
+    font-family: var(--font-display); font-weight: 800; font-size: 13px;
+    background: #F2B705; color: #3A0D0B; border-radius: 999px; padding: 7px 13px;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.3);
+  }
+  .poster .p-pill.alt { background: #E8465A; color: #FFF3E0; }
+  .poster .p-pill.ghost { background: transparent; border: 2px solid #2BB5A0; color: #7FE0D2; }
+  .poster .marg { margin-top: auto; margin-bottom: -2px; width: 150px; height: auto; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.4)); }
+  .poster .p-strip {
+    position: relative; left: -18px; right: -18px; width: calc(100% + 36px);
+    margin-top: 12px; padding: 8px 10px;
+    background: #1D0605; text-align: center;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #F2B705;
+  }
+
+  /* Google search ad mockup */
+  .g-card {
+    background: #FFFFFF; border: 1px solid var(--line); border-radius: 12px;
+    padding: 22px 24px; max-width: 560px;
+    box-shadow: 0 12px 32px rgba(20,20,20,0.08);
+    font-family: arial, var(--font-body);
+  }
+  .g-sponsored { font-size: 12px; font-weight: 700; color: #202124; margin-bottom: 10px; }
+  .g-src { display: flex; align-items: center; gap: 10px; }
+  .g-fav {
+    width: 26px; height: 26px; border-radius: 50%; flex: none;
+    background: #F1F3F4; border: 1px solid #ECECEC;
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  .g-fav svg { width: 21px; height: auto; }
+  .g-site { font-size: 14px; color: #202124; line-height: 1.25; }
+  .g-url { font-size: 12px; color: #4D5156; }
+  .g-headline {
+    display: block; margin-top: 10px;
+    font-size: 19px; line-height: 1.3; color: #1A0DAB; text-decoration: none;
+  }
+  .g-headline:hover { text-decoration: underline; }
+  .g-desc { margin-top: 5px; font-size: 14px; line-height: 1.55; color: #4D5156; }
+  .g-desc b { color: #202124; }
+  .g-sitelinks {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px;
+    margin-top: 14px; padding-top: 4px;
+  }
+  .g-sitelinks a { font-size: 14.5px; color: #1A0DAB; text-decoration: none; }
+  .g-sitelinks a:hover { text-decoration: underline; }
+  .g-assets { margin-top: 22px; }
+  .g-assets .t {
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); margin-bottom: 10px;
+  }
+  .g-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .g-chips span {
+    font-size: 12.5px; font-weight: 600; color: var(--ink-soft);
+    background: var(--warm); border: 1px solid var(--warm-deep);
+    border-radius: 999px; padding: 5px 11px;
+  }
+
   /* ---------- Reveal motion ---------- */
   .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.in { opacity: 1; transform: none; }
@@ -517,6 +662,73 @@
   </div>
 </nav>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="badge-elmural" viewBox="0 0 560 430">
+      <!-- outer ring + papel picado ticks -->
+      <circle cx="280" cy="215" r="153" fill="none" stroke="#F28C28" stroke-width="9"/>
+      <g>
+        <g transform="rotate(0,280,215)"><path d="M272 66 L288 66 L280 80 Z" fill="#E8465A"/></g>
+        <g transform="rotate(24,280,215)"><path d="M272 66 L288 66 L280 80 Z" fill="#2BB5A0"/></g>
+        <g transform="rotate(-24,280,215)"><path d="M272 66 L288 66 L280 80 Z" fill="#2BB5A0"/></g>
+        <g transform="rotate(48,280,215)"><path d="M272 66 L288 66 L280 80 Z" fill="#F2B705"/></g>
+        <g transform="rotate(-48,280,215)"><path d="M272 66 L288 66 L280 80 Z" fill="#F2B705"/></g>
+        <g transform="rotate(156,280,215)"><path d="M272 66 L288 66 L280 80 Z" fill="#F2B705"/></g>
+        <g transform="rotate(-156,280,215)"><path d="M272 66 L288 66 L280 80 Z" fill="#F2B705"/></g>
+        <g transform="rotate(180,280,215)"><path d="M272 66 L288 66 L280 80 Z" fill="#E8465A"/></g>
+        <g transform="rotate(132,280,215)"><path d="M272 66 L288 66 L280 80 Z" fill="#2BB5A0"/></g>
+        <g transform="rotate(-132,280,215)"><path d="M272 66 L288 66 L280 80 Z" fill="#2BB5A0"/></g>
+      </g>
+      <circle cx="280" cy="215" r="137" fill="none" stroke="#3D2462" stroke-width="5" stroke-dasharray="0.1 15" stroke-linecap="round"/>
+      <!-- compass points -->
+      <path d="M280 34 L292 62 L280 56 L268 62 Z" fill="#F28C28"/>
+      <path d="M280 396 L292 368 L280 374 L268 368 Z" fill="#F28C28"/>
+      <!-- teal swirls + botanicals, top (scaled toward plaque, clear of arc text) -->
+      <g transform="translate(280 132) scale(0.72) translate(-280 -124)">
+        <path d="M212 132 Q 250 96 306 108 Q 344 116 352 100" fill="none" stroke="#2BB5A0" stroke-width="10" stroke-linecap="round"/>
+        <path d="M306 108 q -10 18 -34 16" fill="none" stroke="#2BB5A0" stroke-width="8" stroke-linecap="round"/>
+        <path d="M338 118 q 16 -2 20 12" fill="none" stroke="#E8465A" stroke-width="8" stroke-linecap="round"/>
+        <ellipse cx="200" cy="136" rx="16" ry="8" transform="rotate(-35 200 136)" fill="#6A8F3C"/>
+        <g fill="#C42B1F"><circle cx="372" cy="128" r="6"/><circle cx="384" cy="121" r="4.5"/><circle cx="382" cy="135" r="4.5"/><circle cx="365" cy="118" r="4.5"/></g>
+      </g>
+      <!-- teal swirls + botanicals, bottom -->
+      <g transform="translate(280 298) scale(0.72) translate(-280 -306)">
+        <path d="M348 296 Q 310 332 254 320 Q 216 312 208 328" fill="none" stroke="#2BB5A0" stroke-width="10" stroke-linecap="round"/>
+        <path d="M254 320 q 10 -18 34 -16" fill="none" stroke="#2BB5A0" stroke-width="8" stroke-linecap="round"/>
+        <path d="M226 310 q -16 2 -20 -12" fill="none" stroke="#E8465A" stroke-width="8" stroke-linecap="round"/>
+        <ellipse cx="360" cy="292" rx="16" ry="8" transform="rotate(-35 360 292)" fill="#6A8F3C"/>
+        <g fill="#C42B1F"><circle cx="186" cy="300" r="6"/><circle cx="174" cy="307" r="4.5"/><circle cx="176" cy="293" r="4.5"/><circle cx="193" cy="310" r="4.5"/></g>
+      </g>
+      <!-- arc titles -->
+      <defs>
+        <path id="bm-arc-top" d="M 158 176 A 136 136 0 0 1 402 176" fill="none"/>
+        <path id="bm-arc-bot" d="M 156 248 A 136 136 0 0 0 404 248" fill="none"/>
+      </defs>
+      <text font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="25" letter-spacing="5" fill="#F28C28">
+        <textPath href="#bm-arc-top" startOffset="50%" text-anchor="middle">MEXICAN GRILL</textPath>
+      </text>
+      <text font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="25" letter-spacing="5" fill="#F28C28">
+        <textPath href="#bm-arc-bot" startOffset="50%" text-anchor="middle">AND CANTINA</textPath>
+      </text>
+      <text x="280" y="152" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="19" letter-spacing="3" fill="#2BB5A0">EST 2023</text>
+      <!-- corner flourishes -->
+      <path d="M56 170 q -26 -8 -24 -34 q 22 2 28 22" fill="none" stroke="#F28C28" stroke-width="8" stroke-linecap="round"/>
+      <path d="M504 170 q 26 -8 24 -34 q -22 2 -28 22" fill="none" stroke="#F28C28" stroke-width="8" stroke-linecap="round"/>
+      <path d="M56 260 q -26 8 -24 34 q 22 -2 28 -22" fill="none" stroke="#F28C28" stroke-width="8" stroke-linecap="round"/>
+      <path d="M504 260 q 26 8 24 34 q -22 -2 -28 -22" fill="none" stroke="#F28C28" stroke-width="8" stroke-linecap="round"/>
+      <circle cx="34" cy="132" r="10" fill="#F28C28"/>
+      <circle cx="526" cy="132" r="10" fill="#F28C28"/>
+      <circle cx="34" cy="298" r="10" fill="#F28C28"/>
+      <circle cx="526" cy="298" r="10" fill="#F28C28"/>
+      <!-- plaque -->
+      <rect x="26" y="163" width="508" height="104" rx="20" fill="#FFFFFF" stroke="#3D2462" stroke-width="9"/>
+      <!-- name -->
+      <text x="284" y="243" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="74" letter-spacing="4" fill="#C42B1F" opacity="0.9" textLength="466" lengthAdjust="spacingAndGlyphs">EL MURAL</text>
+      <text x="280" y="239" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="74" letter-spacing="4" fill="#F2B705" stroke="#B8860B" stroke-width="1" textLength="466" lengthAdjust="spacingAndGlyphs">EL MURAL</text>
+    </symbol>
+  </defs>
+</svg>
+
 <section class="stagewrap" id="top">
   <div class="stage">
     <div class="backdrop" aria-hidden="true">
@@ -529,8 +741,8 @@
     <div class="acts">
       <!-- Act I: the name (cinematic only) -->
       <div class="act act-title" aria-hidden="true">
-        <p class="mark-big">EL&nbsp;MURAL</p>
-        <p class="mark-byline">Cantina &middot; A Dineline Case Study</p>
+        <div class="badge-wrap"><svg class="badge" viewBox="0 0 560 430" role="img" aria-label="El Mural Mexican Grill and Cantina"><use href="#badge-elmural"/></svg></div>
+        <p class="mark-byline">A Dineline Case Study</p>
       </div>
 
       <!-- Act II: the promise (cinematic only; visual duplicate of the h1) -->
@@ -576,6 +788,8 @@
 
 <section class="block" id="challenge">
   <div class="wrap">
+    <div class="setup-grid">
+    <div>
     <span class="eyebrow reveal">The Setup</span>
     <h2 class="reveal">The biggest margarita day of the year landed on a Monday.</h2>
     <div class="prose reveal">
@@ -583,6 +797,9 @@
       <p>Dineline&rsquo;s bet for El Mural was the opposite: <strong>the money is decided in the three weeks before the holiday, not on it.</strong> So the entire push &mdash; budget, offers, booking campaigns &mdash; ran from April 14 through the holiday week, reaching people while they were still choosing.</p>
     </div>
     <div class="pull reveal">By Monday afternoon, the dining room was full. The proof is in the data: Cinco day itself looked like any other day in the ad account &mdash; because the work was already done.</div>
+    </div>
+    <div class="badge-wrap reveal"><svg class="badge" viewBox="0 0 560 430" role="img" aria-label="El Mural Mexican Grill and Cantina logo"><use href="#badge-elmural"/></svg></div>
+    </div>
   </div>
 </section>
 
@@ -657,7 +874,96 @@
   </div>
 </section>
 
-<section class="block" id="compounding">
+<section class="block" id="creative">
+  <div class="wrap">
+    <span class="eyebrow reveal">The Creative</span>
+    <h2 class="reveal">What diners actually saw.</h2>
+    <p class="lead reveal">Two channels, two jobs. On Meta, the ad interrupts the scroll with the fiesta; on Google, it catches people already searching for their Cinco plans. Same offer, same energy, matched to each moment.</p>
+
+    <div class="adgrid">
+      <div class="reveal">
+        <div class="ad-col-label">Meta &middot; the ad that ran <small>&mdash; interrupt the scroll</small></div>
+        <div class="fb-card">
+          <div class="fb-head">
+            <div class="fb-avatar" aria-hidden="true"><svg viewBox="0 0 560 430"><use href="#badge-elmural"/></svg></div>
+            <div>
+              <div class="fb-name">El Mural Mexican Grill and Cantina</div>
+              <div class="fb-meta">Sponsored &middot; <span aria-hidden="true">&#127758;</span></div>
+            </div>
+          </div>
+          <div class="fb-copy">&#127881; Cinco De Mayo Fiesta at El Mural! Bring the family, grab a $6 margarita, and vibe to our live DJ all day long!</div>
+          <div class="poster" role="img" aria-label="Cinco de Mayo poster: $6 house margaritas, live DJ, mechanical bull">
+            <div class="picado" aria-hidden="true"></div>
+            <div class="p-kicker">&iexcl;Let&rsquo;s Fiesta!</div>
+            <div class="p-title">CINCO<br>DE MAYO</div>
+            <div class="p-badges">
+              <span class="p-pill">$6 House Margaritas &middot; &iexcl;Salud!</span>
+              <span class="p-pill alt">Live DJ</span>
+              <span class="p-pill ghost">Mechanical Bull</span>
+            </div>
+            <svg class="marg" width="92" height="86" viewBox="0 0 92 86" aria-hidden="true">
+              <ellipse cx="46" cy="80" rx="26" ry="5" fill="#F2B705"/>
+              <rect x="43" y="46" width="6" height="32" fill="#7FE0D2"/>
+              <path d="M8 18 L84 18 L46 50 Z" fill="#7FE0D2" opacity="0.9"/>
+              <path d="M14 22 L78 22 L46 48 Z" fill="#B9F2E9"/>
+              <ellipse cx="46" cy="18" rx="38" ry="6" fill="#FFF8E1" stroke="#F2B705" stroke-width="3"/>
+              <circle cx="78" cy="14" r="9" fill="#8FBF3F"/>
+              <circle cx="78" cy="14" r="5" fill="#D8F0A8"/>
+            </svg>
+            <div class="p-strip">Tacos &middot; Great Drinks &middot; &iexcl;Buenos Momentos!</div>
+          </div>
+          <div class="fb-linkbar">
+            <div>
+              <div class="t1">Book now</div>
+              <div class="t2">Cinco De Mayo at El Mural!</div>
+            </div>
+            <div class="fb-btn">Learn more</div>
+          </div>
+          <div class="fb-foot">
+            <div class="fb-reactions"><span class="pips" aria-hidden="true">&#128077;&#10084;&#65039;&#128514;</span> 27</div>
+            <div>3 comments &middot; 1 share</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="ad-col-label">Google &middot; the search ad <small>&mdash; catch the intent</small></div>
+        <div class="g-card">
+          <div class="g-sponsored">Sponsored</div>
+          <div class="g-src">
+            <div class="g-fav" aria-hidden="true"><svg viewBox="0 0 560 430"><use href="#badge-elmural"/></svg></div>
+            <div>
+              <div class="g-site">El Mural Mexican Grill and Cantina</div>
+              <div class="g-url">elmuralcantina.com</div>
+            </div>
+          </div>
+          <a class="g-headline" href="https://www.instagram.com/elmural_cantina/">El Mural Cinco De Mayo | $6 House Margaritas | Reserve Your Table</a>
+          <p class="g-desc"><b>Live DJ all day, mechanical bull &amp; family fiesta on May 5.</b> Book now &mdash; Cinco fills up fast at El Mural Mexican Grill and Cantina.</p>
+          <div class="g-sitelinks">
+            <a href="https://www.instagram.com/elmural_cantina/">Reserve a Table</a>
+            <a href="https://www.instagram.com/elmural_cantina/">Cinco Specials</a>
+            <a href="https://www.instagram.com/elmural_cantina/">Catering &amp; Private Events</a>
+            <a href="https://www.instagram.com/elmural_cantina/">Order Online</a>
+          </div>
+        </div>
+        <div class="g-assets">
+          <div class="t">Headline assets in rotation <span style="font-weight:500; text-transform:none; letter-spacing:0;">(&le;30 characters each)</span></div>
+          <div class="g-chips">
+            <span>El Mural Cinco De Mayo</span>
+            <span>$6 House Margaritas</span>
+            <span>Reserve Your Table</span>
+            <span>Live DJ &amp; Mechanical Bull</span>
+            <span>Mexican Grill &amp; Cantina</span>
+            <span>Cinco Fiesta Near You</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="footnote reveal">Ad units recreated in-page for legibility &mdash; copy, offers, and engagement as they ran on Meta. Search ad shows one rendered combination of the campaign&rsquo;s responsive assets; display URL illustrative.</p>
+  </div>
+</section>
+
+<section class="block warm" id="compounding">
   <div class="wrap">
     <span class="eyebrow reveal">Running It Back</span>
     <h2 class="reveal">2026: same window, same budget &mdash; nearly double the foot traffic.</h2>
