@@ -1,55 +1,294 @@
 @import "tailwindcss";
 
-/* Aesthetix – Editorial / High-Fashion */
-:root {
-  --cream: #f9f7f2;
-  --forest: #1a3c34;
-  --text-editorial: #0f281e;
-  --sage-muted: #d4dcd6;
-  --teal: #0d9488;
-  --background: #f9f7f2;
-  --foreground: #0f281e;
+/* ==========================================================================
+   HANDCRAFT — Smash Burgers & Brew
+   Design language: char-black griddle, ember sear, molten cheese, bone paper.
+   ========================================================================== */
+
+@theme {
+  /* Surfaces */
+  --color-char: #0a0908;
+  --color-soot: #121010;
+  --color-iron: #1c1917;
+  --color-ash: #2a2624;
+  --color-smoke: #3d3835;
+
+  /* Brand */
+  --color-ember: #ff4d0d;
+  --color-flame: #ff7a1a;
+  --color-cheese: #f5b31e;
+  --color-bone: #f6efe2;
+  --color-crust: #b45309;
+
+  --font-display: var(--font-anton), "Arial Narrow", Impact, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-jb), ui-monospace, "SFMono-Regular", monospace;
+
+  /* Scroll runway for the cinematic hero timeline */
+  --stage-scrub: 300vh;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-cream: var(--cream);
-  --color-forest: var(--forest);
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-playfair), Georgia, serif;
+:root {
+  --background: #0a0908;
+  --foreground: #f6efe2;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--cream);
-  color: var(--text-editorial);
+  background: var(--background);
+  color: var(--foreground);
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
-/* Editorial headings: Playfair Display Italic */
-.font-editorial {
-  font-family: var(--font-playfair), Georgia, serif;
-  font-weight: 600;
-  font-style: italic;
-  line-height: 1.1;
+::selection {
+  background: #ff4d0d;
+  color: #0a0908;
 }
 
+/* ------------------------------------------------------------ type ----- */
 .font-display {
-  font-family: var(--font-playfair), Georgia, serif;
-  font-weight: 700;
-  line-height: 1.1;
-}
-
-.text-technical {
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
+  font-family: var(--font-anton), "Arial Narrow", Impact, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 0.88;
   text-transform: uppercase;
 }
 
-/* Noise/grain overlay – use .noise-overlay on a fixed full-screen div */
-.noise-overlay {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: 0.5;
+.font-mono-tech {
+  font-family: var(--font-mono-jb), ui-monospace, monospace;
+}
+
+.label-tech {
+  font-family: var(--font-mono-jb), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+/* Char-grilled outlined display type */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(246, 239, 226, 0.32);
+}
+
+/* Molten cheese gradient fill for display type */
+.text-molten {
+  background: linear-gradient(178deg, #ffd47a 4%, #f5b31e 38%, #ff7a1a 72%, #ff4d0d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------------------------------------------------------- texture ---- */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Flat-top griddle: hot steel with a faint machined grain */
+.griddle-steel {
+  background-image:
+    radial-gradient(120% 80% at 50% 0%, rgba(255, 122, 26, 0.14), transparent 62%),
+    repeating-linear-gradient(
+      92deg,
+      rgba(255, 255, 255, 0.022) 0px,
+      rgba(255, 255, 255, 0.022) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+    linear-gradient(180deg, #1c1917 0%, #0a0908 100%);
+}
+
+/* Hairline rules that read as griddle scrape marks */
+.rule-scrape {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(246, 239, 226, 0.22) 12%,
+    rgba(246, 239, 226, 0.22) 88%,
+    transparent
+  );
+  height: 1px;
+}
+
+/* --------------------------------------------------------- marquee ----- */
+@keyframes ticker-run {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-run var(--ticker-duration, 32s) linear infinite;
+}
+.ticker-reverse .ticker-track { animation-direction: reverse; }
+.ticker-host:hover .ticker-track { animation-play-state: paused; }
+
+/* ------------------------------------------------------ heat pulse ----- */
+@keyframes ember-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.35); }
+}
+.ember-dot { animation: ember-pulse 2.4s ease-in-out infinite; }
+
+@keyframes sizzle-drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0; }
+  18% { opacity: 0.5; }
+  100% { transform: translate3d(var(--dx, 12px), -110px, 0) scale(1.9); opacity: 0; }
+}
+.sizzle-mote { animation: sizzle-drift var(--dur, 7s) linear infinite; animation-delay: var(--delay, 0s); }
+
+/* ============================ CINEMATIC SCROLL HERO ====================== */
+/* Two engines (CSS scroll timelines / damped rAF) drive one shared timeline.
+   Without either, Act III renders as a complete, static hero.               */
+
+.stagewrap { position: relative; height: 100svh; min-height: 640px; }
+.cine-on .stagewrap { height: 400vh; min-height: 0; }
+
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 640px;
+  overflow: hidden;
+}
+
+.cine-photo { position: absolute; inset: 0; z-index: 0; will-change: transform; }
+
+/* Legibility gradient for the still hero (hidden in cinematic mode) */
+.veil-static {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(88deg, #0a0908 26%, rgba(10, 9, 8, 0.88) 54%, rgba(10, 9, 8, 0.28));
+}
+.cine-on .veil-static { display: none; }
+
+/* Uniform veil, cinematic only: the griddle comes to light as it lifts */
+.cine-veil { display: none; }
+.cine-on .cine-veil {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: #0a0908;
+  opacity: 0.84;
+}
+
+.acts { position: relative; z-index: 5; height: 100%; }
+
+.act-title, .act-line { display: none; }
+.cine-on .act {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1.5rem;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+.cine-on .act a, .cine-on .act button { pointer-events: auto; }
+
+/* Legibility scrim owned by the act itself, so it fades on the same curve. */
+.cine-on .act-title::before,
+.cine-on .act-line::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    62% 46% at 50% 50%,
+    rgba(10, 9, 8, 0.82) 0%,
+    rgba(10, 9, 8, 0.55) 55%,
+    transparent 78%
+  );
+}
+.cine-on .act-title, .cine-on .act-line { display: flex; }
+
+/* Pre-engine defaults: only Act I is visible until an engine takes over */
+.cine-on .act-line, .cine-on .act-final { opacity: 0; visibility: hidden; }
+
+.act-final { height: 100%; }
+.cine-on .act-final { text-align: left; padding: 0; }
+.final-shade { display: none; }
+.cine-on .final-shade {
+  display: block;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(88deg, #0a0908 26%, rgba(10, 9, 8, 0.88) 54%, rgba(10, 9, 8, 0.28));
+}
+
+.cine-hint { display: none; }
+.cine-on .cine-hint { display: flex; }
+
+@supports (animation-timeline: scroll()) {
+  @keyframes cine-photo-kf {
+    from { transform: scale(1.06) translateY(0); }
+    to { transform: scale(1.3) translateY(-3%); }
+  }
+  @keyframes cine-veil-kf {
+    0% { opacity: 0.84; }
+    45% { opacity: 0.44; }
+    100% { opacity: 0.36; }
+  }
+  @keyframes cine-title-kf {
+    0% { opacity: 1; transform: none; visibility: visible; }
+    12% { opacity: 1; transform: scale(1.04); visibility: visible; }
+    37%, 100% { opacity: 0; transform: scale(1.36) translateY(-6%); visibility: hidden; }
+  }
+  @keyframes cine-line-kf {
+    0%, 33% { opacity: 0; transform: translateY(64px); visibility: hidden; }
+    50%, 72% { opacity: 1; transform: none; visibility: visible; }
+    88%, 100% { opacity: 0; transform: translateY(-64px); visibility: hidden; }
+  }
+  @keyframes cine-final-kf {
+    0%, 84% { opacity: 0; transform: translateY(48px); visibility: hidden; }
+    97%, 100% { opacity: 1; transform: none; visibility: visible; }
+  }
+  @keyframes cine-hint-kf {
+    0% { opacity: 0.6; }
+    10%, 100% { opacity: 0; }
+  }
+
+  .cine-on .cine-photo,
+  .cine-on .cine-veil,
+  .cine-on .act-title,
+  .cine-on .act-line,
+  .cine-on .act-final,
+  .cine-on .cine-hint {
+    animation: linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 var(--stage-scrub);
+  }
+  .cine-on .cine-photo { animation-name: cine-photo-kf; }
+  .cine-on .cine-veil { animation-name: cine-veil-kf; }
+  .cine-on .act-title { animation-name: cine-title-kf; }
+  .cine-on .act-line { animation-name: cine-line-kf; }
+  .cine-on .act-final { animation-name: cine-final-kf; }
+  .cine-on .cine-hint { animation-name: cine-hint-kf; }
+}
+
+/* -------------------------------------------------- reduced motion ----- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .cine-photo, .cine-veil, .act-title, .act-line, .act-final, .cine-hint,
+  .ticker-track, .ember-dot, .sizzle-mote {
+    animation: none !important;
+  }
+  .ticker-track { transform: none !important; }
 }

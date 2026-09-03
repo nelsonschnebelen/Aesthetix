@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Anton, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
-import { StickyBookingFooter } from "@/components/booking/StickyBookingFooter";
-import { ChatWidget } from "@/components/chat/ChatWidget";
+import { Footer } from "@/components/layout/Footer";
+import { OrderDrawer } from "@/components/order/OrderDrawer";
+import { ScrollMotion } from "@/components/motion/ScrollMotion";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const anton = Anton({
+  variable: "--font-anton",
   subsets: ["latin"],
+  weight: "400",
   display: "swap",
-  weight: ["400", "600", "700"],
 });
 
 const inter = Inter({
@@ -18,27 +19,49 @@ const inter = Inter({
   display: "swap",
 });
 
+const mono = JetBrains_Mono({
+  variable: "--font-mono-jb",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Aesthetix | The Science of Natural",
+  title: {
+    default: "Handcraft — Smash Burgers & Brew",
+    template: "%s · Handcraft",
+  },
   description:
-    "Medical grade results in a sanctuary setting. High-end Med Spa.",
+    "Fresh beef smashed thin on a 450° flat top until the crust reaches the edge. Tots, shakes and sixteen taps. 110 West 40th Street, New York.",
+  openGraph: {
+    title: "Handcraft — Smash Burgers & Brew",
+    description:
+      "Never frozen. Smashed to order. 110 West 40th Street, New York.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${playfair.variable} ${inter.variable}`}
-    >
-      <body className="min-h-screen antialiased bg-[#F9F7F2] font-sans text-[#0f281e]">
+    <html lang="en" className={`${anton.variable} ${inter.variable} ${mono.variable}`}>
+      <head>
+        {/* Pre-paint engine gate: the cinematic layout must exist before the
+            first frame, or the still hero flashes. Never under reduced motion. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('cine-on')}catch(e){}",
+          }}
+        />
+      </head>
+      <body className="grain min-h-screen bg-char font-sans text-bone antialiased">
+        <ScrollMotion />
         <Navbar />
         {children}
-        <StickyBookingFooter />
-        <ChatWidget />
+        <Footer />
+        <OrderDrawer />
       </body>
     </html>
   );

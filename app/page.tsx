@@ -1,25 +1,21 @@
-"use client";
-
-import { EditorialBackground } from "@/components/EditorialBackground";
-import { EditorialHero } from "@/components/layout/EditorialHero";
-import { EditorialStorySection } from "@/components/EditorialStorySection";
+import { CinematicHero } from "@/components/hero/CinematicHero";
+import { SearStrip } from "@/components/SearStrip";
+import { SmashMethod } from "@/components/SmashMethod";
+import { SignatureRail } from "@/components/SignatureRail";
+import { Spotlight } from "@/components/Spotlight";
+import { BuildTeaser } from "@/components/BuildTeaser";
+import { VisitSection } from "@/components/VisitSection";
 
 export default function Home() {
   return (
-    <main className="relative">
-      {/* Fixed z-0: animated orbs + noise overlay (in EditorialBackground) */}
-      <EditorialBackground />
-
-      {/* Hero: full-screen, image + glass overlay, huge italic serif */}
-      <section className="relative z-10">
-        <EditorialHero />
-      </section>
-
-      {/* Story: sticky left text, scrolling right gallery – transparent/blur so background shows */}
-      <EditorialStorySection />
-
-      {/* Spacer for sticky footer on mobile */}
-      <div className="h-24 md:hidden" />
+    <main>
+      <CinematicHero />
+      <SearStrip />
+      <SmashMethod />
+      <SignatureRail />
+      <Spotlight />
+      <BuildTeaser />
+      <VisitSection />
     </main>
   );
 }

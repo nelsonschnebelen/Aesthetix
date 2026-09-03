@@ -1,7 +1,7 @@
 {
-  "name": "aesthetix",
+  "name": "handcraft",
   "version": "0.1.0",
-  "description": "Aesthetix — high-end Med Spa site. Editorial luxury, membership, about, booking.",
+  "description": "Handcraft \u2014 Smash Burgers & Brew. Cinematic scroll hero, live griddle status, an interactive burger builder and a basket that survives navigation.",
   "private": true,
   "scripts": {
     "dev": "next dev",
