@@ -21,17 +21,15 @@ export const IMG = {
   loadedTots: "/img/loaded-tots.jpg",
   sauceFlight: "/img/sauce-flight.jpg",
   fries: "/img/fries.jpg",
-  hospitality: "/img/hospitality.jpg",
   storefront: "/img/storefront.jpg",
 
   // -------------------------------------------------- licensed stock ----
   baconBlack: "/img/stock/baconBlack.jpg",
   baconLight: "/img/stock/baconLight.jpg",
   basketCombo: "/img/stock/basketCombo.jpg",
-  beerPair: "/img/stock/beerPair.jpg",
+  beerTap: "/img/stock/beerTap.jpg",
   crispyBird: "/img/stock/crispyBird.jpg",
   deconstructed: "/img/stock/deconstructed.jpg",
-  diningRoom: "/img/stock/diningRoom.jpg",
   eggSmash: "/img/stock/eggSmash.jpg",
   griddleDuo: "/img/stock/griddleDuo.jpg",
   shakeSplash: "/img/stock/shakeSplash.jpg",
@@ -64,6 +62,6 @@ export const PENDING_PHOTOS: { path: string; shows: string }[] = [
   { path: "public/img/two-up.jpg", shows: "Two OG singles with fries in paper cups" },
   { path: "public/img/dining-room.jpg", shows: "The room — wood slat, subway tile, Get Smashed neon" },
   { path: "public/img/good-stuff.jpg", shows: "Your own guests at a table (currently licensed stock)" },
-  { path: "public/img/hospitality.jpg", shows: "Your own team on the pass (currently licensed stock)" },
+  { path: "public/img/room.jpg", shows: "Your room — wood slat, subway tile, Get Smashed neon" },
   { path: "public/img/smash-spicy.jpg", shows: "The Spicy Ultimate Smash (currently licensed stock)" },
 ];

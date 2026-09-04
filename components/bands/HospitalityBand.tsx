@@ -9,8 +9,8 @@ export function HospitalityBand() {
       <div className="mx-auto grid max-w-[1400px] items-center gap-12 px-5 md:px-8 lg:grid-cols-2 lg:gap-20">
         <div className="relative aspect-[4/3] overflow-hidden">
           <Image
-            src={img(IMG.hospitality, { w: 1200 })}
-            alt="A Handcraft team member handing an order across the counter"
+            src={img(IMG.brat, { w: 1200 })}
+            alt="The Ripper, handed over the counter at Handcraft"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"

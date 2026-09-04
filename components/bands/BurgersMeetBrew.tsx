@@ -28,8 +28,8 @@ export function BurgersMeetBrew() {
           </div>
           <div className="relative">
             <Image
-              src={img(IMG.beerPair, { w: 900 })}
-              alt="Cold craft beer poured at the bar"
+              src={img(IMG.beerTap, { w: 900 })}
+              alt="A craft beer pouring from the tap"
               fill
               sizes="(max-width: 1024px) 50vw, 25vw"
               className="object-cover"

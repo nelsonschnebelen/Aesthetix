@@ -21,13 +21,13 @@ const CHAPTERS = [
     kicker: "The mission",
     title: "Fresh, never frozen",
     body: "Hand-crafted, fresh, never-frozen, 100% beef gourmet smashed burgers, with tater tots, french fries and craft beers — served with full hospitality-style service in a quick-service environment. That sentence is the whole business plan.",
-    image: IMG.hospitality,
+    image: IMG.smashOklahoma,
   },
   {
     kicker: "The room",
     title: "Quick service, full hospitality",
-    body: "Walk-in only, no reservations, and a kitchen you can watch from anywhere in the room. Our focus is delivering a consistently great experience every time you visit — quick service that still behaves like hospitality.",
-    image: IMG.diningRoom,
+    body: "Walk-in only, no reservations, and about four minutes between ordering and holding it. Our focus is delivering a consistently great experience every time you visit — quick service that still behaves like hospitality.",
+    image: IMG.smashOg,
   },
 ];
 

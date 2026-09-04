@@ -409,7 +409,7 @@ export const MENU: MenuItem[] = [
     blurb: "Brewed for us in Brooklyn. Cold, clean, built to reset your palate.",
     build: ["4.6% ABV", "Brooklyn", "16oz pour"],
     heat: 0,
-    image: IMG.beerPair,
+    image: IMG.beerTap,
     spec: { patties: 0, ozEach: 16, sear: "0s", temp: 36 },
   },
   {
@@ -420,7 +420,7 @@ export const MENU: MenuItem[] = [
     blurb: "Whatever the cellar says is drinking best today. Ask the counter.",
     build: ["6.2–7.4% ABV", "Rotating", "16oz pour"],
     heat: 0,
-    image: IMG.beerPair,
+    image: IMG.beerTap,
     spec: { patties: 0, ozEach: 16, sear: "0s", temp: 38 },
   },
 ];
