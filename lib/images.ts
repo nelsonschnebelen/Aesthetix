@@ -23,6 +23,9 @@ export const IMG = {
   storefront: "/img/storefront.jpg",
   streetPark: "/img/street-park.jpg",
   threeUp: "/img/three-up.jpg",
+  brat: "/img/brat.jpg",
+  baconJam: "/img/bacon-jam.jpg",
+  sauceFlight: "/img/sauce-flight.jpg",
 
   // ------------------------------------------------------------- stock ---
   classicSingle: U + "photo-1571091718767-18b5b1457add",
@@ -72,10 +75,9 @@ export function img(
  * misrepresent the food.
  */
 export const PENDING_PHOTOS: { path: string; shows: string }[] = [
-  { path: "public/img/brat.jpg", shows: "The Kraut Brat, held at the storefront" },
-  { path: "public/img/bacon-jam.jpg", shows: "The Bacon Jam double, plated in the room" },
   { path: "public/img/hangover.jpg", shows: "The Hangover — hash brown, bacon, runny egg" },
-  { path: "public/img/sauce-flight.jpg", shows: "Fries ringed by all six sauces" },
   { path: "public/img/two-up.jpg", shows: "Two OG singles with fries in paper cups" },
   { path: "public/img/dining-room.jpg", shows: "The room — wood slat, subway tile, Get Smashed neon" },
+  { path: "public/img/good-stuff.jpg", shows: "Real guests at a table (currently generated — synthetic faces)" },
+  { path: "public/img/hospitality.jpg", shows: "Real team at the counter (currently generated — synthetic faces)" },
 ];

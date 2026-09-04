@@ -15,15 +15,31 @@ type Seg = { o?: [number, number]; y?: [number, number]; s?: [number, number] };
 type Track = { sel: string; yUnit?: "px" | "%"; kf: [number, Seg][] };
 
 const CINE: Track[] = [
-  { sel: ".cine-photo", yUnit: "%", kf: [[0, { s: [1.06, 1.3], y: [0, -3] }], [100, {}]] },
-  { sel: ".cine-veil", kf: [[0, { o: [0.84, 0.44] }], [45, { o: [0.44, 0.36] }], [100, {}]] },
+  {
+    sel: ".cine-photo",
+    yUnit: "%",
+    kf: [
+      [0, { s: [1.03, 1.14], y: [0, -2] }],
+      [75, { s: [1.14, 1.14], y: [-2, -2] }],
+      [100, {}],
+    ],
+  },
+  {
+    sel: ".cine-veil",
+    kf: [
+      [0, { o: [0.84, 0.44] }],
+      [34, { o: [0.44, 0.36] }],
+      [75, { o: [0.36, 0.36] }],
+      [100, {}],
+    ],
+  },
   {
     sel: ".act-title",
     yUnit: "%",
     kf: [
       [0, { o: [1, 1], s: [1, 1.04], y: [0, 0] }],
-      [12, { o: [1, 0], s: [1.04, 1.36], y: [0, -6] }],
-      [37, { o: [0, 0], s: [1.36, 1.36], y: [-6, -6] }],
+      [9, { o: [1, 0], s: [1.04, 1.36], y: [0, -6] }],
+      [28, { o: [0, 0], s: [1.36, 1.36], y: [-6, -6] }],
       [100, {}],
     ],
   },
@@ -32,10 +48,10 @@ const CINE: Track[] = [
     yUnit: "px",
     kf: [
       [0, { o: [0, 0], y: [64, 64] }],
-      [33, { o: [0, 1], y: [64, 0] }],
-      [50, { o: [1, 1], y: [0, 0] }],
-      [72, { o: [1, 0], y: [0, -64] }],
-      [88, { o: [0, 0], y: [-64, -64] }],
+      [25, { o: [0, 1], y: [64, 0] }],
+      [38, { o: [1, 1], y: [0, 0] }],
+      [54, { o: [1, 0], y: [0, -64] }],
+      [66, { o: [0, 0], y: [-64, -64] }],
       [100, {}],
     ],
   },
@@ -44,12 +60,12 @@ const CINE: Track[] = [
     yUnit: "px",
     kf: [
       [0, { o: [0, 0], y: [48, 48] }],
-      [84, { o: [0, 1], y: [48, 0] }],
-      [97, { o: [1, 1], y: [0, 0] }],
+      [63, { o: [0, 1], y: [48, 0] }],
+      [73, { o: [1, 1], y: [0, 0] }],
       [100, {}],
     ],
   },
-  { sel: ".cine-hint", kf: [[0, { o: [0.6, 0] }], [10, { o: [0, 0] }], [100, {}]] },
+  { sel: ".cine-hint", kf: [[0, { o: [0.6, 0] }], [8, { o: [0, 0] }], [100, {}]] },
 ];
 
 /** Backdrops fade but must never be pulled out of the layer stack. */
@@ -81,7 +97,7 @@ export function ScrollMotion() {
     let running = false;
 
     const apply = () => {
-      const p100 = clamp01(eased / (window.innerHeight * 3)) * 100;
+      const p100 = clamp01(eased / (window.innerHeight * 4)) * 100;
       for (const { track, els } of tracks) {
         let i = 0;
         while (i < track.kf.length - 2 && p100 >= track.kf[i + 1][0]) i++;

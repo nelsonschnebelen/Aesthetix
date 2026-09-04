@@ -32,7 +32,7 @@
   --font-neon: var(--font-neon-script), "Brush Script MT", cursive;
 
   /* Scroll runway for the cinematic hero timeline */
-  --stage-scrub: 300vh;
+  --stage-scrub: 400vh;
 }
 
 :root {
@@ -232,7 +232,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(88deg, #131110 24%, rgba(19, 17, 16, 0.86) 52%, rgba(19, 17, 16, 0.22));
+  background: linear-gradient(88deg, #131110 30%, rgba(19, 17, 16, 0.88) 56%, rgba(19, 17, 16, 0.25));
 }
 .cine-on .veil-static { display: none; }
 
@@ -291,39 +291,44 @@ body {
   display: block;
   position: absolute;
   inset: 0;
-  background: linear-gradient(88deg, #131110 24%, rgba(19, 17, 16, 0.86) 52%, rgba(19, 17, 16, 0.22));
+  background: linear-gradient(88deg, #131110 30%, rgba(19, 17, 16, 0.88) 56%, rgba(19, 17, 16, 0.25));
 }
 
 .cine-hint { display: none; }
 .cine-on .cine-hint { display: flex; }
 
 @supports (animation-timeline: scroll()) {
+  /* The range spans the WHOLE 400vh runway and every act finishes by 75%,
+     which is the pixel the sticky stage unpins at. The last quarter is a
+     real keyframe hold, not animation-fill — Chrome does not fill past a
+     scroll timeline's range end, and relying on it snapped the finished
+     hero back to Act I for the 100vh the stage spends scrolling away. */
   @keyframes cine-photo-kf {
-    from { transform: scale(1.06) translateY(0); }
-    to { transform: scale(1.3) translateY(-3%); }
+    0% { transform: scale(1.03) translateY(0); }
+    75%, 100% { transform: scale(1.14) translateY(-2%); }
   }
   @keyframes cine-veil-kf {
     0% { opacity: 0.84; }
-    45% { opacity: 0.44; }
-    100% { opacity: 0.36; }
+    34% { opacity: 0.44; }
+    75%, 100% { opacity: 0.36; }
   }
   @keyframes cine-title-kf {
     0% { opacity: 1; transform: none; visibility: visible; }
-    12% { opacity: 1; transform: scale(1.04); visibility: visible; }
-    37%, 100% { opacity: 0; transform: scale(1.36) translateY(-6%); visibility: hidden; }
+    9% { opacity: 1; transform: scale(1.04); visibility: visible; }
+    28%, 100% { opacity: 0; transform: scale(1.36) translateY(-6%); visibility: hidden; }
   }
   @keyframes cine-line-kf {
-    0%, 33% { opacity: 0; transform: translateY(64px); visibility: hidden; }
-    50%, 72% { opacity: 1; transform: none; visibility: visible; }
-    88%, 100% { opacity: 0; transform: translateY(-64px); visibility: hidden; }
+    0%, 25% { opacity: 0; transform: translateY(64px); visibility: hidden; }
+    38%, 54% { opacity: 1; transform: none; visibility: visible; }
+    66%, 100% { opacity: 0; transform: translateY(-64px); visibility: hidden; }
   }
   @keyframes cine-final-kf {
-    0%, 84% { opacity: 0; transform: translateY(48px); visibility: hidden; }
-    97%, 100% { opacity: 1; transform: none; visibility: visible; }
+    0%, 63% { opacity: 0; transform: translateY(48px); visibility: hidden; }
+    73%, 100% { opacity: 1; transform: none; visibility: visible; }
   }
   @keyframes cine-hint-kf {
     0% { opacity: 0.6; }
-    10%, 100% { opacity: 0; }
+    8%, 100% { opacity: 0; }
   }
 
   .cine-on .cine-photo,
@@ -333,6 +338,8 @@ body {
   .cine-on .act-final,
   .cine-on .cine-hint {
     animation: linear both;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
     animation-timeline: scroll(root);
     animation-range: 0 var(--stage-scrub);
   }

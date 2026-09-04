@@ -19,7 +19,7 @@ export function CinematicHero() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-right"
+            className="object-cover object-[62%_center]"
           />
         </div>
 

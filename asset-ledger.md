@@ -25,3 +25,15 @@ Not generated: hero video (declined), vertical crops (CSS `object-fit` covers
 mobile), the logo badge (SVG in `components/brand/Logo.tsx`).
 
 Reusable across clients: none of these — every frame is brand-specific.
+
+## Superseded by the owner's own photography (2026-09-04)
+
+Nine generated frames were replaced with real Handcraft photographs supplied
+by the owner: `hero-street`, `smash-og`, `smash-oklahoma`, `loaded-tots`,
+`fries`, `storefront`, plus three new slots (`brat`, `bacon-jam`,
+`sauce-flight`). The generated versions are gone; the credits are spent and
+not recoverable, but nothing further should be generated for those slots.
+
+Still generated and still wanting replacement: `good-stuff` and `hospitality`
+(**synthetic faces — not for public release**), `street-park`, `month-tray`,
+`burger-brew`, `three-up`, `smash-spicy`.
