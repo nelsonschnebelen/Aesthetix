@@ -31,16 +31,16 @@ export function BurgersMeetBrew() {
             meet brew<span className="text-ember">.</span>
           </h2>
 
-          <p className="mt-7 text-xl text-bone/60">Perfect pairings. Every time.</p>
+          <p className="mt-5 text-lg text-bone/60">Perfect pairings. Every time.</p>
 
-          <div className="mt-9 border-l-2 border-gold pl-6">
+          <div className="mt-7 border-l-2 border-gold pl-6">
             <p className="font-display text-2xl text-bone uppercase">
               {burger?.name} <span className="text-gold">×</span> {pairing.beer}
             </p>
             <p className="mt-3 max-w-sm leading-relaxed text-bone/55">{pairing.note}</p>
           </div>
 
-          <div className="mt-9 flex items-center gap-3">
+          <div className="mt-7 flex items-center gap-3">
             {PAIRINGS.map((p, n) => (
               <button
                 key={p.burgerId}

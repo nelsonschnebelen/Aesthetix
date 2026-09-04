@@ -43,7 +43,7 @@ export function CinematicHero() {
               <span className="text-gold">Smashed to order</span>
               <span className="text-ember">.</span>
             </p>
-            <p className="mx-auto mt-8 max-w-md text-lg leading-relaxed text-bone/65">
+            <p className="band-copy mx-auto mt-6 text-bone/65">
               100% beef on a 450° flat top, pressed thin so the crust runs all
               the way to the edge. That is the whole trick.
             </p>
@@ -52,26 +52,23 @@ export function CinematicHero() {
           {/* ---------------------------------------------- Act III ----- */}
           <div className="act act-final">
             <div className="final-shade" />
-            <div className="relative mx-auto flex h-full w-full max-w-[1400px] flex-col justify-center px-5 pt-28 pb-24 md:px-8">
-              <h1 className="font-display max-w-[13ch] text-[clamp(3.25rem,9vw,8rem)] leading-[0.86] text-bone uppercase">
+            <div className="relative mx-auto flex h-full w-full max-w-[1400px] flex-col justify-center px-5 pt-28 pb-24 md:px-10">
+              <h1 className="font-display max-w-[11ch] text-[clamp(3.25rem,9.2vw,8.25rem)] leading-[0.88] tracking-[0.012em] text-bone uppercase">
                 Burgers in good hands<span className="text-ember">.</span>
               </h1>
 
-              <p className="mt-8 max-w-md text-lg leading-relaxed text-bone/70">
+              <p className="band-copy mt-6 text-bone/70">
                 Handcrafted smash burgers, loaded tots and cold beer — served
                 with full hospitality in the heart of New York.
               </p>
 
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <Link
-                  href="/menu"
-                  className="label-tech bg-gold px-9 py-4.5 text-char transition-colors hover:bg-bone"
-                >
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Link href="/menu" className="btn bg-gold text-char hover:bg-bone">
                   Order Online
                 </Link>
                 <Link
                   href="/menu"
-                  className="label-tech border border-bone/35 px-9 py-4.5 text-bone transition-colors hover:border-bone hover:bg-bone hover:text-char"
+                  className="btn border border-bone/35 text-bone hover:bg-bone hover:text-char"
                 >
                   See the Menu
                 </Link>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Anton, Inter, JetBrains_Mono } from "next/font/google";
+import { Anton, Inter, JetBrains_Mono, Kaushan_Script } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -26,6 +26,13 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
+const neon = Kaushan_Script({
+  variable: "--font-neon-script",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Handcraft — Smash Burgers & Brew",
@@ -45,7 +52,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${anton.variable} ${inter.variable} ${mono.variable}`}>
+    <html lang="en" className={`${anton.variable} ${inter.variable} ${mono.variable} ${neon.variable}`}>
       <head>
         {/* Pre-paint engine gate: the cinematic layout must exist before the
             first frame, or the still hero flashes. Never under reduced motion. */}

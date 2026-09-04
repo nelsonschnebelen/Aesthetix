@@ -6,7 +6,7 @@ import { SPOTLIGHT } from "@/lib/menu";
 /** The mustard band: the burger of the month and the cause behind it. */
 export function MonthBand() {
   return (
-    <section id="month" className="relative overflow-hidden bg-mustard py-16 md:py-24">
+    <section id="month" className="relative overflow-hidden bg-mustard py-14 md:py-20">
       <div className="mx-auto grid max-w-[1400px] items-center gap-10 px-5 md:px-8 lg:grid-cols-[1fr_1.1fr_0.7fr]">
         <div>
           <h2 className="band-head text-char">
@@ -15,7 +15,7 @@ export function MonthBand() {
             Handcraft<span className="text-oxblood">.</span>
           </h2>
 
-          <p className="mt-8 flex items-start gap-3 text-char/80">
+          <p className="mt-6 flex items-start gap-3 text-char/80">
             <span aria-hidden className="mt-0.5 text-lg text-oxblood">
               ♥
             </span>
@@ -24,7 +24,7 @@ export function MonthBand() {
 
           <Link
             href="/menu"
-            className="label-tech mt-8 inline-block border-2 border-char px-7 py-4 text-char transition-colors hover:bg-char hover:text-bone"
+            className="label-tech btn mt-6 inline-block border-2 border-char text-char transition-colors hover:bg-char hover:text-bone"
           >
             See this month&rsquo;s burger
           </Link>

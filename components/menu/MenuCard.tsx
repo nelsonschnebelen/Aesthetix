@@ -38,6 +38,14 @@ export function MenuCard({
   return (
     <article className="group relative flex flex-col border border-bone/10 bg-soot transition-colors duration-300 hover:border-gold/45">
       <div className="relative aspect-[4/3] overflow-hidden bg-iron">
+        {!item.image && (
+          <div className="griddle-steel absolute inset-0 flex flex-col items-center justify-center gap-3 text-center">
+            <span aria-hidden className="text-3xl text-gold/70">
+              ◈
+            </span>
+            <span className="label-tech text-bone/45">Photo on the way</span>
+          </div>
+        )}
         {item.image && (
           <Image
             src={img(item.image, { w: 800, h: 600 })}

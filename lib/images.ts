@@ -63,3 +63,19 @@ export function img(
   if (h) parts.push(`h=${h}`);
   return `${src}?${parts.join("&")}`;
 }
+
+/**
+ * Slots the site is built for but has no file for yet. Drop a file at the
+ * path and add the entry to IMG above — nothing else needs to change.
+ * Menu items with no `image` render a deliberate "photo pending" panel
+ * rather than a stand-in, because a burger photo on a bratwurst would
+ * misrepresent the food.
+ */
+export const PENDING_PHOTOS: { path: string; shows: string }[] = [
+  { path: "public/img/brat.jpg", shows: "The Kraut Brat, held at the storefront" },
+  { path: "public/img/bacon-jam.jpg", shows: "The Bacon Jam double, plated in the room" },
+  { path: "public/img/hangover.jpg", shows: "The Hangover — hash brown, bacon, runny egg" },
+  { path: "public/img/sauce-flight.jpg", shows: "Fries ringed by all six sauces" },
+  { path: "public/img/two-up.jpg", shows: "Two OG singles with fries in paper cups" },
+  { path: "public/img/dining-room.jpg", shows: "The room — wood slat, subway tile, Get Smashed neon" },
+];

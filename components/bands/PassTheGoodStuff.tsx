@@ -5,13 +5,13 @@ export function PassTheGoodStuff() {
   return (
     <section className="bg-char">
       <div className="mx-auto grid max-w-[1400px] items-stretch lg:grid-cols-[0.85fr_1.15fr]">
-        <div className="flex flex-col justify-center px-5 py-16 md:px-12 md:py-24">
+        <div className="flex flex-col justify-center px-5 py-14 md:px-12 md:py-20">
           <h2 className="band-head text-bone">
             Pass the
             <br />
             good stuff<span className="text-ember">.</span>
           </h2>
-          <p className="mt-8 text-xl leading-relaxed text-bone/60 md:text-2xl">
+          <p className="mt-6 text-lg leading-relaxed text-bone/60 md:text-xl">
             Made to order.
             <br />
             Better together.
@@ -27,6 +27,8 @@ export function PassTheGoodStuff() {
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-char via-char/25 to-transparent" />
+          {/* Their own back-wall neon */}
+          <p className="neon-sign absolute top-8 right-8 text-3xl md:text-5xl">Get Smashed</p>
         </div>
       </div>
     </section>

@@ -21,6 +21,7 @@
   --color-gold: #e3a82b;      /* mustard — the primary CTA */
   --color-mustard: #d99b1f;   /* the mustard band */
   --color-ember: #e2541f;     /* the accent period after a headline */
+  --color-neon: #ff2f6e;      /* the 'Get Smashed' neon on the back wall */
   --color-flame: #f0762f;
   --color-cheese: #e3a82b;
   --color-crust: #8c1d18;
@@ -28,6 +29,7 @@
   --font-display: var(--font-anton), "Arial Narrow", Impact, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono-jb), ui-monospace, "SFMono-Regular", monospace;
+  --font-neon: var(--font-neon-script), "Brush Script MT", cursive;
 
   /* Scroll runway for the cinematic hero timeline */
   --stage-scrub: 300vh;
@@ -60,7 +62,7 @@ body {
   font-family: var(--font-anton), "Arial Narrow", Impact, sans-serif;
   font-weight: 400;
   letter-spacing: 0.01em;
-  line-height: 0.88;
+  line-height: 0.92;
   text-transform: uppercase;
 }
 
@@ -74,6 +76,18 @@ body {
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
+}
+
+/* Their back-wall neon, rendered in type rather than a photograph so it
+   stays sharp and can sit over anything. */
+.neon-sign {
+  font-family: var(--font-neon-script), "Brush Script MT", cursive;
+  color: #ffd9e6;
+  text-shadow:
+    0 0 4px #fff,
+    0 0 11px var(--color-neon),
+    0 0 24px var(--color-neon),
+    0 0 46px rgba(255, 47, 110, 0.75);
 }
 
 /* The reference's signature move: a coloured full stop closing a headline. */
@@ -90,10 +104,32 @@ body {
 .band-head {
   font-family: var(--font-anton), "Arial Narrow", Impact, sans-serif;
   font-weight: 400;
-  line-height: 0.88;
-  letter-spacing: 0.005em;
+  line-height: 0.92;           /* tight, but Anton's cap height collides below ~0.9 */
+  letter-spacing: 0.012em;     /* ...and opens the tracking a touch to compensate */
   text-transform: uppercase;
-  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-size: clamp(2.6rem, 6.2vw, 5.75rem);
+}
+
+/* Body copy under a headline: small, quiet, generously leaded. */
+.band-copy {
+  max-width: 34ch;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* The mock's buttons are small and tight, never chunky. */
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition:
+    background-color 0.25s,
+    color 0.25s,
+    border-color 0.25s;
 }
 
 /* Char-grilled outlined display type */

@@ -40,7 +40,7 @@ export function PickYourSmash() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-oxblood py-16 md:py-24">
+    <section className="relative overflow-hidden bg-oxblood py-14 md:py-20">
       <h2 className="band-head px-5 text-center text-bone md:px-8">
         Pick your smash<span className="text-gold">.</span>
       </h2>
@@ -114,10 +114,10 @@ export function PickYourSmash() {
         </div>
       </div>
 
-      <div className="mt-12 text-center">
+      <div className="mt-10 text-center">
         <Link
           href="/menu"
-          className="label-tech inline-block bg-bone px-10 py-4 text-char transition-colors hover:bg-gold"
+          className="label-tech btn inline-block bg-bone text-char transition-colors hover:bg-gold"
         >
           View Full Menu
         </Link>

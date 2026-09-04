@@ -20,12 +20,15 @@ export function FooterCta() {
           These burgers aren&rsquo;t going to eat themselves
           <span className="text-ember">.</span>
         </h2>
-        <Link
-          href="/menu"
-          className="label-tech mt-10 inline-block bg-gold px-10 py-5 text-char transition-colors hover:bg-bone"
-        >
-          Order Online
-        </Link>
+        <div className="mt-10 flex flex-wrap items-center gap-8">
+          <Link
+            href="/menu"
+            className="label-tech inline-block bg-gold px-10 py-5 text-char transition-colors hover:bg-bone"
+          >
+            Order Online
+          </Link>
+          <p className="neon-sign text-4xl md:text-5xl">Get Smashed</p>
+        </div>
       </div>
     </section>
   );

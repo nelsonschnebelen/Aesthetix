@@ -20,14 +20,14 @@ export function ClubBand() {
             <br />
             pays you back<span className="text-gold">.</span>
           </h2>
-          <p className="mt-6 max-w-sm leading-relaxed text-bone/70">
+          <p className="mt-5 band-copy text-bone/70">
             Join the Hospitality Club for points, exclusive perks and birthday
             rewards. Free to join, free to use, free burger sooner than you
             think.
           </p>
           <Link
             href="/club"
-            className="label-tech mt-8 inline-block bg-bone px-9 py-4 text-char transition-colors hover:bg-gold"
+            className="label-tech btn mt-6 inline-block bg-bone text-char transition-colors hover:bg-gold"
           >
             Join the club
           </Link>

@@ -5,7 +5,7 @@ import { IMG, img } from "@/lib/images";
 /** The reference's centre-set headline flanked by the two sides. */
 export function TotsFries() {
   return (
-    <section className="bg-char py-16 md:py-24">
+    <section className="bg-char py-14 md:py-20">
       <div className="mx-auto grid max-w-[1400px] items-center gap-8 px-5 md:px-8 lg:grid-cols-[1fr_1.25fr_1fr]">
         <div className="relative aspect-[4/3] overflow-hidden">
           <Image
@@ -28,7 +28,7 @@ export function TotsFries() {
           </h2>
           <Link
             href="/menu"
-            className="label-tech mt-9 inline-block border border-bone/30 px-8 py-4 text-bone transition-colors hover:bg-bone hover:text-char"
+            className="label-tech btn mt-7 inline-block border border-bone/30 text-bone transition-colors hover:bg-bone hover:text-char"
           >
             See the sides
           </Link>

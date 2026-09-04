@@ -19,7 +19,7 @@ export function RightHere() {
             Take it anywhere<span className="text-ember">.</span>
           </h2>
 
-          <address className="mt-8 flex items-start gap-3 not-italic text-bone/80">
+          <address className="mt-6 flex items-start gap-3 not-italic text-bone/80">
             <span aria-hidden className="mt-1 text-gold">
               ◈
             </span>
@@ -30,7 +30,7 @@ export function RightHere() {
             </span>
           </address>
 
-          <dl className="mt-7 space-y-2">
+          <dl className="mt-6 space-y-2">
             {HOURS.map(([d, h]) => (
               <div key={d} className="flex gap-6 text-sm">
                 <dt className="label-tech w-24 shrink-0 text-bone/45">{d}</dt>
@@ -45,7 +45,7 @@ export function RightHere() {
             href="https://maps.google.com/?q=110+W+40th+St+New+York+NY+10018"
             target="_blank"
             rel="noreferrer noopener"
-            className="label-tech mt-8 inline-block border border-bone/35 px-8 py-4 text-bone transition-colors hover:bg-bone hover:text-char"
+            className="label-tech btn mt-6 inline-block border border-bone/35 text-bone transition-colors hover:bg-bone hover:text-char"
           >
             Get directions
           </a>
