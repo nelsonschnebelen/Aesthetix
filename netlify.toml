@@ -1,0 +1,11 @@
+# Netlify picks up the Next.js runtime automatically from the dependency in
+# package.json — no plugin needs declaring here.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Next 16 needs Node 20+; pin it so a Netlify default change cannot break
+  # the build later.
+  NODE_VERSION = "22"
