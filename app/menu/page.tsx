@@ -12,11 +12,12 @@ export default function MenuPage() {
     <main className="pt-28 pb-24 md:pt-36">
       <div className="mx-auto max-w-[1280px] px-6 md:px-10">
         <header className="mb-14 max-w-3xl">
-          <p className="label-tech text-ember">The board</p>
-          <h1 className="font-display mt-5 text-6xl text-bone md:text-8xl">
+          <p className="label-tech text-gold">The board</p>
+          <h1 className="band-head mt-5 text-bone">
             Everything we
             <br />
-            <span className="text-molten">put on steel.</span>
+            <span className="text-gold">put on steel</span>
+            <span className="text-ember">.</span>
           </h1>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-bone/55">
             Every burger is 3oz patties smashed to order on a 450° flat top.

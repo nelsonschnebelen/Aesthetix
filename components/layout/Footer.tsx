@@ -1,62 +1,95 @@
 import Link from "next/link";
+import { Logo } from "@/components/brand/Logo";
 import { GriddleStatus } from "@/components/GriddleStatus";
-import { Ticker } from "@/components/Ticker";
+
+const COLUMNS: { title: string; links: [string, string][] }[] = [
+  {
+    title: "Menu",
+    links: [
+      ["/menu", "Burgers"],
+      ["/menu", "Beer & drinks"],
+      ["/build", "Build your own"],
+    ],
+  },
+  {
+    title: "About",
+    links: [
+      ["/story", "Our story"],
+      ["/club", "Hospitality Club"],
+      ["/#month", "Burger of the month"],
+    ],
+  },
+  {
+    title: "Visit",
+    links: [
+      ["/visit", "Directions"],
+      ["/visit", "Hours"],
+      ["/visit", "Contact"],
+    ],
+  },
+];
+
+const SOCIAL: [string, string][] = [
+  ["Instagram", "https://instagram.com"],
+  ["Facebook", "https://facebook.com"],
+  ["TikTok", "https://tiktok.com"],
+];
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-bone/10 bg-char">
-      <Ticker
-        items={["Never frozen", "Smashed to order", "450° flat top", "Sixteen taps", "W 40th Street"]}
-        duration={40}
-        className="label-tech border-b border-bone/10 py-4 text-bone/35"
-      />
-
-      <div className="mx-auto max-w-[1280px] px-6 py-16 md:px-10 md:py-24">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+    <footer className="border-t border-bone/12 bg-char">
+      <div className="mx-auto max-w-[1400px] px-5 py-14 md:px-8 md:py-20">
+        <div className="grid gap-12 lg:grid-cols-[1.2fr_repeat(3,0.7fr)_0.9fr]">
           <div>
-            <p className="font-display text-4xl text-bone md:text-5xl">
-              Hand<span className="text-ember">craft</span>
-            </p>
-            <p className="mt-5 max-w-sm leading-relaxed text-bone/50">
-              Smash burgers and brew, made the long way, served the fast way.
-              110 West 40th Street, New York.
-            </p>
+            <Logo className="h-20" />
             <GriddleStatus className="mt-7" />
           </div>
 
-          <nav>
-            <p className="label-tech mb-5 text-bone/35">Eat</p>
+          {COLUMNS.map((col) => (
+            <nav key={col.title}>
+              <p className="label-tech mb-5 text-gold">{col.title}</p>
+              <ul className="flex flex-col gap-3">
+                {col.links.map(([href, label]) => (
+                  <li key={label}>
+                    <Link
+                      href={href}
+                      className="text-bone/65 transition-colors hover:text-bone"
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
+
+          <div>
+            <p className="label-tech mb-5 text-gold">Follow us</p>
             <ul className="flex flex-col gap-3">
-              {[
-                ["/menu", "The menu"],
-                ["/build", "Build your own"],
-                ["/story", "Our story"],
-                ["/visit", "Find us"],
-              ].map(([href, label]) => (
-                <li key={href}>
-                  <Link href={href} className="text-bone/70 transition-colors hover:text-ember">
+              {SOCIAL.map(([label, href]) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="text-bone/65 transition-colors hover:text-bone"
+                  >
                     {label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
-          </nav>
-
-          <div>
-            <p className="label-tech mb-5 text-bone/35">Hours</p>
-            <p className="text-bone/70">Monday – Sunday</p>
-            <p className="font-display mt-2 text-3xl text-bone">11:00 — 21:00</p>
-            <p className="mt-6 text-bone/50">
-              <a href="tel:+12125550140" className="transition-colors hover:text-ember">
+            <p className="mt-6 text-bone/65">
+              <a href="tel:+12125550140" className="transition-colors hover:text-bone">
                 (212) 555-0140
               </a>
             </p>
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-bone/10 pt-8 text-sm text-bone/30 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Handcraft Burgers &amp; Brew.</p>
-          <p className="label-tech">Concept site · Photography by Unsplash contributors</p>
+        <div className="mt-14 flex flex-col gap-3 border-t border-bone/12 pt-7 text-sm text-bone/35 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} Handcraft Burgers &amp; Brew. All rights reserved.</p>
+          <p className="label-tech">110 W 40th St · New York</p>
         </div>
       </div>
     </footer>

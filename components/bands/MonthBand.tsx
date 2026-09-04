@@ -1,0 +1,56 @@
+import Image from "next/image";
+import Link from "next/link";
+import { IMG, img } from "@/lib/images";
+import { SPOTLIGHT } from "@/lib/menu";
+
+/** The mustard band: the burger of the month and the cause behind it. */
+export function MonthBand() {
+  return (
+    <section id="month" className="relative overflow-hidden bg-mustard py-16 md:py-24">
+      <div className="mx-auto grid max-w-[1400px] items-center gap-10 px-5 md:px-8 lg:grid-cols-[1fr_1.1fr_0.7fr]">
+        <div>
+          <h2 className="band-head text-char">
+            This month&rsquo;s
+            <br />
+            Handcraft<span className="text-oxblood">.</span>
+          </h2>
+
+          <p className="mt-8 flex items-start gap-3 text-char/80">
+            <span aria-hidden className="mt-0.5 text-lg text-oxblood">
+              ♥
+            </span>
+            <span className="label-tech leading-relaxed">{SPOTLIGHT.cause.line}</span>
+          </p>
+
+          <Link
+            href="/menu"
+            className="label-tech mt-8 inline-block border-2 border-char px-7 py-4 text-char transition-colors hover:bg-char hover:text-bone"
+          >
+            See this month&rsquo;s burger
+          </Link>
+        </div>
+
+        <div className="relative aspect-[4/3]">
+          <Image
+            src={img(IMG.monthTray, { w: 1200 })}
+            alt={`${SPOTLIGHT.name}, this month's Handcraft`}
+            fill
+            sizes="(max-width: 1024px) 100vw, 45vw"
+            className="object-contain"
+          />
+        </div>
+
+        {/* The pinned index card, tilted the way the reference has it */}
+        <div className="mx-auto w-full max-w-[290px] rotate-[3deg] bg-paper px-7 py-9 text-center shadow-[0_18px_40px_rgba(19,17,16,0.28)]">
+          <p className="label-tech text-char/55">This month we&rsquo;re supporting</p>
+          <p className="font-display mt-5 text-[1.75rem] leading-[0.95] text-char uppercase text-balance">
+            {SPOTLIGHT.cause.name}
+          </p>
+          <p aria-hidden className="mt-5 text-2xl text-oxblood">
+            ♥
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}

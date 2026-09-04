@@ -215,7 +215,7 @@ export function BurgerBuilder() {
       {/* ================================================== controls ===== */}
       <div>
         <div className="border border-bone/12 bg-soot p-6 md:p-8">
-          <p className="label-tech text-ember">Your build</p>
+          <p className="label-tech text-gold">Your build</p>
           <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
             <motion.h2
               key={name}
@@ -226,7 +226,7 @@ export function BurgerBuilder() {
             >
               {name}
             </motion.h2>
-            <span className="font-mono-tech text-3xl text-cheese">{money(price)}</span>
+            <span className="font-mono-tech text-3xl text-gold">{money(price)}</span>
           </div>
           <HeatMeter heat={heat} className="mt-5" />
         </div>
@@ -248,7 +248,7 @@ export function BurgerBuilder() {
               onClick={() => setPatties((p) => Math.max(0, p - 1))}
               disabled={patties === 0}
               aria-label="One fewer patty"
-              className="flex h-12 w-12 items-center justify-center border border-bone/20 text-2xl text-bone transition-colors hover:border-ember hover:text-ember disabled:opacity-30 disabled:hover:border-bone/20 disabled:hover:text-bone"
+              className="flex h-12 w-12 items-center justify-center border border-bone/20 text-2xl text-bone transition-colors hover:border-gold hover:text-gold disabled:opacity-30 disabled:hover:border-bone/20 disabled:hover:text-bone"
             >
               −
             </button>
@@ -258,12 +258,12 @@ export function BurgerBuilder() {
               onClick={() => setPatties((p) => Math.min(MAX_PATTIES, p + 1))}
               disabled={patties === MAX_PATTIES}
               aria-label="One more patty"
-              className="flex h-12 w-12 items-center justify-center border border-bone/20 text-2xl text-bone transition-colors hover:border-ember hover:text-ember disabled:opacity-30 disabled:hover:border-bone/20 disabled:hover:text-bone"
+              className="flex h-12 w-12 items-center justify-center border border-bone/20 text-2xl text-bone transition-colors hover:border-gold hover:text-gold disabled:opacity-30 disabled:hover:border-bone/20 disabled:hover:text-bone"
             >
               +
             </button>
             {patties === MAX_PATTIES && (
-              <span className="label-tech text-ember">That is the ceiling. We tried.</span>
+              <span className="label-tech text-gold">That is the ceiling. We tried.</span>
             )}
           </div>
         </Section>
@@ -320,7 +320,7 @@ export function BurgerBuilder() {
             disabled={patties === 0 && chosen.length === 0}
             className={cn(
               "label-tech flex-1 px-6 py-5 transition-colors disabled:opacity-40",
-              added ? "bg-cheese text-char" : "bg-ember text-char hover:bg-flame",
+              added ? "bg-bone text-char" : "bg-gold text-char hover:bg-bone",
             )}
           >
             {added ? "Added ✓" : `Add ${name} · ${money(price)}`}
@@ -328,7 +328,7 @@ export function BurgerBuilder() {
           <button
             type="button"
             onClick={surprise}
-            className="label-tech border border-bone/20 px-6 py-5 text-bone/75 transition-colors hover:border-cheese hover:text-cheese"
+            className="label-tech border border-bone/20 px-6 py-5 text-bone/75 transition-colors hover:border-gold hover:text-gold"
           >
             Surprise me
           </button>
@@ -386,14 +386,14 @@ function Chip({
       className={cn(
         "group flex items-center gap-2.5 border px-4 py-3 text-sm transition-colors",
         on
-          ? "border-ember bg-ember/12 text-bone"
+          ? "border-gold bg-gold/12 text-bone"
           : "border-bone/15 text-bone/60 hover:border-bone/40 hover:text-bone",
       )}
     >
       <span
         className={cn(
           "h-1.5 w-1.5 shrink-0 rotate-45 transition-colors",
-          on ? "bg-ember" : "bg-bone/25",
+          on ? "bg-gold" : "bg-bone/25",
         )}
       />
       {children}

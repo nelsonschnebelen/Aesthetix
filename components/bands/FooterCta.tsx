@@ -1,0 +1,32 @@
+import Image from "next/image";
+import Link from "next/link";
+import { IMG, img } from "@/lib/images";
+
+/** The closing line, over the three-up. */
+export function FooterCta() {
+  return (
+    <section className="relative overflow-hidden bg-char">
+      <Image
+        src={img(IMG.threeUp, { w: 1800 })}
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover object-right opacity-45"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-char via-char/85 to-char/25" />
+
+      <div className="relative mx-auto max-w-[1400px] px-5 py-20 md:px-8 md:py-28">
+        <h2 className="band-head max-w-[16ch] text-bone">
+          These burgers aren&rsquo;t going to eat themselves
+          <span className="text-ember">.</span>
+        </h2>
+        <Link
+          href="/menu"
+          className="label-tech mt-10 inline-block bg-gold px-10 py-5 text-char transition-colors hover:bg-bone"
+        >
+          Order Online
+        </Link>
+      </div>
+    </section>
+  );
+}

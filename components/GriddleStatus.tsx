@@ -25,20 +25,20 @@ export function GriddleStatus({ className }: { className?: string }) {
         <span
           className={cn(
             "ember-dot absolute inline-flex h-full w-full rounded-full",
-            status?.open ? "bg-ember" : "bg-smoke",
+            status?.open ? "bg-gold" : "bg-smoke",
           )}
         />
         <span
           className={cn(
             "relative inline-flex h-2.5 w-2.5 rounded-full",
-            status?.open ? "bg-ember" : "bg-smoke",
+            status?.open ? "bg-gold" : "bg-smoke",
           )}
         />
       </span>
       <span className="label-tech text-bone/70">
         {status ? (
           <>
-            <span className={status.open ? "text-ember" : "text-bone/60"}>{status.state}</span>
+            <span className={status.open ? "text-gold" : "text-bone/60"}>{status.state}</span>
             <span className="mx-2 text-bone/25">/</span>
             {status.detail}
             <span className="mx-2 text-bone/25">/</span>

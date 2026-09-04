@@ -10,19 +10,21 @@ export function Ticker({
   reverse = false,
   className,
   separator = "◆",
+  separatorClassName = "text-ember/70",
 }: {
   items: string[];
   duration?: number;
   reverse?: boolean;
   className?: string;
   separator?: string;
+  separatorClassName?: string;
 }) {
   const run = (
     <div className="flex shrink-0 items-center">
       {items.map((t, i) => (
         <span key={`${t}-${i}`} className="flex items-center">
           <span className="px-6 whitespace-nowrap">{t}</span>
-          <span aria-hidden className="text-ember/70">
+          <span aria-hidden className={separatorClassName}>
             {separator}
           </span>
         </span>

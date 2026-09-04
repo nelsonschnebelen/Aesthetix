@@ -78,15 +78,15 @@ export function SmashMethod() {
       ref={ref}
       id="method"
       className="relative bg-char"
-      style={{ minHeight: `${STEPS.length * 100}vh` }}
+      style={{ minHeight: `${STEPS.length * 78}vh` }}
     >
       <div className="sticky top-0 h-svh overflow-hidden">
         <div className="mx-auto grid h-full max-w-[1280px] grid-cols-1 items-center gap-10 px-6 md:grid-cols-2 md:px-10">
           {/* ------------------------------------------------ the griddle -- */}
           <div className="relative order-2 md:order-1">
-            <p className="label-tech mb-8 text-ember">The Method</p>
+            <p className="label-tech mb-8 text-gold">The Method</p>
 
-            <div className="griddle-steel relative flex h-[280px] items-center justify-center overflow-hidden border border-bone/10 md:h-[380px]">
+            <div className="griddle-steel relative flex h-[240px] items-center justify-center overflow-hidden border border-bone/10 md:h-[300px]">
               {/* Heat bloom under the patty */}
               <motion.div
                 aria-hidden
@@ -181,12 +181,12 @@ export function SmashMethod() {
             <div className="mt-6">
               <div className="mb-2.5 flex items-center justify-between">
                 <span className="label-tech text-bone/45">Surface temperature</span>
-                <span className="font-mono-tech text-sm text-ember">{STEPS[active].temp}</span>
+                <span className="font-mono-tech text-sm text-gold">{STEPS[active].temp}</span>
               </div>
               <div className="h-1.5 w-full overflow-hidden bg-bone/10">
                 <motion.div
                   style={{ width: heatWidth }}
-                  className="h-full bg-gradient-to-r from-crust via-cheese to-ember"
+                  className="h-full bg-gradient-to-r from-crust via-gold to-ember"
                 />
               </div>
             </div>
@@ -200,7 +200,7 @@ export function SmashMethod() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
-                className="font-display text-molten text-6xl md:text-8xl"
+                className="font-display text-gold text-5xl md:text-7xl"
               >
                 {STEPS[active].n}
               </motion.span>
@@ -214,7 +214,7 @@ export function SmashMethod() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35 }}
-              className="font-display text-4xl text-bone md:text-6xl"
+              className="band-head text-bone"
             >
               {STEPS[active].title}
             </motion.h2>
@@ -230,13 +230,13 @@ export function SmashMethod() {
             </motion.p>
 
             {/* Step rail */}
-            <ol className="mt-12 flex gap-2">
+            <ol className="mt-10 flex gap-2">
               {STEPS.map((s, i) => (
                 <li key={s.n} className="flex-1">
                   <span
                     className={cn(
                       "block h-px transition-colors duration-300",
-                      i <= active ? "bg-ember" : "bg-bone/15",
+                      i <= active ? "bg-gold" : "bg-bone/15",
                     )}
                   />
                   <span

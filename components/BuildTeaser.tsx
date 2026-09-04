@@ -17,11 +17,12 @@ export function BuildTeaser() {
       </div>
 
       <div className="relative mx-auto max-w-[1280px] px-6 md:px-10">
-        <p className="label-tech text-ember">The Forge</p>
-        <h2 className="font-display mt-5 max-w-3xl text-5xl text-bone md:text-8xl">
+        <p className="label-tech text-gold">The Forge</p>
+        <h2 className="band-head mt-5 max-w-3xl text-bone">
           Twenty-two parts.
           <br />
-          <span className="text-molten">Ten million</span> burgers.
+          <span className="text-gold">Ten million</span> burgers
+          <span className="text-ember">.</span>
         </h2>
         <p className="mt-8 max-w-lg text-lg leading-relaxed text-bone/60">
           Stack it layer by layer and watch it build itself in real time — heat
@@ -30,7 +31,7 @@ export function BuildTeaser() {
         </p>
         <Link
           href="/build"
-          className="label-tech mt-10 inline-flex items-center gap-3 bg-ember px-8 py-5 text-char transition-colors hover:bg-flame"
+          className="label-tech mt-10 inline-flex items-center gap-3 bg-gold px-9 py-5 text-char transition-colors hover:bg-bone"
         >
           Open the Forge <span aria-hidden>→</span>
         </Link>

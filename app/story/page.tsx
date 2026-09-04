@@ -15,13 +15,13 @@ const CHAPTERS = [
     kicker: "2019",
     title: "One griddle, one idea",
     body: "We opened on West 40th with a used flat top, a meat grinder older than most of the staff, and a stubborn conviction that the best burger in the city was also the simplest one. Nothing on the first menu cost more than fourteen dollars. Nothing on it does now either.",
-    image: IMG.shopFront,
+    image: IMG.storefront,
   },
   {
     kicker: "The beef",
     title: "Ground at seven, gone by nine",
     body: "Chuck and brisket, coarse ground every morning behind the counter, never packed and never frozen. Loose beef is the whole trick: press a tight patty and it steams, press a loose one and every gram touches steel. What we don't sell, we don't keep.",
-    image: IMG.cook,
+    image: IMG.hospitality,
   },
   {
     kicker: "The room",
@@ -37,7 +37,7 @@ export default function StoryPage() {
       {/* -------------------------------------------------------- hero -- */}
       <section className="relative flex min-h-[70svh] items-end overflow-hidden">
         <Image
-          src={img(IMG.griddleDuo, { w: 2000, h: 1200 })}
+          src={img(IMG.threeUp, { w: 2000, h: 1200 })}
           alt="Two burgers resting on the pass"
           fill
           priority
@@ -46,11 +46,12 @@ export default function StoryPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-char via-char/70 to-char/30" />
         <div className="relative mx-auto w-full max-w-[1280px] px-6 pt-32 pb-16 md:px-10 md:pb-24">
-          <p className="label-tech text-ember">Since 2019 · West 40th Street</p>
-          <h1 className="font-display mt-6 max-w-4xl text-6xl text-bone md:text-8xl">
+          <p className="label-tech text-gold">Since 2019 · West 40th Street</p>
+          <h1 className="band-head mt-6 max-w-4xl text-bone">
             We do one thing
             <br />
-            <span className="text-molten">an unreasonable</span> number of times.
+            <span className="text-gold">an unreasonable</span> number of times
+            <span className="text-ember">.</span>
           </h1>
         </div>
       </section>
@@ -81,8 +82,8 @@ export default function StoryPage() {
                 />
               </figure>
               <div>
-                <p className="label-tech text-ember">{c.kicker}</p>
-                <h2 className="font-display mt-5 text-4xl text-bone md:text-6xl">{c.title}</h2>
+                <p className="label-tech text-gold">{c.kicker}</p>
+                <h2 className="band-head mt-5 text-bone">{c.title}</h2>
                 <p className="mt-7 max-w-lg text-lg leading-relaxed text-bone/60">{c.body}</p>
               </div>
             </article>
@@ -98,7 +99,7 @@ export default function StoryPage() {
             ["Freezers", "0"],
           ].map(([k, v]) => (
             <div key={k} className="bg-char px-6 py-10">
-              <p className="font-display text-molten text-6xl">{v}</p>
+              <p className="font-display text-gold text-6xl">{v}</p>
               <p className="label-tech mt-4 text-bone/40">{k}</p>
             </div>
           ))}
@@ -118,7 +119,7 @@ export default function StoryPage() {
         <div className="mt-20 flex flex-wrap gap-4">
           <Link
             href="/menu"
-            className="label-tech bg-ember px-8 py-5 text-char transition-colors hover:bg-flame"
+            className="label-tech bg-gold px-9 py-5 text-char transition-colors hover:bg-bone"
           >
             See the menu →
           </Link>

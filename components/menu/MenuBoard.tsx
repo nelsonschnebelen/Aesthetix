@@ -46,7 +46,7 @@ export function MenuBoard() {
                 {tab === t.id && (
                   <motion.span
                     layoutId="menu-tab"
-                    className="absolute inset-0 bg-ember"
+                    className="absolute inset-0 bg-gold"
                     transition={{ type: "spring", stiffness: 420, damping: 36 }}
                   />
                 )}
@@ -68,7 +68,7 @@ export function MenuBoard() {
               step={1}
               value={maxHeat}
               onChange={(e) => setMaxHeat(Number(e.target.value))}
-              className="h-1 w-36 cursor-pointer appearance-none rounded-full bg-bone/15 accent-ember"
+              className="h-1 w-36 cursor-pointer appearance-none rounded-full bg-bone/15 accent-gold"
             />
             <span
               className={cn(

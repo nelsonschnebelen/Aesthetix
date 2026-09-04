@@ -6,19 +6,24 @@
    ========================================================================== */
 
 @theme {
-  /* Surfaces */
-  --color-char: #0a0908;
-  --color-soot: #121010;
-  --color-iron: #1c1917;
-  --color-ash: #2a2624;
-  --color-smoke: #3d3835;
+  /* Surfaces — warm near-black, not blue-black */
+  --color-char: #131110;
+  --color-soot: #1c1917;
+  --color-iron: #262220;
+  --color-ash: #35302c;
+  --color-smoke: #4a433d;
 
   /* Brand */
-  --color-ember: #ff4d0d;
-  --color-flame: #ff7a1a;
-  --color-cheese: #f5b31e;
-  --color-bone: #f6efe2;
-  --color-crust: #b45309;
+  --color-bone: #f4ede0;      /* cream, the primary light surface and type */
+  --color-paper: #fbf6ec;     /* the lighter cream for full light sections */
+  --color-oxblood: #8c1d18;   /* the deep red band */
+  --color-brick: #a72520;     /* red, one step up */
+  --color-gold: #e3a82b;      /* mustard — the primary CTA */
+  --color-mustard: #d99b1f;   /* the mustard band */
+  --color-ember: #e2541f;     /* the accent period after a headline */
+  --color-flame: #f0762f;
+  --color-cheese: #e3a82b;
+  --color-crust: #8c1d18;
 
   --font-display: var(--font-anton), "Arial Narrow", Impact, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -29,8 +34,8 @@
 }
 
 :root {
-  --background: #0a0908;
-  --foreground: #f6efe2;
+  --background: #131110;
+  --foreground: #f4ede0;
 }
 
 html {
@@ -46,8 +51,8 @@ body {
 }
 
 ::selection {
-  background: #ff4d0d;
-  color: #0a0908;
+  background: #e2541f;
+  color: #f4ede0;
 }
 
 /* ------------------------------------------------------------ type ----- */
@@ -64,22 +69,42 @@ body {
 }
 
 .label-tech {
-  font-family: var(--font-mono-jb), ui-monospace, monospace;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.28em;
+  font-weight: 600;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
+}
+
+/* The reference's signature move: a coloured full stop closing a headline. */
+.stop::after {
+  content: ".";
+  color: var(--color-ember);
+}
+.stop-gold::after {
+  content: ".";
+  color: var(--color-gold);
+}
+
+/* Section headline scale, shared by every band. */
+.band-head {
+  font-family: var(--font-anton), "Arial Narrow", Impact, sans-serif;
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
 }
 
 /* Char-grilled outlined display type */
 .text-outline {
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(246, 239, 226, 0.32);
+  -webkit-text-stroke: 1.5px rgba(244, 237, 224, 0.34);
 }
 
 /* Molten cheese gradient fill for display type */
 .text-molten {
-  background: linear-gradient(178deg, #ffd47a 4%, #f5b31e 38%, #ff7a1a 72%, #ff4d0d 100%);
+  background: linear-gradient(176deg, #f3c65e 2%, #e3a82b 40%, #d9701f 76%, #a72520 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -107,7 +132,7 @@ body {
       transparent 1px,
       transparent 5px
     ),
-    linear-gradient(180deg, #1c1917 0%, #0a0908 100%);
+    linear-gradient(180deg, #262220 0%, #131110 100%);
 }
 
 /* Hairline rules that read as griddle scrape marks */
@@ -115,8 +140,8 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(246, 239, 226, 0.22) 12%,
-    rgba(246, 239, 226, 0.22) 88%,
+    rgba(244, 237, 224, 0.22) 12%,
+    rgba(244, 237, 224, 0.22) 88%,
     transparent
   );
   height: 1px;
@@ -171,7 +196,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(88deg, #0a0908 26%, rgba(10, 9, 8, 0.88) 54%, rgba(10, 9, 8, 0.28));
+  background: linear-gradient(88deg, #131110 24%, rgba(19, 17, 16, 0.86) 52%, rgba(19, 17, 16, 0.22));
 }
 .cine-on .veil-static { display: none; }
 
@@ -182,7 +207,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: #0a0908;
+  background: #131110;
   opacity: 0.84;
 }
 
@@ -213,8 +238,8 @@ body {
   z-index: -1;
   background: radial-gradient(
     62% 46% at 50% 50%,
-    rgba(10, 9, 8, 0.82) 0%,
-    rgba(10, 9, 8, 0.55) 55%,
+    rgba(19, 17, 16, 0.82) 0%,
+    rgba(19, 17, 16, 0.55) 55%,
     transparent 78%
   );
 }
@@ -230,7 +255,7 @@ body {
   display: block;
   position: absolute;
   inset: 0;
-  background: linear-gradient(88deg, #0a0908 26%, rgba(10, 9, 8, 0.88) 54%, rgba(10, 9, 8, 0.28));
+  background: linear-gradient(88deg, #131110 24%, rgba(19, 17, 16, 0.86) 52%, rgba(19, 17, 16, 0.22));
 }
 
 .cine-hint { display: none; }

@@ -46,7 +46,7 @@ export const MENU: MenuItem[] = [
       "Buttered heel",
     ],
     heat: 1,
-    image: IMG.heroSmash,
+    image: IMG.smashOg,
     badges: ["Signature"],
     spec: { patties: 2, ozEach: 3, sear: "82s", temp: 450 },
   },
@@ -66,7 +66,7 @@ export const MENU: MenuItem[] = [
       "Potato roll heel",
     ],
     heat: 4,
-    image: IMG.yellowSmash,
+    image: IMG.smashSpicy,
     badges: ["Hot"],
     spec: { patties: 1, ozEach: 3, sear: "74s", temp: 460 },
   },
@@ -105,7 +105,7 @@ export const MENU: MenuItem[] = [
       "Steamed heel",
     ],
     heat: 1,
-    image: IMG.charDouble,
+    image: IMG.smashOklahoma,
     badges: ["Cult"],
     spec: { patties: 2, ozEach: 3, sear: "95s", temp: 440 },
   },
@@ -206,7 +206,7 @@ export const MENU: MenuItem[] = [
       "Buttered heel",
     ],
     heat: 3,
-    image: IMG.gardenStack,
+    image: IMG.monthTray,
     spec: { patties: 2, ozEach: 3, sear: "80s", temp: 450 },
   },
   {
@@ -274,7 +274,7 @@ export const MENU: MenuItem[] = [
     blurb: "Fried, then finished face-down on the flat top for a crust that shatters.",
     build: ["Tots", "Griddle-pressed", "Smoked salt"],
     heat: 0,
-    image: IMG.basketCombo,
+    image: IMG.loadedTots,
     spec: { patties: 0, ozEach: 8, sear: "3m", temp: 375 },
   },
   {
@@ -296,7 +296,7 @@ export const MENU: MenuItem[] = [
     blurb: "Beer cheese, burnt ends of bacon, scallion, pickled jalapeño.",
     build: ["Griddle tots", "Beer cheese", "Bacon ends", "Scallion", "Pickled jalapeño"],
     heat: 2,
-    image: IMG.steakFries,
+    image: IMG.basketCombo,
     spec: { patties: 0, ozEach: 12, sear: "3m", temp: 375 },
   },
   {
@@ -341,7 +341,7 @@ export const MENU: MenuItem[] = [
     blurb: "Brewed for us in Brooklyn. Cold, clean, built to reset your palate.",
     build: ["4.6% ABV", "Brooklyn", "16oz pour"],
     heat: 0,
-    image: IMG.beerBlack,
+    image: IMG.burgerBrew,
     spec: { patties: 0, ozEach: 16, sear: "0s", temp: 36 },
   },
   {
@@ -370,4 +370,28 @@ export const SPOTLIGHT = {
     name: "House Lager",
     note: "Brooklyn-brewed, 4.6%. Sweet onion needs something dry and cold to argue with.",
   },
+  /** A dollar off every burger of the month goes to a rotating local cause. */
+  cause: {
+    name: "City Meals on Wheels",
+    line: "$1 from every burger supports this month's cause",
+  },
 };
+
+/** What to drink with what, for the brew band. */
+export const PAIRINGS = [
+  {
+    burgerId: "handcraft-double",
+    beer: "The Wave IPA",
+    note: "Citrus and pine cut straight through two patties of melted American.",
+  },
+  {
+    burgerId: "oklahoma",
+    beer: "House Lager",
+    note: "Sweet caramelised onion needs something dry and very cold to argue with.",
+  },
+  {
+    burgerId: "smoke-show",
+    beer: "Amber Ale",
+    note: "Malt sweetness is the only thing that talks the chipotle down.",
+  },
+];

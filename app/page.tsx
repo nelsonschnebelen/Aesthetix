@@ -1,21 +1,33 @@
 import { CinematicHero } from "@/components/hero/CinematicHero";
-import { SearStrip } from "@/components/SearStrip";
+import { CreamTicker } from "@/components/bands/CreamTicker";
+import { PickYourSmash } from "@/components/bands/PickYourSmash";
+import { PassTheGoodStuff } from "@/components/bands/PassTheGoodStuff";
+import { MonthBand } from "@/components/bands/MonthBand";
 import { SmashMethod } from "@/components/SmashMethod";
-import { SignatureRail } from "@/components/SignatureRail";
-import { Spotlight } from "@/components/Spotlight";
+import { TotsFries } from "@/components/bands/TotsFries";
+import { HospitalityBand } from "@/components/bands/HospitalityBand";
+import { BurgersMeetBrew } from "@/components/bands/BurgersMeetBrew";
 import { BuildTeaser } from "@/components/BuildTeaser";
-import { VisitSection } from "@/components/VisitSection";
+import { ClubBand } from "@/components/bands/ClubBand";
+import { RightHere } from "@/components/bands/RightHere";
+import { FooterCta } from "@/components/bands/FooterCta";
 
 export default function Home() {
   return (
     <main>
       <CinematicHero />
-      <SearStrip />
+      <CreamTicker />
+      <PickYourSmash />
+      <PassTheGoodStuff />
+      <MonthBand />
       <SmashMethod />
-      <SignatureRail />
-      <Spotlight />
+      <TotsFries />
+      <HospitalityBand />
+      <BurgersMeetBrew />
       <BuildTeaser />
-      <VisitSection />
+      <ClubBand />
+      <RightHere />
+      <FooterCta />
     </main>
   );
 }

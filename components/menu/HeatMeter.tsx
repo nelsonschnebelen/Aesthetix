@@ -32,7 +32,7 @@ export function HeatMeter({
         <span
           className={cn(
             "label-tech",
-            heat >= 4 ? "text-ember" : heat > 0 ? "text-cheese/80" : "text-bone/35",
+            heat >= 4 ? "text-ember" : heat > 0 ? "text-gold/80" : "text-bone/35",
           )}
         >
           {HEAT_WORDS[Math.min(heat, HEAT_WORDS.length - 1)]}

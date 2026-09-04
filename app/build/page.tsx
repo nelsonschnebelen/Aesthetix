@@ -12,9 +12,9 @@ export default function BuildPage() {
     <main className="pt-28 pb-24 md:pt-36">
       <div className="mx-auto max-w-[1280px] px-6 md:px-10">
         <header className="mb-14 max-w-3xl">
-          <p className="label-tech text-ember">The Forge</p>
-          <h1 className="font-display mt-5 text-6xl text-bone md:text-8xl">
-            Build it.
+          <p className="label-tech text-gold">The Forge</p>
+          <h1 className="band-head mt-5 text-bone">
+            Build it<span className="text-ember">.</span>
             <br />
             <span className="text-outline">Own it.</span>
           </h1>

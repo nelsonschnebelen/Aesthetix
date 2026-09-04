@@ -75,7 +75,7 @@ export function OrderDrawer() {
                 type="button"
                 onClick={closeDrawer}
                 aria-label="Close order"
-                className="flex h-10 w-10 items-center justify-center border border-bone/20 text-bone/70 transition-colors hover:border-ember hover:text-ember"
+                className="flex h-10 w-10 items-center justify-center border border-bone/20 text-bone/70 transition-colors hover:border-gold hover:text-gold"
               >
                 ✕
               </button>
@@ -118,7 +118,7 @@ export function OrderDrawer() {
                             type="button"
                             onClick={() => setQty(l.key, l.qty - 1)}
                             aria-label={`One fewer ${l.name}`}
-                            className="h-8 w-8 border border-bone/20 text-bone/70 transition-colors hover:border-ember hover:text-ember"
+                            className="h-8 w-8 border border-bone/20 text-bone/70 transition-colors hover:border-gold hover:text-gold"
                           >
                             −
                           </button>
@@ -129,20 +129,20 @@ export function OrderDrawer() {
                             type="button"
                             onClick={() => setQty(l.key, l.qty + 1)}
                             aria-label={`One more ${l.name}`}
-                            className="h-8 w-8 border border-bone/20 text-bone/70 transition-colors hover:border-ember hover:text-ember"
+                            className="h-8 w-8 border border-bone/20 text-bone/70 transition-colors hover:border-gold hover:text-gold"
                           >
                             +
                           </button>
                           <button
                             type="button"
                             onClick={() => remove(l.key)}
-                            className="label-tech ml-2 text-bone/35 transition-colors hover:text-ember"
+                            className="label-tech ml-2 text-bone/35 transition-colors hover:text-gold"
                           >
                             Remove
                           </button>
                         </div>
                       </div>
-                      <span className="font-mono-tech shrink-0 text-cheese">
+                      <span className="font-mono-tech shrink-0 text-gold">
                         {money(l.price * l.qty)}
                       </span>
                     </li>
@@ -165,13 +165,13 @@ export function OrderDrawer() {
                   </div>
                   <div className="mt-2 flex justify-between border-t border-bone/10 pt-3">
                     <dt className="font-display text-xl text-bone">Total</dt>
-                    <dd className="font-mono-tech text-xl text-cheese">{money(total)}</dd>
+                    <dd className="font-mono-tech text-xl text-gold">{money(total)}</dd>
                   </div>
                 </dl>
                 <button
                   type="button"
                   onClick={send}
-                  className="label-tech mt-5 w-full bg-ember px-6 py-4 text-char transition-colors hover:bg-flame"
+                  className="label-tech mt-5 w-full bg-gold px-6 py-4 text-char transition-colors hover:bg-bone"
                 >
                   Send it to the pass
                 </button>

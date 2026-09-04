@@ -36,7 +36,7 @@ export function MenuCard({
   };
 
   return (
-    <article className="group relative flex flex-col border border-bone/10 bg-soot transition-colors duration-300 hover:border-ember/45">
+    <article className="group relative flex flex-col border border-bone/10 bg-soot transition-colors duration-300 hover:border-gold/45">
       <div className="relative aspect-[4/3] overflow-hidden bg-iron">
         {item.image && (
           <Image
@@ -81,7 +81,7 @@ export function MenuCard({
               {/* min-h-full on the inner block keeps it centred when it fits
                   and scrollable from the top when it does not. */}
               <div className="flex min-h-full flex-col justify-center px-6 py-5">
-                <p className="label-tech mb-3 text-ember">Build · bottom up</p>
+                <p className="label-tech mb-3 text-gold">Build · bottom up</p>
                 <ol className="flex flex-col-reverse gap-1">
                   {item.build.map((layer, i) => (
                     <li key={layer + i} className="flex items-baseline gap-3">
@@ -101,7 +101,7 @@ export function MenuCard({
       <div className="flex flex-1 flex-col p-6">
         <div className="flex items-start justify-between gap-4">
           <h3 className="font-display text-2xl text-bone">{item.name}</h3>
-          <span className="font-mono-tech shrink-0 text-lg text-cheese">
+          <span className="font-mono-tech shrink-0 text-lg text-gold">
             {money(item.price)}
           </span>
         </div>
@@ -126,8 +126,8 @@ export function MenuCard({
             className={cn(
               "label-tech flex-1 px-4 py-3.5 transition-colors",
               added
-                ? "bg-cheese text-char"
-                : "bg-bone text-char hover:bg-ember",
+                ? "bg-bone text-char"
+                : "bg-bone text-char hover:bg-gold",
             )}
           >
             {added ? "On the pass ✓" : `Add ${money(item.price)}`}
@@ -136,7 +136,7 @@ export function MenuCard({
             type="button"
             onClick={() => setSpec((v) => !v)}
             aria-pressed={spec}
-            className="label-tech border border-bone/20 px-4 py-3.5 text-bone/70 transition-colors hover:border-ember hover:text-ember"
+            className="label-tech border border-bone/20 px-4 py-3.5 text-bone/70 transition-colors hover:border-gold hover:text-gold"
           >
             {spec ? "Close" : "Build"}
           </button>
