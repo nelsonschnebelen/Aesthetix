@@ -3,7 +3,6 @@ import { CreamTicker } from "@/components/bands/CreamTicker";
 import { PickYourSmash } from "@/components/bands/PickYourSmash";
 import { PassTheGoodStuff } from "@/components/bands/PassTheGoodStuff";
 import { MonthBand } from "@/components/bands/MonthBand";
-import { SmashMethod } from "@/components/SmashMethod";
 import { TotsFries } from "@/components/bands/TotsFries";
 import { HospitalityBand } from "@/components/bands/HospitalityBand";
 import { BurgersMeetBrew } from "@/components/bands/BurgersMeetBrew";
@@ -20,7 +19,6 @@ export default function Home() {
       <PickYourSmash />
       <PassTheGoodStuff />
       <MonthBand />
-      <SmashMethod />
       <TotsFries />
       <HospitalityBand />
       <BurgersMeetBrew />

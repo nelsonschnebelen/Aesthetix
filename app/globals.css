@@ -203,13 +203,6 @@ body {
 }
 .ember-dot { animation: ember-pulse 2.4s ease-in-out infinite; }
 
-@keyframes sizzle-drift {
-  0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0; }
-  18% { opacity: 0.5; }
-  100% { transform: translate3d(var(--dx, 12px), -110px, 0) scale(1.9); opacity: 0; }
-}
-.sizzle-mote { animation: sizzle-drift var(--dur, 7s) linear infinite; animation-delay: var(--delay, 0s); }
-
 /* ============================ CINEMATIC SCROLL HERO ====================== */
 /* Two engines (CSS scroll timelines / damped rAF) drive one shared timeline.
    Without either, Act III renders as a complete, static hero.               */
@@ -355,7 +348,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .cine-photo, .cine-veil, .act-title, .act-line, .act-final, .cine-hint,
-  .ticker-track, .ember-dot, .sizzle-mote {
+  .ticker-track, .ember-dot {
     animation: none !important;
   }
   .ticker-track { transform: none !important; }

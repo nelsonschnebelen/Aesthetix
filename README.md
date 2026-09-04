@@ -15,7 +15,7 @@ npm run build
 
 | Route | What it does |
 |---|---|
-| `/` | Cinematic scroll hero, live griddle strip, The Method, signature rail, burger of the month, Forge teaser, visit |
+| `/` | Cinematic scroll hero, claim strip, the smash rail, burger of the month, sides, hospitality, brew pairings, Forge teaser, club, visit |
 | `/menu` | The full board — category tabs, a heat-ceiling filter, per-item build sheets |
 | `/build` | **The Forge** — an interactive builder that draws the burger as you stack it |
 | `/story` | The origin, the beef, the room |
@@ -32,11 +32,6 @@ timelines where supported (zero JS per frame), a damped `requestAnimationFrame`
 loop everywhere else. **Edit the two together or the film plays differently
 per browser.** With no engine at all — reduced motion, no JS, a crawler —
 Act III renders on its own as a complete, conventional, clickable hero.
-
-**The Method** (`components/SmashMethod.tsx`). Four steps scrub past a pinned
-griddle while the patty is driven from ball to crust to stack. The patty is
-CSS and spring transforms, not a sprite sheet or a video, so it stays sharp
-at any size and costs nothing to download.
 
 **The Forge** (`components/build/BurgerBuilder.tsx`, `lib/forge.ts`). Every
 ingredient carries a price, a heat rating, a stack order and its own rendered
