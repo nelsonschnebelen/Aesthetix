@@ -1,12 +1,11 @@
 /**
- * Every photograph on the site, in one place.
+ * Every photograph on the site, in one place — and all of it local.
  *
- * `/img/*` are Handcraft's own assets committed to `public/img`. The
- * `images.unsplash.com` entries are licensed stock still covering the few
- * slots we have no Handcraft frame for; that host is allow-listed in
- * `next.config.ts`.
+ * `/img/*` are Handcraft's own photographs. `/img/stock/*` are licensed
+ * Unsplash images downloaded into the repo rather than hotlinked, so a
+ * static export is entirely self-contained and cannot be broken by a
+ * third party rate-limiting or blocking us.
  */
-const U = "https://images.unsplash.com/";
 
 export const IMG = {
   // ---------------------------------------------------------- Handcraft --
@@ -14,48 +13,39 @@ export const IMG = {
   smashOg: "/img/smash-og.jpg",
   smashOklahoma: "/img/smash-oklahoma.jpg",
   smashSpicy: "/img/smash-spicy.jpg",
+  baconJam: "/img/bacon-jam.jpg",
+  brat: "/img/brat.jpg",
   goodStuff: "/img/good-stuff.jpg",
   monthTray: "/img/month-tray.jpg",
   loadedTots: "/img/loaded-tots.jpg",
+  sauceFlight: "/img/sauce-flight.jpg",
   fries: "/img/fries.jpg",
   burgerBrew: "/img/burger-brew.jpg",
   hospitality: "/img/hospitality.jpg",
   storefront: "/img/storefront.jpg",
   streetPark: "/img/street-park.jpg",
   threeUp: "/img/three-up.jpg",
-  brat: "/img/brat.jpg",
-  baconJam: "/img/bacon-jam.jpg",
-  sauceFlight: "/img/sauce-flight.jpg",
 
-  // ------------------------------------------------------------- stock ---
-  classicSingle: U + "photo-1571091718767-18b5b1457add",
-  basketCombo: U + "photo-1594212699903-ec8a3eca50f5",
-  baconLight: U + "photo-1610440042657-612c34d95e9f",
-  baconBlack: U + "photo-1586190848861-99aa4a171e90",
-  stackedDark: U + "photo-1572802419224-296b0aeee0d9",
-  charDouble: U + "photo-1568901346375-23c9450c58cd",
-  griddleDuo: U + "photo-1550547660-d9450f859349",
-  gardenStack: U + "photo-1512152272829-e3139592d56f",
-  crispyBird: U + "photo-1606755962773-d324e0a13086",
-  tenders: U + "photo-1626082927389-6cd097cdc6ec",
-  sliders: U + "photo-1521305916504-4a1121188589",
-  eggSmash: U + "photo-1534790566855-4cb788d389ec",
-  yellowSmash: U + "photo-1596662951482-0c4ba74a6df6",
-  steakFries: U + "photo-1600891964092-4316c288032e",
-  deconstructed: U + "photo-1615297928064-24977384d0da",
-  shakeSplash: U + "photo-1577805947697-89e18249d767",
-  shakeStack: U + "photo-1572490122747-3968b75cc699",
-  beerBlack: U + "photo-1608270586620-248524c67de9",
-  beerPair: U + "photo-1600788886242-5c96aabe3757",
-  diningRoom: U + "photo-1517248135467-4c7edcad34c4",
-  barBulbs: U + "photo-1543007630-9710e4a00a20",
-  cook: U + "photo-1541557435984-1c79685a082b",
-  tableSpread: U + "photo-1466978913421-dad2ebd01d17",
+  // -------------------------------------------------- licensed stock ----
+  baconBlack: "/img/stock/baconBlack.jpg",
+  baconLight: "/img/stock/baconLight.jpg",
+  basketCombo: "/img/stock/basketCombo.jpg",
+  beerPair: "/img/stock/beerPair.jpg",
+  crispyBird: "/img/stock/crispyBird.jpg",
+  deconstructed: "/img/stock/deconstructed.jpg",
+  diningRoom: "/img/stock/diningRoom.jpg",
+  eggSmash: "/img/stock/eggSmash.jpg",
+  griddleDuo: "/img/stock/griddleDuo.jpg",
+  shakeSplash: "/img/stock/shakeSplash.jpg",
+  shakeStack: "/img/stock/shakeStack.jpg",
+  sliders: "/img/stock/sliders.jpg",
+  stackedDark: "/img/stock/stackedDark.jpg",
+  tenders: "/img/stock/tenders.jpg",
 } as const;
 
 /**
- * Sized, cropped URL. Local `/img` assets are already sized at build time and
- * pass through untouched — only the remote host takes resize parameters.
+ * Sized URL. Everything is local now, so this is a pass-through; it stays
+ * because a remote source could be reintroduced and would need the params.
  */
 export function img(
   src: string,
@@ -68,11 +58,8 @@ export function img(
 }
 
 /**
- * Slots the site is built for but has no file for yet. Drop a file at the
- * path and add the entry to IMG above — nothing else needs to change.
- * Menu items with no `image` render a deliberate "photo pending" panel
- * rather than a stand-in, because a burger photo on a bratwurst would
- * misrepresent the food.
+ * Slots the site is built for but has no photograph for yet. Drop a file at
+ * the path and add it to IMG above.
  */
 export const PENDING_PHOTOS: { path: string; shows: string }[] = [
   { path: "public/img/hangover.jpg", shows: "The Hangover — hash brown, bacon, runny egg" },

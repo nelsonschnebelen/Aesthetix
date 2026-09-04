@@ -1,5 +1,33 @@
 # Deploying to Netlify
 
+Two ways. Pick one.
+
+---
+
+## A. Drag and drop a folder of HTML (no repo, no build)
+
+```bash
+npm install
+npm run build:static      # writes ./out
+```
+
+Then drag the **`out`** folder onto <https://app.netlify.com/drop>. That is the
+whole deploy — it is plain HTML, CSS, JS and images, with no server, no build
+step on Netlify's side and no configuration.
+
+Every asset is local: the licensed stock photography was downloaded into
+`public/img/stock/` rather than hotlinked, so nothing can break it from
+outside. Verified by loading the built folder with all external network
+requests blocked — six routes, zero broken images, zero outbound requests.
+
+The trade-off versus option B: no on-demand image optimisation, so images ship
+at the size they were authored (the export is about 9 MB total). For a site
+this size that is fine.
+
+---
+
+## B. Connect the repo (continuous deploys)
+
 The whole site prerenders to static pages — no server routes, no database, no
 environment variables. It is about as simple as a Netlify deploy gets.
 
