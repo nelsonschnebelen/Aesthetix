@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
 import { GriddleStatus } from "@/components/GriddleStatus";
+import { LEGAL, REGULAR_HOURS, SITE } from "@/lib/site";
 
 const COLUMNS: { title: string; links: [string, string][] }[] = [
   {
@@ -22,9 +23,9 @@ const COLUMNS: { title: string; links: [string, string][] }[] = [
   {
     title: "Visit",
     links: [
-      ["/visit", "Directions"],
-      ["/visit", "Hours"],
-      ["/visit", "Contact"],
+      ["/visit", "Directions & hours"],
+      ["/faq", "FAQ"],
+      ["/menu", "The full menu"],
     ],
   },
 ];
@@ -43,6 +44,22 @@ export function Footer() {
           <div>
             <Logo className="h-20" />
             <GriddleStatus className="mt-7" />
+            <dl className="mt-6 space-y-1.5">
+              {REGULAR_HOURS.map((r) => (
+                <div key={r.days} className="flex flex-wrap gap-x-4 text-sm">
+                  <dt className="w-40 shrink-0 text-bone/45">{r.days}</dt>
+                  <dd className="font-mono-tech text-bone/70">{r.hours}</dd>
+                </div>
+              ))}
+            </dl>
+            <a
+              href={SITE.orderUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="btn mt-7 inline-block bg-gold text-char hover:bg-bone"
+            >
+              Order Online ↗
+            </a>
           </div>
 
           {COLUMNS.map((col) => (
@@ -80,16 +97,40 @@ export function Footer() {
               ))}
             </ul>
             <p className="mt-6 text-bone/65">
-              <a href="tel:+12125550140" className="transition-colors hover:text-bone">
-                (212) 555-0140
+              <a href={SITE.phoneHref} className="transition-colors hover:text-bone">
+                {SITE.phone}
               </a>
             </p>
+            <address className="mt-2 text-sm leading-relaxed text-bone/45 not-italic">
+              {SITE.street}
+              <br />
+              {SITE.cityLine}
+            </address>
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-bone/12 pt-7 text-sm text-bone/35 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Handcraft Burgers &amp; Brew. All rights reserved.</p>
-          <p className="label-tech">110 W 40th St · New York</p>
+        <div className="mt-14 border-t border-bone/12 pt-7">
+          <ul className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-bone/40">
+            {LEGAL.map((l, i) => (
+              <li key={l.label} className="flex items-center gap-3">
+                {i > 0 && <span aria-hidden className="text-bone/20">|</span>}
+                <a
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="transition-colors hover:text-bone/80"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-5 flex flex-col gap-2 text-sm text-bone/30 sm:flex-row sm:items-center sm:justify-between">
+            <p>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
+            <p className="label-tech">
+              {SITE.street} · {SITE.neighbourhood}
+            </p>
+          </div>
         </div>
       </div>
     </footer>

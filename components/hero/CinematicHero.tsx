@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
 import { IMG, img } from "@/lib/images";
+import { SITE } from "@/lib/site";
 
 /**
  * Three acts on one scroll timeline. Act III is the real hero — the
@@ -63,9 +64,14 @@ export function CinematicHero() {
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-3">
-                <Link href="/menu" className="btn bg-gold text-char hover:bg-bone">
+                <a
+                  href={SITE.orderUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="btn bg-gold text-char hover:bg-bone"
+                >
                   Order Online
-                </Link>
+                </a>
                 <Link
                   href="/menu"
                   className="btn border border-bone/35 text-bone hover:bg-bone hover:text-char"

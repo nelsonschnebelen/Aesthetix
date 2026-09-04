@@ -12,9 +12,10 @@ const LINKS = [
   { href: "/menu", label: "Menu" },
   { href: "/build", label: "Build" },
   { href: "/#month", label: "This Month" },
-  { href: "/story", label: "Our Story" },
+  { href: "/story", label: "Story" },
   { href: "/club", label: "Club" },
   { href: "/visit", label: "Visit" },
+  { href: "/faq", label: "FAQ" },
 ];
 
 /** Staggered entrance — the bar assembles itself once, on first paint. */

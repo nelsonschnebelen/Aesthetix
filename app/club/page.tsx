@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
 import { FooterCta } from "@/components/bands/FooterCta";
 import { IMG, img } from "@/lib/images";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Hospitality Club",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const STEPS: [string, string, string][] = [
-  ["01", "Join", "Sign up at the counter or online. It takes about eleven seconds — the same as a smash."],
+  ["01", "Join", "Sign up at the counter or online, and 50 bonus points land in your account straight away."],
   ["02", "Earn", "A point for every dollar. Points land the moment your order hits the pass, not a week later."],
   ["03", "Eat", "150 points is a burger on us. Birthdays get one automatically, no points spent."],
 ];
@@ -42,30 +43,24 @@ export default function ClubPage() {
               no card to lose.
             </p>
 
-            <form
-              className="mt-9 flex max-w-md flex-col gap-3 sm:flex-row"
-              aria-label="Join the Hospitality Club"
-            >
-              <label htmlFor="club-phone" className="sr-only">
-                Mobile number
-              </label>
-              <input
-                id="club-phone"
-                type="tel"
-                inputMode="tel"
-                placeholder="Mobile number"
-                className="flex-1 border border-bone/35 bg-transparent px-5 py-4 text-bone placeholder:text-bone/40 focus:border-gold focus:outline-none"
-              />
-              <button
-                type="submit"
-                className="label-tech bg-gold px-8 py-4 text-char transition-colors hover:bg-bone"
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href={SITE.clubUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="btn bg-gold text-char hover:bg-bone"
               >
-                Join
-              </button>
-            </form>
-            <p className="mt-3 text-xs text-bone/40">
-              Demo form — nothing is submitted or stored.
-            </p>
+                Join the club ↗
+              </a>
+              <a
+                href={SITE.orderUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="btn border border-bone/35 text-bone hover:bg-bone hover:text-char"
+              >
+                Order online
+              </a>
+            </div>
           </div>
 
           <div className="relative flex aspect-[1.6/1] w-full items-center justify-center bg-char p-8 shadow-[0_24px_60px_rgba(0,0,0,0.4)]">

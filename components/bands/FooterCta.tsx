@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import { IMG, img } from "@/lib/images";
+import { SITE } from "@/lib/site";
 
 /** The closing line, over the three-up. */
 export function FooterCta() {
@@ -21,12 +21,14 @@ export function FooterCta() {
           <span className="text-ember">.</span>
         </h2>
         <div className="mt-10 flex flex-wrap items-center gap-8">
-          <Link
-            href="/menu"
+          <a
+            href={SITE.orderUrl}
+            target="_blank"
+            rel="noreferrer noopener"
             className="label-tech inline-block bg-gold px-10 py-5 text-char transition-colors hover:bg-bone"
           >
-            Order Online
-          </Link>
+            Order Online ↗
+          </a>
           <p className="neon-sign text-4xl md:text-5xl">Get Smashed</p>
         </div>
       </div>

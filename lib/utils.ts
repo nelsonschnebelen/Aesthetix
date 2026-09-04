@@ -10,7 +10,9 @@ export function money(cents: number): string {
   return `$${(cents / 100).toFixed(2)}`;
 }
 
-export const HOURS = { open: 11, close: 21, tz: "America/New_York" } as const;
+import { REGULAR_HOURS } from "@/lib/site";
+
+export const TZ = "America/New_York";
 
 export type GriddleStatus = {
   open: boolean;
@@ -22,13 +24,22 @@ export type GriddleStatus = {
   localTime: string;
 };
 
+/** Formats an hour in 24h as "9PM" / "11AM", the way the shop writes it. */
+export function hourLabel(h: number): string {
+  const suffix = h >= 12 ? "PM" : "AM";
+  const twelve = h % 12 === 0 ? 12 : h % 12;
+  return `${twelve}${suffix}`;
+}
+
 /**
- * Open/closed against the shop's own clock, not the visitor's.
- * Client-only: rendering this on the server would hydrate a stale answer.
+ * Open/closed against the shop's own clock in New York, and against the real
+ * per-day hours — closing moves between 8, 9 and 10 depending on the day.
+ * Client-only: a server-rendered answer would be stale by the time it is read.
  */
 export function griddleStatus(now: Date = new Date()): GriddleStatus {
   const parts = new Intl.DateTimeFormat("en-US", {
-    timeZone: HOURS.tz,
+    timeZone: TZ,
+    weekday: "short",
     hour: "numeric",
     minute: "2-digit",
     hour12: false,
@@ -36,38 +47,48 @@ export function griddleStatus(now: Date = new Date()): GriddleStatus {
 
   const hour = Number(parts.find((p) => p.type === "hour")?.value ?? 12) % 24;
   const minute = Number(parts.find((p) => p.type === "minute")?.value ?? 0);
+  const weekday = parts.find((p) => p.type === "weekday")?.value ?? "Mon";
+  const dow = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(weekday);
 
   const localTime = new Intl.DateTimeFormat("en-US", {
-    timeZone: HOURS.tz,
+    timeZone: TZ,
     hour: "numeric",
     minute: "2-digit",
   }).format(now);
 
+  const today = REGULAR_HOURS.find((r) => r.dow.includes(dow)) ?? REGULAR_HOURS[0];
   const minutes = hour * 60 + minute;
-  const openAt = HOURS.open * 60;
-  const closeAt = HOURS.close * 60;
+  const openAt = today.open * 60;
+  const closeAt = today.close * 60;
   const open = minutes >= openAt && minutes < closeAt;
 
   if (open) {
     const left = closeAt - minutes;
     return {
       open: true,
-      state: left <= 60 ? "Last call" : "Griddle hot",
+      state: left <= 60 ? "Last call" : "Open now",
       detail:
         left <= 60
-          ? `Kitchen closes in ${left} min`
-          : `Smashing until ${HOURS.close - 12}:00 PM`,
+          ? `Closes in ${left} min`
+          : `Closes at ${hourLabel(today.close)}`,
       localTime,
     };
   }
 
-  const until = minutes < openAt ? openAt - minutes : 24 * 60 - minutes + openAt;
+  // Before opening today, or after closing — the next open is tomorrow's.
+  let until: number;
+  if (minutes < openAt) {
+    until = openAt - minutes;
+  } else {
+    const tomorrow = REGULAR_HOURS.find((r) => r.dow.includes((dow + 1) % 7)) ?? today;
+    until = 24 * 60 - minutes + tomorrow.open * 60;
+  }
   const h = Math.floor(until / 60);
   const m = until % 60;
   return {
     open: false,
-    state: "Steel cooling",
-    detail: `Back on in ${h ? `${h}h ` : ""}${m}m`,
+    state: "Closed",
+    detail: `Opens in ${h ? `${h}h ` : ""}${m}m`,
     localTime,
   };
 }

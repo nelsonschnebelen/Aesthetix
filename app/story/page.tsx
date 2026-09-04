@@ -12,21 +12,21 @@ export const metadata: Metadata = {
 
 const CHAPTERS = [
   {
-    kicker: "2019",
-    title: "One griddle, one idea",
-    body: "We opened on West 40th with a used flat top, a meat grinder older than most of the staff, and a stubborn conviction that the best burger in the city was also the simplest one. Nothing on the first menu cost more than fourteen dollars. Nothing on it does now either.",
+    kicker: "Chris, Chad & Rev",
+    title: "Burger lovers, first",
+    body: "We are burger lovers and we made this place for you. Our founders — Chris, Chad and Rev — each bring decades of NYC restaurant experience and a true love for burgers, and the whole room is built around that one idea.",
     image: IMG.storefront,
   },
   {
-    kicker: "The beef",
-    title: "Ground at seven, gone by nine",
-    body: "Chuck and brisket, coarse ground every morning behind the counter, never packed and never frozen. Loose beef is the whole trick: press a tight patty and it steams, press a loose one and every gram touches steel. What we don't sell, we don't keep.",
+    kicker: "The mission",
+    title: "Fresh, never frozen",
+    body: "Hand-crafted, fresh, never-frozen, 100% beef gourmet smashed burgers, with tater tots, french fries and craft beers — served with full hospitality-style service in a quick-service environment. That sentence is the whole business plan.",
     image: IMG.hospitality,
   },
   {
     kicker: "The room",
-    title: "Counter service, no ceremony",
-    body: "Sixteen taps, a long steel bar, and a kitchen you can watch from anywhere in the room. There are no reservations. There is no host. There is a line most Fridays and we are not sorry about it.",
+    title: "Quick service, full hospitality",
+    body: "Walk-in only, no reservations, and a kitchen you can watch from anywhere in the room. Our focus is delivering a consistently great experience every time you visit — quick service that still behaves like hospitality.",
     image: IMG.diningRoom,
   },
 ];
@@ -46,7 +46,7 @@ export default function StoryPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-char via-char/70 to-char/30" />
         <div className="relative mx-auto w-full max-w-[1280px] px-6 pt-32 pb-16 md:px-10 md:pb-24">
-          <p className="label-tech text-gold">Since 2019 · West 40th Street</p>
+          <p className="label-tech text-gold">Bryant Park · West 40th Street</p>
           <h1 className="band-head mt-6 max-w-4xl text-bone">
             We do one thing
             <br />
@@ -93,9 +93,9 @@ export default function StoryPage() {
         {/* ----------------------------------------------------- stats -- */}
         <div className="mt-28 grid gap-px bg-bone/10 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            ["Patties a day", "1,400"],
-            ["Griddle temp", "450°F"],
-            ["Taps", "16"],
+            ["Founders", "3"],
+            ["Beef", "100%"],
+            ["Most items", "$10–18"],
             ["Freezers", "0"],
           ].map(([k, v]) => (
             <div key={k} className="bg-char px-6 py-10">
@@ -108,11 +108,10 @@ export default function StoryPage() {
         {/* ----------------------------------------------------- quote -- */}
         <blockquote className="mt-28 border-l-2 border-ember pl-8 md:pl-12">
           <p className="font-display max-w-4xl text-4xl leading-tight text-bone md:text-6xl">
-            “A thick burger is a steak that lost its nerve. A smash burger is
-            all crust and no apology.”
+            “We are burger lovers and we made this place for you.”
           </p>
           <footer className="label-tech mt-8 text-bone/40">
-            Marisol Reyes · Head of the pass since day one
+            Chris, Chad &amp; Rev · Founders
           </footer>
         </blockquote>
 

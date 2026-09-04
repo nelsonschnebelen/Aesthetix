@@ -1,16 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { GriddleStatus } from "@/components/GriddleStatus";
 import { useCart } from "@/lib/cart";
+import { SITE } from "@/lib/site";
 import { money } from "@/lib/utils";
 
 const TAX_RATE = 0.08875; // NYC combined
 
 export function OrderDrawer() {
   const { lines, subtotal, count, setQty, remove, clear, drawerOpen, closeDrawer } = useCart();
-  const [sent, setSent] = useState(false);
 
   // The drawer owns the page lock: it is the only thing that covers it.
   useEffect(() => {
@@ -29,15 +29,6 @@ export function OrderDrawer() {
 
   const tax = Math.round(subtotal * TAX_RATE);
   const total = subtotal + tax;
-
-  const send = () => {
-    setSent(true);
-    window.setTimeout(() => {
-      clear();
-      setSent(false);
-      closeDrawer();
-    }, 2600);
-  };
 
   return (
     <AnimatePresence>
@@ -82,16 +73,7 @@ export function OrderDrawer() {
             </header>
 
             <div className="flex-1 overflow-y-auto px-6 py-5">
-              {sent ? (
-                <div className="flex h-full flex-col items-center justify-center text-center">
-                  <span className="ember-dot h-3 w-3 rounded-full bg-ember" />
-                  <p className="font-display mt-6 text-3xl text-bone">Fired.</p>
-                  <p className="mt-3 max-w-xs text-bone/55">
-                    Your order is on the flat top. Four minutes, give or take a
-                    queue. We will call the name at the counter.
-                  </p>
-                </div>
-              ) : lines.length === 0 ? (
+              {lines.length === 0 ? (
                 <div className="flex h-full flex-col items-center justify-center text-center">
                   <p className="font-display text-3xl text-bone">Nothing yet.</p>
                   <p className="mt-3 max-w-xs text-bone/50">
@@ -151,7 +133,7 @@ export function OrderDrawer() {
               )}
             </div>
 
-            {lines.length > 0 && !sent && (
+            {lines.length > 0 && (
               <footer className="border-t border-bone/10 px-6 py-5">
                 <GriddleStatus className="mb-5" />
                 <dl className="flex flex-col gap-2 text-sm">
@@ -168,15 +150,24 @@ export function OrderDrawer() {
                     <dd className="font-mono-tech text-xl text-gold">{money(total)}</dd>
                   </div>
                 </dl>
+                <a
+                  href={SITE.orderUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="label-tech mt-5 block w-full bg-gold px-6 py-4 text-center text-char transition-colors hover:bg-bone"
+                >
+                  Order on our site ↗
+                </a>
                 <button
                   type="button"
-                  onClick={send}
-                  className="label-tech mt-5 w-full bg-gold px-6 py-4 text-char transition-colors hover:bg-bone"
+                  onClick={clear}
+                  className="label-tech mt-3 w-full py-2 text-bone/35 transition-colors hover:text-ember"
                 >
-                  Send it to the pass
+                  Clear
                 </button>
                 <p className="mt-3 text-center text-xs text-bone/30">
-                  Demo checkout — nothing is charged.
+                  This basket is a planner — checkout happens on our ordering
+                  site.
                 </p>
               </footer>
             )}

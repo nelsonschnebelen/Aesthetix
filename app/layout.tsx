@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { OrderDrawer } from "@/components/order/OrderDrawer";
 import { ScrollMotion } from "@/components/motion/ScrollMotion";
+import { REGULAR_HOURS, SITE } from "@/lib/site";
 
 const anton = Anton({
   variable: "--font-anton",
@@ -39,13 +40,42 @@ export const metadata: Metadata = {
     template: "%s · Handcraft",
   },
   description:
-    "Fresh beef smashed thin on a 450° flat top until the crust reaches the edge. Tots, shakes and sixteen taps. 110 West 40th Street, New York.",
+    "Hand-crafted, fresh, never-frozen 100% beef smashed burgers with tater tots, french fries and craft beers — full hospitality in a quick-service room. 110 W 40th St, near Bryant Park.",
   openGraph: {
     title: "Handcraft — Smash Burgers & Brew",
     description:
       "Never frozen. Smashed to order. 110 West 40th Street, New York.",
     type: "website",
   },
+};
+
+const DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+/** Local-business markup so search shows the right hours, phone and address. */
+const restaurantJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  name: SITE.name,
+  servesCuisine: ["Burgers", "American"],
+  priceRange: "$$",
+  telephone: SITE.phone,
+  url: SITE.orderUrl,
+  hasMenu: SITE.orderUrl,
+  acceptsReservations: "False",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: SITE.street,
+    addressLocality: "New York",
+    addressRegion: "NY",
+    postalCode: "10018",
+    addressCountry: "US",
+  },
+  openingHoursSpecification: REGULAR_HOURS.map((r) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: r.dow.map((d) => DAY_NAMES[d]),
+    opens: `${String(r.open).padStart(2, "0")}:00`,
+    closes: `${String(r.close).padStart(2, "0")}:00`,
+  })),
 };
 
 export default function RootLayout({
@@ -64,6 +94,10 @@ export default function RootLayout({
         />
       </head>
       <body className="grain min-h-screen bg-char font-sans text-bone antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }}
+        />
         <ScrollMotion />
         <Navbar />
         {children}
