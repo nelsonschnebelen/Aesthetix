@@ -102,25 +102,14 @@ export function RightHere() {
             </div>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="relative aspect-[4/3] overflow-hidden">
-              <Image
-                src={img(IMG.storefront, { w: 900 })}
-                alt="The Handcraft storefront on West 40th Street"
-                fill
-                sizes="(max-width: 640px) 100vw, 33vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="relative aspect-[4/3] overflow-hidden">
-              <Image
-                src={img(IMG.streetPark, { w: 900 })}
-                alt="The block beside Bryant Park"
-                fill
-                sizes="(max-width: 640px) 100vw, 33vw"
-                className="object-cover"
-              />
-            </div>
+          <div className="relative aspect-[16/9] overflow-hidden">
+            <Image
+              src={img(IMG.storefront, { w: 1400 })}
+              alt="The Handcraft storefront on West 40th Street"
+              fill
+              sizes="(max-width: 1024px) 100vw, 55vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </div>

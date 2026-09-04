@@ -14,14 +14,27 @@ export function BurgersMeetBrew() {
   return (
     <section className="bg-soot">
       <div className="mx-auto grid max-w-[1400px] items-center gap-10 lg:grid-cols-2">
-        <div className="relative min-h-[300px] lg:min-h-[520px]">
-          <Image
-            src={img(IMG.burgerBrew, { w: 1400 })}
-            alt="A Handcraft double beside a cold can of craft beer"
-            fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
-          />
+        {/* Two real frames — their burger, and the taps — rather than one
+            composite of a burger next to a can that never existed. */}
+        <div className="grid min-h-[300px] grid-cols-2 lg:min-h-[520px]">
+          <div className="relative">
+            <Image
+              src={img(IMG.smashOklahoma, { w: 900 })}
+              alt="A Handcraft double, smashed to order"
+              fill
+              sizes="(max-width: 1024px) 50vw, 25vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="relative">
+            <Image
+              src={img(IMG.beerPair, { w: 900 })}
+              alt="Cold craft beer poured at the bar"
+              fill
+              sizes="(max-width: 1024px) 50vw, 25vw"
+              className="object-cover"
+            />
+          </div>
         </div>
 
         <div className="px-5 py-14 md:px-12 md:py-20">

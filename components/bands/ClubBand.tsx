@@ -7,7 +7,7 @@ import { IMG, img } from "@/lib/images";
 const PERKS: [string, string][] = [
   ["Free burgers", IMG.smashOg],
   ["Birthday reward", IMG.fries],
-  ["Exclusive perks", IMG.burgerBrew],
+  ["Exclusive perks", IMG.brat],
 ];
 
 /** The red band: the loyalty pitch. */

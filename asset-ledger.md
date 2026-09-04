@@ -1,39 +1,40 @@
 # Asset Ledger — Handcraft
 
-Generated assets, so nothing is ever paid for twice. Check this before any
-future Higgsfield generation for this project.
+## There is no AI-generated imagery on this site
 
-**Session 2026-09-04 · 20.0 credits · balance 1,033.52 → 1,013.52**
+Every file under `public/img/` is a real photograph — either the owner's own
+or licensed Unsplash stock. The generated set produced on 2026-09-04 has been
+entirely removed.
 
-| File | Model | Params | Credits | Notes |
-|---|---|---|---|---|
-| `public/img/hero-street.jpg` | `nano_banana_2` (pro requested) | 2k, 16:9 | 2.0 | Hand-held double, night street. Superseded as hero by the client's own storefront photo; kept as the alternate. |
-| `public/img/smash-og.jpg` | `nano_banana_flash` | 1k, 1:1 | 1.5 | OG double on kraft, oxblood ground |
-| `public/img/smash-oklahoma.jpg` | `nano_banana_flash` | 1k, 1:1 | 1.5 | Onion smashed into the crust |
-| `public/img/smash-spicy.jpg` | `nano_banana_flash` | 1k, 1:1 | 1.5 | Jalapeño |
-| `public/img/good-stuff.jpg` | `nano_banana_flash` | 1k, 16:9 | 1.5 | **Synthetic faces** — replace with real team/guest photos |
-| `public/img/month-tray.jpg` | `nano_banana_flash` | 1k, 4:3 | 1.5 | Burger of the month on a steel tray, mustard ground |
-| `public/img/loaded-tots.jpg` | `nano_banana_flash` | 1k, 4:3 | 1.5 | |
-| `public/img/fries.jpg` | `nano_banana_flash` | 1k, 4:3 | 1.5 | |
-| `public/img/burger-brew.jpg` | `nano_banana_flash` | 1k, 16:9 | 1.5 | Can is deliberately **unbranded** |
-| `public/img/hospitality.jpg` | `nano_banana_flash` | 1k, 4:3 | 1.5 | **Synthetic faces** — replace |
-| `public/img/storefront.jpg` | `nano_banana_flash` | 1k, 4:3 | 1.5 | Generic NY frontage, not the real shop — replace |
-| `public/img/street-park.jpg` | `nano_banana_flash` | 1k, 4:3 | 1.5 | Generic Bryant Park block — replace |
-| `public/img/three-up.jpg` | `nano_banana_flash` | 1k, 16:9 | 1.5 | Footer CTA |
+### The owner's own photographs
 
-Not generated: hero video (declined), vertical crops (CSS `object-fit` covers
-mobile), the logo badge (SVG in `components/brand/Logo.tsx`).
+`hero-street` · `smash-og` · `smash-oklahoma` · `bacon-jam` · `brat` ·
+`loaded-tots` · `sauce-flight` · `fries` · `storefront`
 
-Reusable across clients: none of these — every frame is brand-specific.
+These carry the hero, the smash rail, the burger of the month, the sides, the
+brew band, the closing CTA and every location block.
 
-## Superseded by the owner's own photography (2026-09-04)
+### Licensed Unsplash stock
 
-Nine generated frames were replaced with real Handcraft photographs supplied
-by the owner: `hero-street`, `smash-og`, `smash-oklahoma`, `loaded-tots`,
-`fries`, `storefront`, plus three new slots (`brat`, `bacon-jam`,
-`sauce-flight`). The generated versions are gone; the credits are spent and
-not recoverable, but nothing further should be generated for those slots.
+`good-stuff` (guests at a table) · `hospitality` (a cook on the pass) ·
+`smash-spicy`, plus the fourteen files in `public/img/stock/` used for menu
+items with no Handcraft frame yet. All downloaded into the repo rather than
+hotlinked, so the static export is self-contained.
 
-Still generated and still wanting replacement: `good-stuff` and `hospitality`
-(**synthetic faces — not for public release**), `street-park`, `month-tray`,
-`burger-brew`, `three-up`, `smash-spicy`.
+### Removed outright rather than replaced
+
+Four generated images were deleted by rewiring their sections onto the
+owner's own photography, which is better than any substitute:
+
+| Deleted | What now fills the slot |
+|---|---|
+| `month-tray.jpg` | The real Bacon Jam plate — and the burger of the month is now that burger |
+| `burger-brew.jpg` | A split of the real Oklahoma and a real photograph of beer, instead of one composite of a burger beside a can that never existed |
+| `three-up.jpg` | The real storefront banner behind the closing CTA |
+| `street-park.jpg` | Dropped — the Visit block runs the real storefront full width rather than substituting a generic street |
+
+### Credits spent, for the record
+
+20.0 Higgsfield credits were spent generating the original set. None of that
+output remains in the site. Nothing further should be generated: the gaps that
+are left want real photography, not another render.

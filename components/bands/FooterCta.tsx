@@ -7,11 +7,11 @@ export function FooterCta() {
   return (
     <section className="relative overflow-hidden bg-char">
       <Image
-        src={img(IMG.threeUp, { w: 1800 })}
+        src={img(IMG.heroStreet, { w: 1800 })}
         alt=""
         fill
         sizes="100vw"
-        className="object-cover object-right opacity-45"
+        className="object-cover object-center opacity-40"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-char via-char/85 to-char/25" />
 

@@ -251,7 +251,7 @@ export const MENU: MenuItem[] = [
       "Buttered heel",
     ],
     heat: 3,
-    image: IMG.monthTray,
+    image: IMG.stackedDark,
     spec: { patties: 2, ozEach: 3, sear: "80s", temp: 450 },
   },
   {
@@ -409,7 +409,7 @@ export const MENU: MenuItem[] = [
     blurb: "Brewed for us in Brooklyn. Cold, clean, built to reset your palate.",
     build: ["4.6% ABV", "Brooklyn", "16oz pour"],
     heat: 0,
-    image: IMG.burgerBrew,
+    image: IMG.beerPair,
     spec: { patties: 0, ozEach: 16, sear: "0s", temp: 36 },
   },
   {
@@ -430,10 +430,10 @@ export const BY_ID = Object.fromEntries(MENU.map((m) => [m.id, m])) as Record<st
 /** Rotating spotlight — the burger of the month and what to drink with it. */
 export const SPOTLIGHT = {
   month: "This Month",
-  name: "The Oklahoma",
-  itemId: "oklahoma",
+  name: "The Bacon Jam",
+  itemId: "bacon-jam",
   story:
-    "Depression-era Oklahoma stretched scarce beef with a fistful of shaved onion pressed straight into the raw patty. On a 440° flat top the onion caramelises into the crust instead of sitting on top of it. We smash it the same way, on the same steel, every day until the onions run out.",
+    "Bacon jam, crispy fried onions and pickled jalapeños stacked over a double, with lettuce and tomato underneath holding the whole thing together. It arrives leaning and nobody has ever minded. On the board this month only.",
   pairing: {
     name: "House Lager",
     note: "Brooklyn-brewed, 4.6%. Sweet onion needs something dry and cold to argue with.",

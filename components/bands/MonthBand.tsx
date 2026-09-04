@@ -30,13 +30,13 @@ export function MonthBand() {
           </Link>
         </div>
 
-        <div className="relative aspect-[4/3]">
+        <div className="relative mx-auto aspect-[4/5] w-full max-w-[380px] overflow-hidden">
           <Image
-            src={img(IMG.monthTray, { w: 1200 })}
+            src={img(IMG.baconJam, { w: 900 })}
             alt={`${SPOTLIGHT.name}, this month's Handcraft`}
             fill
-            sizes="(max-width: 1024px) 100vw, 45vw"
-            className="object-contain"
+            sizes="(max-width: 1024px) 80vw, 30vw"
+            className="object-cover"
           />
         </div>
 

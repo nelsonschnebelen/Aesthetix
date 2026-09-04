@@ -37,7 +37,7 @@ export default function StoryPage() {
       {/* -------------------------------------------------------- hero -- */}
       <section className="relative flex min-h-[70svh] items-end overflow-hidden">
         <Image
-          src={img(IMG.threeUp, { w: 2000, h: 1200 })}
+          src={img(IMG.smashOklahoma, { w: 2000, h: 1200 })}
           alt="Two burgers resting on the pass"
           fill
           priority

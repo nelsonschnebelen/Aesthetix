@@ -1,10 +1,12 @@
 /**
  * Every photograph on the site, in one place — and all of it local.
  *
- * `/img/*` are Handcraft's own photographs. `/img/stock/*` are licensed
- * Unsplash images downloaded into the repo rather than hotlinked, so a
- * static export is entirely self-contained and cannot be broken by a
- * third party rate-limiting or blocking us.
+ * `/img/*` are Handcraft's own photographs. `/img/stock/*` and a few files
+ * in `/img/` are licensed Unsplash photography, downloaded into the repo
+ * rather than hotlinked so a static export is self-contained.
+ *
+ * There is no AI-generated imagery on this site. Every file here is a real
+ * photograph — either the owner's or licensed stock.
  */
 
 export const IMG = {
@@ -16,15 +18,11 @@ export const IMG = {
   baconJam: "/img/bacon-jam.jpg",
   brat: "/img/brat.jpg",
   goodStuff: "/img/good-stuff.jpg",
-  monthTray: "/img/month-tray.jpg",
   loadedTots: "/img/loaded-tots.jpg",
   sauceFlight: "/img/sauce-flight.jpg",
   fries: "/img/fries.jpg",
-  burgerBrew: "/img/burger-brew.jpg",
   hospitality: "/img/hospitality.jpg",
   storefront: "/img/storefront.jpg",
-  streetPark: "/img/street-park.jpg",
-  threeUp: "/img/three-up.jpg",
 
   // -------------------------------------------------- licensed stock ----
   baconBlack: "/img/stock/baconBlack.jpg",
@@ -65,6 +63,7 @@ export const PENDING_PHOTOS: { path: string; shows: string }[] = [
   { path: "public/img/hangover.jpg", shows: "The Hangover — hash brown, bacon, runny egg" },
   { path: "public/img/two-up.jpg", shows: "Two OG singles with fries in paper cups" },
   { path: "public/img/dining-room.jpg", shows: "The room — wood slat, subway tile, Get Smashed neon" },
-  { path: "public/img/good-stuff.jpg", shows: "Real guests at a table (currently generated — synthetic faces)" },
-  { path: "public/img/hospitality.jpg", shows: "Real team at the counter (currently generated — synthetic faces)" },
+  { path: "public/img/good-stuff.jpg", shows: "Your own guests at a table (currently licensed stock)" },
+  { path: "public/img/hospitality.jpg", shows: "Your own team on the pass (currently licensed stock)" },
+  { path: "public/img/smash-spicy.jpg", shows: "The Spicy Ultimate Smash (currently licensed stock)" },
 ];
