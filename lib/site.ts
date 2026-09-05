@@ -13,26 +13,21 @@ export const SITE = {
    * The live ordering menu — deep-linked straight to the pickup board rather
    * than the bare domain, so a visitor lands on the food.
    *
-   * Runs on DoorDash "Tableside Order & Pay" (the bundle loads DoorDash's
-   * design system and Stripe), not on Toast — the copy on the site stays
-   * provider-neutral so it survives a switch.
+   * The menu is managed in Toast and served through a DoorDash (Bbot) Order
+   * & Pay front-end. The copy on the site names neither, so it survives a
+   * change on either side.
    */
   orderUrl: "https://handcraftburgers.menu/pickup?menu=7ee8d6e2-6c5f-449a-9177-dc66599af945",
   clubUrl: "https://handcraftburgers.com/hospitality-club",
   priceRange: "$$ · most items $10–18",
 
-  /**
-   * The same menu, embedded below the handoff panel on /menu so the live
-   * board is on our own page. Set to null to drop the frame and keep only
-   * the handoff.
-   *
-   * Not verified rendering inside a frame: no X-Frame-Options or
-   * frame-ancestors header blocks it, but the ordering app is a Stripe-backed
-   * payment flow and those can misbehave in a cross-origin frame. The handoff
-   * panel above it always works, so a blank frame degrades to a working page
-   * rather than a broken one.
+  /*
+   * There is deliberately no embed URL. The ordering app's checkout store
+   * disables checkout in production when it detects it is inside an iframe
+   * (window.location !== window.parent.location), and it shows a preview
+   * banner when framed. Embedding it would let people browse and stop them
+   * paying. Link to it; never frame it.
    */
-  menuEmbedUrl: "https://handcraftburgers.menu/pickup?menu=7ee8d6e2-6c5f-449a-9177-dc66599af945" as string | null,
 } as const;
 
 export type HourRow = { days: string; hours: string; dow: number[]; open: number; close: number };

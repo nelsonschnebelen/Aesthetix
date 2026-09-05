@@ -16,7 +16,7 @@ npm run build
 | Route | What it does |
 |---|---|
 | `/` | Cinematic scroll hero, claim strip, the smash rail, burger of the month, sides, hospitality, brew pairings, Forge teaser, club, visit |
-| `/menu` | A handoff to the live ordering menu, with the board embedded below it |
+| `/menu` | A handoff to the live ordering menu, plus the guest favourites with real photographs and no prices |
 | `/build` | **The Forge** — an interactive builder that draws the burger as you stack it |
 | `/story` | The origin, the beef, the room |
 | `/visit` | Address, hours, live open/closed |
@@ -51,16 +51,15 @@ The ordering system owns the menu. Items, prices and availability come from
 it live, so a change there is a change on the site with no deploy and nothing
 to edit in this repo.
 
-It runs on DoorDash "Tableside Order & Pay" — the app bundle loads DoorDash's
-design system and Stripe — reached at `handcraftburgers.menu`. The copy on the
-site never names the provider, so switching provider is a one-line change to
-`SITE.orderUrl` rather than a copy edit.
+The menu is managed in Toast and served through a DoorDash (Bbot) Order & Pay
+front-end at `handcraftburgers.menu`. The copy on the site names neither, so
+a change on either side is a one-line change to `SITE.orderUrl`.
 
-`/menu` leads with a handoff panel, which is a plain link and cannot fail, and
-embeds the live board below it. That order is deliberate: no header blocks
-framing, but the ordering app is a Stripe-backed payment flow and those can
-misbehave cross-origin, so a blank frame degrades to a working page. Set
-`SITE.menuEmbedUrl` to `null` to drop the frame entirely.
+**The ordering site is linked, never framed.** Its own checkout store disables
+checkout in production when it detects it is inside an iframe, and it shows a
+preview banner when framed — a frame would let people browse and stop them
+paying. `/menu` is a handoff panel plus the guest favourites the FAQ names,
+with real photographs and no prices.
 
 Nothing anywhere on the site states a price. That is deliberate — the site
 cannot contradict the ordering system.

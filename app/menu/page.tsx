@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { MenuEmbed } from "@/components/menu/MenuEmbed";
+import { LiveMenu } from "@/components/menu/LiveMenu";
 import { FooterCta } from "@/components/bands/FooterCta";
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function MenuPage() {
             <span className="text-ember">.</span>
           </h1>
         </header>
-        <MenuEmbed />
+        <LiveMenu />
       </div>
       <FooterCta />
     </main>
