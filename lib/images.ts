@@ -22,13 +22,21 @@ export const IMG = {
   sauceFlight: "/img/sauce-flight.jpg",
   fries: "/img/fries.jpg",
   storefront: "/img/storefront.jpg",
+  // The ordering site's Most Loved set, sent by the owner (500px thumbnails,
+  // graded with one shared recipe — no crop, no retouch).
+  og: "/img/og.jpg",
+  ogCombo: "/img/og-combo.jpg",
+  doubleUltimate: "/img/double-ultimate.jpg",
+  hotsyTots: "/img/hotsy-tots.jpg",
+  friesTray: "/img/fries-tray.jpg",
+  spicyChicken: "/img/spicy-chicken.jpg",
+  nuggets: "/img/nuggets.jpg",
 
   // -------------------------------------------------- licensed stock ----
   baconBlack: "/img/stock/baconBlack.jpg",
   baconLight: "/img/stock/baconLight.jpg",
   basketCombo: "/img/stock/basketCombo.jpg",
   beerTap: "/img/stock/beerTap.jpg",
-  crispyBird: "/img/stock/crispyBird.jpg",
   deconstructed: "/img/stock/deconstructed.jpg",
   eggSmash: "/img/stock/eggSmash.jpg",
   griddleDuo: "/img/stock/griddleDuo.jpg",
@@ -36,7 +44,6 @@ export const IMG = {
   shakeStack: "/img/stock/shakeStack.jpg",
   sliders: "/img/stock/sliders.jpg",
   stackedDark: "/img/stock/stackedDark.jpg",
-  tenders: "/img/stock/tenders.jpg",
 } as const;
 
 /**
@@ -61,7 +68,6 @@ export function img(
  */
 export const PENDING_PHOTOS: { path: string; shows: string }[] = [
   { path: "public/img/hangover.jpg", shows: "The Hangover — hash brown, bacon, runny egg" },
-  { path: "public/img/two-up.jpg", shows: "Two OG singles with fries in paper cups" },
   { path: "public/img/dining-room.jpg", shows: "The room — wood slat, subway tile, Get Smashed neon" },
   { path: "public/img/good-stuff.jpg", shows: "Your own guests at a table (currently licensed stock)" },
   { path: "public/img/room.jpg", shows: "Your room — wood slat, subway tile, Get Smashed neon" },

@@ -9,8 +9,8 @@ export function TotsFries() {
       <div className="mx-auto grid max-w-[1400px] items-center gap-8 px-5 md:px-8 lg:grid-cols-[1fr_1.25fr_1fr]">
         <div className="relative aspect-[4/3] overflow-hidden">
           <Image
-            src={img(IMG.loadedTots, { w: 900 })}
-            alt="Loaded griddle tots in a steel basket"
+            src={img(IMG.hotsyTots, { w: 900 })}
+            alt="Hotsy Chili Cheese Tots — chili and beer cheese over crispy tots"
             fill
             sizes="(max-width: 1024px) 100vw, 33vw"
             className="object-cover"
@@ -36,8 +36,8 @@ export function TotsFries() {
 
         <div className="relative aspect-[4/3] overflow-hidden">
           <Image
-            src={img(IMG.fries, { w: 900 })}
-            alt="Hand-cut fries in a steel tray"
+            src={img(IMG.friesTray, { w: 900 })}
+            alt="Handcraft Fries in paper cups on a steel tray with four sauces"
             fill
             sizes="(max-width: 1024px) 100vw, 33vw"
             className="object-cover"

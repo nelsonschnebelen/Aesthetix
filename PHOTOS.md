@@ -31,17 +31,15 @@ These are the owner's own photographs, resized and cropped on the way in.
 | `three-up.jpg` | Closing CTA |
 | `smash-spicy.jpg` | Stand-in for the Spicy Ultimate |
 
-## Photos that would finish the homepage
+## Most Loved photos (in)
 
-The homepage now shows the ordering site's eight Most Loved items. Five use
-your own photographs. These four are stand-ins until you send the real one:
-
-| Save as | Item | What is there now |
-|---|---|---|
-| `public/img/og-combo.jpg` | The OG Combo — OG, fries and a drink on a plate | the OG on its own |
-| `public/img/hotsy-tots.jpg` | Hotsy Chili Cheese Tots — chili and beer cheese over tots | your plain tots with the cheese cup |
-| `public/img/spicy-chicken.jpg` | Spicy Chicken Sandwich | licensed stock |
-| `public/img/nuggets.jpg` | 6-piece Chicken Nugget | licensed stock |
+All eight Most Loved items now use your own photographs — the seven you sent
+(`og.jpg`, `og-combo.jpg`, `double-ultimate.jpg`, `hotsy-tots.jpg`,
+`fries-tray.jpg`, `spicy-chicken.jpg`, `nuggets.jpg`) plus `smash-og.jpg` for
+the Single Ultimate Smash. They arrived as 500px thumbnails and are graded with
+one shared recipe (warmth and a touch of contrast, no crop, no retouch). If you
+have the full-resolution originals, drop them over the same filenames and they
+replace the thumbnails everywhere.
 
 Also still wanted: `room.jpg` (your room) and `good-stuff.jpg` (your guests).
 

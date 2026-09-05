@@ -40,7 +40,7 @@ export const MENU: MenuItem[] = [
       "Heel",
     ],
     heat: 1,
-    image: IMG.heroStreet,
+    image: IMG.og,
     badges: ["Most loved"],
   },
   {
@@ -50,7 +50,7 @@ export const MENU: MenuItem[] = [
     blurb: "The OG with Handcraft fries and a drink.",
     build: ["The OG", "Handcraft fries", "A drink"],
     heat: 1,
-    image: IMG.heroStreet,
+    image: IMG.ogCombo,
     badges: ["Most loved"],
   },
   {
@@ -79,7 +79,7 @@ export const MENU: MenuItem[] = [
       "Heel",
     ],
     heat: 1,
-    image: IMG.smashOklahoma,
+    image: IMG.doubleUltimate,
     badges: ["Most loved"],
   },
   {
@@ -89,7 +89,7 @@ export const MENU: MenuItem[] = [
     blurb: "Tater tots topped with Garden Catering's Hotsy chili and beer cheese.",
     build: ["Tater tots", "Hotsy chili", "Beer cheese"],
     heat: 2,
-    image: IMG.loadedTots,
+    image: IMG.hotsyTots,
     badges: ["Most loved"],
   },
   {
@@ -99,7 +99,7 @@ export const MENU: MenuItem[] = [
     blurb: "One size fits all.",
     build: ["Hand-cut fries", "Signature sauces"],
     heat: 0,
-    image: IMG.sauceFlight,
+    image: IMG.friesTray,
     badges: ["Most loved"],
   },
   {
@@ -109,7 +109,7 @@ export const MENU: MenuItem[] = [
     blurb: "Crispy chicken, hot spice, shredded romaine lettuce, pickles, ranch.",
     build: ["Toasted crown", "Ranch", "Pickles", "Shredded romaine", "Crispy chicken, hot spice", "Heel"],
     heat: 3,
-    image: IMG.crispyBird,
+    image: IMG.spicyChicken,
     badges: ["Most loved"],
   },
   {
@@ -119,7 +119,7 @@ export const MENU: MenuItem[] = [
     blurb: "Six, crisp, with your choice of sauce.",
     build: ["Six chicken nuggets", "Sauce"],
     heat: 0,
-    image: IMG.tenders,
+    image: IMG.nuggets,
     badges: ["Most loved"],
   },
   {
