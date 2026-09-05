@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import { Logo } from "@/components/brand/Logo";
-import { useCart } from "@/lib/cart";
+import { SITE } from "@/lib/site";
 import { cn, griddleStatus } from "@/lib/utils";
 
 const LINKS = [
@@ -37,7 +37,6 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [status, setStatus] = useState<{ open: boolean; label: string } | null>(null);
   const pathname = usePathname();
-  const { count, openDrawer } = useCart();
 
   // Gold hairline across the foot of the bar, tracking read progress.
   const { scrollYProgress } = useScroll();
@@ -139,28 +138,16 @@ export function Navbar() {
             </motion.p>
 
             <motion.div variants={piece}>
-              <button
-                type="button"
-                onClick={openDrawer}
+              <a
+                href={SITE.orderUrl}
+                target="_blank"
+                rel="noreferrer noopener"
                 className="label-tech group relative flex items-center gap-2.5 overflow-hidden bg-gold px-6 py-3.5 text-char md:px-8"
               >
                 {/* Sheen sweep on hover */}
                 <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/55 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
                 <span className="relative">Order Online</span>
-                <AnimatePresence>
-                  {count > 0 && (
-                    <motion.span
-                      initial={{ scale: 0, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      exit={{ scale: 0, opacity: 0 }}
-                      transition={{ type: "spring", stiffness: 500, damping: 22 }}
-                      className="relative flex h-5 min-w-5 items-center justify-center bg-char px-1.5 text-[11px] leading-none text-bone"
-                    >
-                      {count}
-                    </motion.span>
-                  )}
-                </AnimatePresence>
-              </button>
+              </a>
             </motion.div>
 
             <motion.button

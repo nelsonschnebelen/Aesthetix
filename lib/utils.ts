@@ -5,11 +5,6 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-/** Cents -> "$13.95". Money never lives in floats. */
-export function money(cents: number): string {
-  return `$${(cents / 100).toFixed(2)}`;
-}
-
 import { REGULAR_HOURS } from "@/lib/site";
 
 export const TZ = "America/New_York";

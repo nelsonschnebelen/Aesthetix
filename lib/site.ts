@@ -13,6 +13,18 @@ export const SITE = {
   orderUrl: "https://handcraftburgers.menu/",
   clubUrl: "https://handcraftburgers.com/hospitality-club",
   priceRange: "$$ · most items $10–18",
+
+  /**
+   * The Toast menu widget. Paste the embed URL Toast gives you here and the
+   * /menu page switches from the handoff panel to the live widget — the menu
+   * then updates itself whenever Toast is updated, with nothing to maintain
+   * in this repo.
+   *
+   * Toast Online Ordering → Settings → "Embed" / "Add to your website".
+   * If Toast gives you a <script> tag rather than an iframe URL, paste the
+   * src it loads, or send it over and it takes about a minute to wire in.
+   */
+  menuEmbedUrl: null as string | null,
 } as const;
 
 export type HourRow = { days: string; hours: string; dow: number[]; open: number; close: number };

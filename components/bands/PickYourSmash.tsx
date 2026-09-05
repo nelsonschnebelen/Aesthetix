@@ -3,10 +3,10 @@
 import { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useCart } from "@/lib/cart";
 import { img } from "@/lib/images";
 import { BY_ID } from "@/lib/menu";
-import { cn, money } from "@/lib/utils";
+import { SITE } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 const PICKS = [
   "handcraft-double",
@@ -22,7 +22,6 @@ export function PickYourSmash() {
   const rail = useRef<HTMLDivElement>(null);
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
-  const { add } = useCart();
 
   const sync = useCallback(() => {
     const el = rail.current;
@@ -101,13 +100,14 @@ export function PickYourSmash() {
                   {item.name.replace(/^The /, "")}
                 </h3>
 
-                <button
-                  type="button"
-                  onClick={() => add({ key: item.id, name: item.name, price: item.price })}
-                  className="label-tech mt-4 border border-bone/40 px-6 py-3 text-bone transition-colors hover:bg-gold hover:border-gold hover:text-char"
+                <a
+                  href={SITE.orderUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="label-tech mt-4 inline-block border border-bone/40 px-6 py-3 text-bone transition-colors hover:border-gold hover:bg-gold hover:text-char"
                 >
-                  Add {money(item.price)}
-                </button>
+                  Order ↗
+                </a>
               </article>
             );
           })}

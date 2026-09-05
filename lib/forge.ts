@@ -6,8 +6,6 @@ export type Ingredient = {
   id: string;
   name: string;
   group: Group;
-  /** Cents. Bun price is the base of the burger. */
-  price: number;
   heat: number;
   /** Stack order, bottom of the burger up. Patties sit at 30. */
   order: number;
@@ -23,7 +21,6 @@ export type Ingredient = {
 };
 
 export const PATTY = {
-  price: 350,
   thickness: 26,
   width: 288,
   fill: "radial-gradient(120% 160% at 50% 30%, #8a4a25 0%, #5a2c15 55%, #2b1409 100%)",
@@ -35,7 +32,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "brioche",
     name: "Toasted brioche",
     group: "bun",
-    price: 795,
     heat: 0,
     order: 0,
     thickness: 30,
@@ -46,7 +42,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "potato",
     name: "Potato roll",
     group: "bun",
-    price: 795,
     heat: 0,
     order: 0,
     thickness: 32,
@@ -57,7 +52,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "lettuce-wrap",
     name: "Lettuce wrap",
     group: "bun",
-    price: 795,
     heat: 0,
     order: 0,
     thickness: 22,
@@ -71,7 +65,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "american",
     name: "Sharp American",
     group: "cheese",
-    price: 150,
     heat: 0,
     order: 34,
     thickness: 9,
@@ -83,7 +76,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "cheddar",
     name: "Aged cheddar",
     group: "cheese",
-    price: 200,
     heat: 0,
     order: 34,
     thickness: 9,
@@ -95,7 +87,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "pepperjack",
     name: "Pepper jack",
     group: "cheese",
-    price: 200,
     heat: 2,
     order: 34,
     thickness: 9,
@@ -108,7 +99,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "blue",
     name: "Point Reyes blue",
     group: "cheese",
-    price: 300,
     heat: 0,
     order: 34,
     thickness: 10,
@@ -123,7 +113,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "handcraft-sauce",
     name: "Handcraft sauce",
     group: "sauce",
-    price: 0,
     heat: 0,
     order: 60,
     thickness: 8,
@@ -135,7 +124,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "sriracha-mayo",
     name: "Sriracha mayo",
     group: "sauce",
-    price: 75,
     heat: 3,
     order: 60,
     thickness: 8,
@@ -148,7 +136,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "chipotle",
     name: "Chipotle crema",
     group: "sauce",
-    price: 75,
     heat: 3,
     order: 60,
     thickness: 8,
@@ -161,7 +148,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "mustard",
     name: "Yellow mustard",
     group: "sauce",
-    price: 0,
     heat: 1,
     order: 60,
     thickness: 6,
@@ -173,7 +159,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "onion-jam",
     name: "Bourbon onion jam",
     group: "sauce",
-    price: 150,
     heat: 0,
     order: 60,
     thickness: 10,
@@ -188,7 +173,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "romaine",
     name: "Shredded romaine",
     group: "topping",
-    price: 0,
     heat: 0,
     order: 10,
     thickness: 12,
@@ -200,7 +184,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "onion",
     name: "Shaved onion",
     group: "topping",
-    price: 0,
     heat: 0,
     order: 14,
     thickness: 8,
@@ -212,7 +195,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "bacon",
     name: "Thick-cut bacon",
     group: "topping",
-    price: 300,
     heat: 0,
     order: 40,
     thickness: 12,
@@ -225,7 +207,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "egg",
     name: "Fried egg",
     group: "topping",
-    price: 200,
     heat: 0,
     order: 44,
     thickness: 14,
@@ -238,7 +219,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "pickles",
     name: "Dill pickles",
     group: "topping",
-    price: 0,
     heat: 0,
     order: 48,
     thickness: 9,
@@ -250,7 +230,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "jalapeno",
     name: "Pickled jalapeños",
     group: "topping",
-    price: 100,
     heat: 4,
     order: 50,
     thickness: 9,
@@ -263,7 +242,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "hatch",
     name: "Roasted Hatch chile",
     group: "topping",
-    price: 200,
     heat: 3,
     order: 50,
     thickness: 11,
@@ -276,7 +254,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "serrano",
     name: "Charred serrano",
     group: "topping",
-    price: 150,
     heat: 5,
     order: 52,
     thickness: 8,
@@ -289,7 +266,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "tomato",
     name: "Vine tomato",
     group: "topping",
-    price: 0,
     heat: 0,
     order: 54,
     thickness: 13,
@@ -301,7 +277,6 @@ export const INGREDIENTS: Ingredient[] = [
     id: "shallot",
     name: "Crispy shallot",
     group: "topping",
-    price: 150,
     heat: 0,
     order: 56,
     thickness: 10,
@@ -345,7 +320,7 @@ export function nameBuild(opts: {
     .filter((id): id is string => Boolean(id))
     .map((id) => ING_BY_ID[id])
     .filter((i) => i?.epithet)
-    .sort((a, b) => b.heat - a.heat || b.price - a.price);
+    .sort((a, b) => b.heat - a.heat);
 
   if (opts.heat >= 5) return `${count} Five Alarm`;
   if (chosen.length === 0) {

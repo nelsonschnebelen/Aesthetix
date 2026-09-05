@@ -21,7 +21,7 @@ export default function BuildPage() {
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-bone/55">
             Pick your bun, stack your patties, and the burger assembles itself
             beside you — in the order the kitchen actually builds it. We name it
-            based on what you chose, and that name goes on the ticket.
+            based on what you chose, then send you to the menu to order it.
           </p>
         </header>
 

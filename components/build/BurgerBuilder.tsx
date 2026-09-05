@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { HeatMeter } from "@/components/menu/HeatMeter";
-import { useCart } from "@/lib/cart";
 import {
   BY_GROUP,
   ING_BY_ID,
@@ -11,7 +10,8 @@ import {
   PATTY,
   type Ingredient,
 } from "@/lib/forge";
-import { cn, money } from "@/lib/utils";
+import { SITE } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 type Layer = {
   key: string;
@@ -33,8 +33,6 @@ export function BurgerBuilder() {
   const [cheeseId, setCheeseId] = useState<string | null>("american");
   const [sauceIds, setSauceIds] = useState<string[]>(["handcraft-sauce"]);
   const [toppingIds, setToppingIds] = useState<string[]>(["romaine", "tomato"]);
-  const [added, setAdded] = useState(false);
-  const { add, openDrawer } = useCart();
 
   const bun = ING_BY_ID[bunId];
 
@@ -47,10 +45,6 @@ export function BurgerBuilder() {
     [cheeseId, sauceIds, toppingIds],
   );
 
-  const price = useMemo(
-    () => bun.price + patties * PATTY.price + chosen.reduce((n, i) => n + i.price, 0),
-    [bun, patties, chosen],
-  );
 
   const heat = useMemo(
     () => chosen.reduce((n, i) => Math.max(n, i.heat), 0),
@@ -141,18 +135,6 @@ export function BurgerBuilder() {
     setToppingIds(BY_GROUP.topping.filter(() => Math.random() > 0.6).map((i) => i.id));
   };
 
-  const onAdd = () => {
-    if (patties === 0 && chosen.length === 0) return;
-    add({
-      key: `forge:${bunId}:${patties}:${cheeseId ?? "-"}:${[...sauceIds].sort().join(",")}:${[...toppingIds].sort().join(",")}`,
-      name,
-      price,
-      note: `Your build · ${patties} patt${patties === 1 ? "y" : "ies"}`,
-      build: layers.map((l) => l.label),
-    });
-    setAdded(true);
-    window.setTimeout(() => setAdded(false), 1400);
-  };
 
   return (
     <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:gap-16">
@@ -216,7 +198,7 @@ export function BurgerBuilder() {
       <div>
         <div className="border border-bone/12 bg-soot p-6 md:p-8">
           <p className="label-tech text-gold">Your build</p>
-          <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
+          <div className="mt-3 flex flex-wrap items-end gap-4">
             <motion.h2
               key={name}
               initial={{ opacity: 0, y: 10 }}
@@ -226,7 +208,7 @@ export function BurgerBuilder() {
             >
               {name}
             </motion.h2>
-            <span className="font-mono-tech text-3xl text-gold">{money(price)}</span>
+
           </div>
           <HeatMeter heat={heat} className="mt-5" />
         </div>
@@ -241,7 +223,7 @@ export function BurgerBuilder() {
           </div>
         </Section>
 
-        <Section title="Patties" note={`${money(PATTY.price)} each · 3 oz, smashed thin`}>
+        <Section title="Patties" note="3 oz each, smashed thin">
           <div className="flex items-center gap-4">
             <button
               type="button"
@@ -274,7 +256,7 @@ export function BurgerBuilder() {
               None
             </Chip>
             {BY_GROUP.cheese.map((i) => (
-              <Chip key={i.id} on={cheeseId === i.id} onClick={() => setCheeseId(i.id)} price={i.price}>
+              <Chip key={i.id} on={cheeseId === i.id} onClick={() => setCheeseId(i.id)}>
                 {i.name}
               </Chip>
             ))}
@@ -288,7 +270,6 @@ export function BurgerBuilder() {
                 key={i.id}
                 on={sauceIds.includes(i.id)}
                 heat={i.heat}
-                price={i.price}
                 onClick={() => setSauceIds((s) => toggleIn(s, i.id, MAX_SAUCES))}
               >
                 {i.name}
@@ -304,7 +285,6 @@ export function BurgerBuilder() {
                 key={i.id}
                 on={toppingIds.includes(i.id)}
                 heat={i.heat}
-                price={i.price}
                 onClick={() => setToppingIds((t) => toggleIn(t, i.id, 99))}
               >
                 {i.name}
@@ -314,32 +294,26 @@ export function BurgerBuilder() {
         </Section>
 
         <div className="mt-10 flex flex-wrap gap-3">
-          <button
-            type="button"
-            onClick={onAdd}
-            disabled={patties === 0 && chosen.length === 0}
-            className={cn(
-              "label-tech flex-1 px-6 py-5 transition-colors disabled:opacity-40",
-              added ? "bg-bone text-char" : "bg-gold text-char hover:bg-bone",
-            )}
+          <a
+            href={SITE.orderUrl}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="btn flex-1 bg-gold text-center text-char hover:bg-bone"
           >
-            {added ? "Added ✓" : `Add ${name} · ${money(price)}`}
-          </button>
+            Order {name} ↗
+          </a>
           <button
             type="button"
             onClick={surprise}
-            className="label-tech border border-bone/20 px-6 py-5 text-bone/75 transition-colors hover:border-gold hover:text-gold"
+            className="btn border border-bone/20 text-bone/75 hover:border-gold hover:text-gold"
           >
             Surprise me
           </button>
-          <button
-            type="button"
-            onClick={openDrawer}
-            className="label-tech border border-bone/20 px-6 py-5 text-bone/75 transition-colors hover:border-bone hover:text-bone"
-          >
-            View order
-          </button>
         </div>
+        <p className="mt-3 text-sm text-bone/35">
+          Build it here, then order on our site — that is where the live menu
+          and prices are.
+        </p>
       </div>
     </div>
   );
@@ -370,13 +344,11 @@ function Chip({
   onClick,
   children,
   heat = 0,
-  price = 0,
 }: {
   on: boolean;
   onClick: () => void;
   children: React.ReactNode;
   heat?: number;
-  price?: number;
 }) {
   return (
     <button
@@ -398,7 +370,6 @@ function Chip({
       />
       {children}
       {heat >= 3 && <span className="text-ember">🌶</span>}
-      {price > 0 && <span className="font-mono-tech text-[11px] text-bone/35">+{money(price)}</span>}
     </button>
   );
 }

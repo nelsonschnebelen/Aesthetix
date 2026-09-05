@@ -6,8 +6,6 @@ export type MenuItem = {
   id: string;
   name: string;
   category: Category;
-  /** Cents — money never lives in floats. */
-  price: number;
   blurb: string;
   /** The build, bottom bun up. Rendered as the spec sheet. */
   build: string[];
@@ -33,7 +31,6 @@ export const MENU: MenuItem[] = [
     id: "handcraft-double",
     name: "The Handcraft Double",
     category: "smash",
-    price: 1395,
     blurb: "The one the whole block queues for. Two patties, lace-crisp at the edges.",
     build: [
       "Toasted brioche crown",
@@ -55,7 +52,6 @@ export const MENU: MenuItem[] = [
     id: "spicy-ultimate",
     name: "Spicy Ultimate Smash",
     category: "smash",
-    price: 1250,
     blurb: "Sriracha mayo, shaved onion, jalapeños stacked past the point of reason.",
     build: [
       "Potato roll crown",
@@ -75,7 +71,6 @@ export const MENU: MenuItem[] = [
     id: "classic-single",
     name: "The OG Handcraft",
     category: "smash",
-    price: 995,
     blurb: "One patty, all crust, dressed the way the counter dresses it. Proof that restraint is a flavour.",
     build: [
       "Toasted potato crown",
@@ -95,7 +90,6 @@ export const MENU: MenuItem[] = [
     id: "oklahoma",
     name: "The Oklahoma",
     category: "smash",
-    price: 1295,
     blurb: "A fistful of shaved onion pressed into the raw beef. Ninety years old and still undefeated.",
     build: [
       "Steamed potato crown",
@@ -115,7 +109,6 @@ export const MENU: MenuItem[] = [
     id: "bacon-crust",
     name: "Bacon Crust Smash",
     category: "smash",
-    price: 1550,
     blurb: "Bacon ground into the patty, then more bacon on top. We regret nothing.",
     build: [
       "Toasted brioche crown",
@@ -134,7 +127,6 @@ export const MENU: MenuItem[] = [
     id: "bacon-jam",
     name: "The Bacon Jam",
     category: "smash",
-    price: 1650,
     blurb: "Bacon jam, crispy fried onions and pickled jalapeños stacked over a double. It arrives leaning and nobody minds.",
     build: [
       "Toasted brioche crown",
@@ -158,7 +150,6 @@ export const MENU: MenuItem[] = [
     id: "hangover",
     name: "The Hangover",
     category: "smash",
-    price: 1595,
     blurb: "Hash brown, thick bacon and a fried egg with the yolk left loose. Ordered at 11am by people who need it.",
     build: [
       "Toasted brioche crown",
@@ -177,7 +168,6 @@ export const MENU: MenuItem[] = [
     id: "smoke-show",
     name: "Smoke Show",
     category: "smash",
-    price: 1495,
     blurb: "Chipotle, pepper jack, charred serrano. The only burger with a waiver.",
     build: [
       "Toasted brioche crown",
@@ -198,7 +188,6 @@ export const MENU: MenuItem[] = [
     id: "char-blue",
     name: "Char & Blue",
     category: "smash",
-    price: 1595,
     blurb: "Point Reyes blue, bourbon onions, black pepper you can hear.",
     build: [
       "Toasted brioche crown",
@@ -217,7 +206,6 @@ export const MENU: MenuItem[] = [
     id: "triple-threat",
     name: "The Triple Threat",
     category: "smash",
-    price: 1895,
     blurb: "Three patties, three slices, one decision you will defend for years.",
     build: [
       "Toasted brioche crown",
@@ -239,7 +227,6 @@ export const MENU: MenuItem[] = [
     id: "green-chile",
     name: "Green Chile Smash",
     category: "smash",
-    price: 1450,
     blurb: "Hatch chiles roasted in-house every Tuesday, whether you order it or not.",
     build: [
       "Toasted brioche crown",
@@ -258,7 +245,6 @@ export const MENU: MenuItem[] = [
     id: "the-ripper",
     name: "The Ripper",
     category: "dogs",
-    price: 1050,
     blurb: "Deep fried until the skin splits — that is where the name comes from — then loaded with kraut and mustard on a griddled roll.",
     build: [
       "Griddled split roll",
@@ -276,7 +262,6 @@ export const MENU: MenuItem[] = [
     id: "crispy-bird",
     name: "Crispy Bird",
     category: "notbeef",
-    price: 1395,
     blurb: "Buttermilk overnight, dredged twice, fried until it sounds like gravel.",
     build: [
       "Potato roll crown",
@@ -294,7 +279,6 @@ export const MENU: MenuItem[] = [
     id: "nashville-hot",
     name: "Nashville Hot Bird",
     category: "notbeef",
-    price: 1450,
     blurb: "Cayenne lacquer straight out of the fryer. Milk sold separately.",
     build: [
       "Potato roll crown",
@@ -313,7 +297,6 @@ export const MENU: MenuItem[] = [
     id: "understudy",
     name: "The Understudy",
     category: "notbeef",
-    price: 1350,
     blurb: "Plant-based, smashed on the same steel, crusted just as hard. No apology.",
     build: [
       "Toasted brioche crown",
@@ -333,7 +316,6 @@ export const MENU: MenuItem[] = [
     id: "griddle-tots",
     name: "Griddle Tots",
     category: "sides",
-    price: 550,
     blurb: "Fried, then finished face-down on the flat top for a crust that shatters. Warm cheese sauce comes with, not extra.",
     build: ["Tots", "Griddle-pressed", "Sea salt", "Warm cheese sauce"],
     heat: 0,
@@ -344,7 +326,6 @@ export const MENU: MenuItem[] = [
     id: "handcraft-fries",
     name: "Fries & the Sauce Flight",
     category: "sides",
-    price: 525,
     blurb: "Cut at 4pm for tomorrow, blanched, rested overnight, fried to order — and served with all six sauces, because picking one is a trap.",
     build: [
       "Idaho russet, twice fried",
@@ -360,7 +341,6 @@ export const MENU: MenuItem[] = [
     id: "loaded-tots",
     name: "Loaded Tots",
     category: "sides",
-    price: 950,
     blurb: "Beer cheese, burnt ends of bacon, scallion, pickled jalapeño.",
     build: ["Griddle tots", "Beer cheese", "Bacon ends", "Scallion", "Pickled jalapeño"],
     heat: 2,
@@ -371,7 +351,6 @@ export const MENU: MenuItem[] = [
     id: "onion-frizzles",
     name: "Onion Frizzles",
     category: "sides",
-    price: 600,
     blurb: "Shaved so thin they go translucent. Buttermilk, rice flour, gone in a minute.",
     build: ["Shaved Vidalia", "Buttermilk soak", "Rice flour"],
     heat: 0,
@@ -382,7 +361,6 @@ export const MENU: MenuItem[] = [
     id: "burnt-sugar-shake",
     name: "Burnt Sugar Shake",
     category: "shakes",
-    price: 800,
     blurb: "Caramel taken one shade past comfortable, spun with frozen custard.",
     build: ["Frozen custard", "Burnt caramel", "Maldon"],
     heat: 0,
@@ -394,7 +372,6 @@ export const MENU: MenuItem[] = [
     id: "malt-chocolate",
     name: "Malted Chocolate",
     category: "shakes",
-    price: 800,
     blurb: "Valrhona, malt powder, and enough structural integrity to hold a spoon upright.",
     build: ["Frozen custard", "Valrhona", "Malt"],
     heat: 0,
@@ -405,7 +382,6 @@ export const MENU: MenuItem[] = [
     id: "house-lager",
     name: "House Lager",
     category: "brew",
-    price: 700,
     blurb: "Brewed for us in Brooklyn. Cold, clean, built to reset your palate.",
     build: ["4.6% ABV", "Brooklyn", "16oz pour"],
     heat: 0,
@@ -416,7 +392,6 @@ export const MENU: MenuItem[] = [
     id: "rotating-ipa",
     name: "Rotating IPA",
     category: "brew",
-    price: 900,
     blurb: "Whatever the cellar says is drinking best today. Ask the counter.",
     build: ["6.2–7.4% ABV", "Rotating", "16oz pour"],
     heat: 0,

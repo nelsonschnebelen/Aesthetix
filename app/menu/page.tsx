@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { MenuBoard } from "@/components/menu/MenuBoard";
+import { MenuEmbed } from "@/components/menu/MenuEmbed";
+import { FooterCta } from "@/components/bands/FooterCta";
 
 export const metadata: Metadata = {
   title: "Menu",
   description:
-    "Smash burgers, fried birds, griddle tots, shakes spun thick and sixteen rotating taps. Filter the whole board by how much heat you can take.",
+    "Smash burgers, the Ripper, loaded tots, hand-cut fries with six sauces and rotating craft brews. Order pickup or delivery from us.",
 };
 
 export default function MenuPage() {
   return (
-    <main className="pt-28 pb-24 md:pt-36">
-      <div className="mx-auto max-w-[1280px] px-6 md:px-10">
-        <header className="mb-14 max-w-3xl">
+    <main className="pt-24 md:pt-28">
+      <div className="mx-auto max-w-[1400px] px-5 pt-10 pb-14 md:px-8 md:pt-14">
+        <header className="mb-10 max-w-3xl">
           <p className="label-tech text-gold">The board</p>
           <h1 className="band-head mt-5 text-bone">
             Everything we
@@ -19,15 +20,10 @@ export default function MenuPage() {
             <span className="text-gold">put on steel</span>
             <span className="text-ember">.</span>
           </h1>
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-bone/55">
-            Every burger is 3oz patties smashed to order on a 450° flat top.
-            Hit <span className="text-bone">Build</span> on any card to see it
-            assembled layer by layer, exactly the way it leaves the pass.
-          </p>
         </header>
-
-        <MenuBoard />
+        <MenuEmbed />
       </div>
+      <FooterCta />
     </main>
   );
 }

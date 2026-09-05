@@ -3,7 +3,6 @@ import { Anton, Inter, JetBrains_Mono, Kaushan_Script } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { OrderDrawer } from "@/components/order/OrderDrawer";
 import { ScrollMotion } from "@/components/motion/ScrollMotion";
 import { REGULAR_HOURS, SITE } from "@/lib/site";
 
@@ -102,7 +101,6 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-        <OrderDrawer />
       </body>
     </html>
   );
