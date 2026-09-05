@@ -36,10 +36,12 @@ These are the owner's own photographs, resized and cropped on the way in.
 All eight Most Loved items now use your own photographs — the seven you sent
 (`og.jpg`, `og-combo.jpg`, `double-ultimate.jpg`, `hotsy-tots.jpg`,
 `fries-tray.jpg`, `spicy-chicken.jpg`, `nuggets.jpg`) plus `smash-og.jpg` for
-the Single Ultimate Smash. They arrived as 500px thumbnails and are graded with
-one shared recipe (warmth and a touch of contrast, no crop, no retouch). If you
-have the full-resolution originals, drop them over the same filenames and they
-replace the thumbnails everywhere.
+the Single Ultimate Smash. They arrived as 500px thumbnails, were upscaled to
+2K (sharpening only — every result was checked against its original and the
+food is unchanged), exported at 1600px and graded with one shared recipe
+(warmth and a touch of contrast, no crop, no retouch). If you have the
+full-resolution originals, drop them over the same filenames and they replace
+these everywhere.
 
 Also still wanted: `room.jpg` (your room) and `good-stuff.jpg` (your guests).
 

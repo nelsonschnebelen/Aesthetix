@@ -6,7 +6,10 @@
  * rather than hotlinked so a static export is self-contained.
  *
  * There is no AI-generated imagery on this site. Every file here is a real
- * photograph — either the owner's or licensed stock.
+ * photograph — either the owner's or licensed stock. The seven Most Loved
+ * shots arrived as 500px thumbnails and were run through a 2K upscaler
+ * (sharpening only; each result was checked against its original and the
+ * food is unchanged).
  */
 
 export const IMG = {
@@ -22,8 +25,8 @@ export const IMG = {
   sauceFlight: "/img/sauce-flight.jpg",
   fries: "/img/fries.jpg",
   storefront: "/img/storefront.jpg",
-  // The ordering site's Most Loved set, sent by the owner (500px thumbnails,
-  // graded with one shared recipe — no crop, no retouch).
+  // The ordering site's Most Loved set, sent by the owner. Upscaled to 2K,
+  // exported at 1600px, graded with one shared recipe — no crop, no retouch.
   og: "/img/og.jpg",
   ogCombo: "/img/og-combo.jpg",
   doubleUltimate: "/img/double-ultimate.jpg",
