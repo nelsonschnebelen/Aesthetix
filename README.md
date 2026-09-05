@@ -16,7 +16,7 @@ npm run build
 | Route | What it does |
 |---|---|
 | `/` | Cinematic scroll hero, claim strip, the smash rail, burger of the month, sides, hospitality, brew pairings, Forge teaser, club, visit |
-| `/menu` | The live Toast menu widget — Toast is the single source of truth for items and prices |
+| `/menu` | A handoff to the live ordering menu, with the board embedded below it |
 | `/build` | **The Forge** — an interactive builder that draws the burger as you stack it |
 | `/story` | The origin, the beef, the room |
 | `/visit` | Address, hours, live open/closed |
@@ -47,18 +47,27 @@ read it.
 
 ## The menu is not maintained here
 
-Toast owns the menu. Items, prices and availability come from the live
-ordering system, so a change in Toast is a change on the site with no deploy
-and nothing to edit in this repo.
+The ordering system owns the menu. Items, prices and availability come from
+it live, so a change there is a change on the site with no deploy and nothing
+to edit in this repo.
 
-Set `SITE.menuEmbedUrl` in `lib/site.ts` to the embed URL Toast provides and
-`/menu` renders the widget; until then it renders a handoff panel linking to
-the ordering site. Nothing anywhere on the site states a price — that is
-deliberate, so the site can never contradict Toast.
+It runs on DoorDash "Tableside Order & Pay" — the app bundle loads DoorDash's
+design system and Stripe — reached at `handcraftburgers.menu`. The copy on the
+site never names the provider, so switching provider is a one-line change to
+`SITE.orderUrl` rather than a copy edit.
+
+`/menu` leads with a handoff panel, which is a plain link and cannot fail, and
+embeds the live board below it. That order is deliberate: no header blocks
+framing, but the ordering app is a Stripe-backed payment flow and those can
+misbehave cross-origin, so a blank frame degrades to a working page. Set
+`SITE.menuEmbedUrl` to `null` to drop the frame entirely.
+
+Nothing anywhere on the site states a price. That is deliberate — the site
+cannot contradict the ordering system.
 
 `lib/menu.ts` still holds item names, photographs, heat ratings and build
-sheets for the marketing sections. If an item is renamed in Toast, that file
-is the only place to match it, and nothing breaks if it drifts.
+sheets for the marketing sections. If an item is renamed, that file is the
+only place to match it, and nothing breaks if it drifts.
 
 ## Stack
 

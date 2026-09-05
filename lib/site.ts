@@ -9,22 +9,30 @@ export const SITE = {
   cityLine: "New York, NY 10018",
   mapsUrl:
     "https://google.com/maps/place?q=Handcraft+Burgers+%26+Brew%2C+110+W+40th+St%2C+New+York%2C+NY+10018",
-  /** Their own in-house ordering platform — pickup and delivery. */
-  orderUrl: "https://handcraftburgers.menu/",
+  /**
+   * The live ordering menu — deep-linked straight to the pickup board rather
+   * than the bare domain, so a visitor lands on the food.
+   *
+   * Runs on DoorDash "Tableside Order & Pay" (the bundle loads DoorDash's
+   * design system and Stripe), not on Toast — the copy on the site stays
+   * provider-neutral so it survives a switch.
+   */
+  orderUrl: "https://handcraftburgers.menu/pickup?menu=7ee8d6e2-6c5f-449a-9177-dc66599af945",
   clubUrl: "https://handcraftburgers.com/hospitality-club",
   priceRange: "$$ · most items $10–18",
 
   /**
-   * The Toast menu widget. Paste the embed URL Toast gives you here and the
-   * /menu page switches from the handoff panel to the live widget — the menu
-   * then updates itself whenever Toast is updated, with nothing to maintain
-   * in this repo.
+   * The same menu, embedded below the handoff panel on /menu so the live
+   * board is on our own page. Set to null to drop the frame and keep only
+   * the handoff.
    *
-   * Toast Online Ordering → Settings → "Embed" / "Add to your website".
-   * If Toast gives you a <script> tag rather than an iframe URL, paste the
-   * src it loads, or send it over and it takes about a minute to wire in.
+   * Not verified rendering inside a frame: no X-Frame-Options or
+   * frame-ancestors header blocks it, but the ordering app is a Stripe-backed
+   * payment flow and those can misbehave in a cross-origin frame. The handoff
+   * panel above it always works, so a blank frame degrades to a working page
+   * rather than a broken one.
    */
-  menuEmbedUrl: null as string | null,
+  menuEmbedUrl: "https://handcraftburgers.menu/pickup?menu=7ee8d6e2-6c5f-449a-9177-dc66599af945" as string | null,
 } as const;
 
 export type HourRow = { days: string; hours: string; dow: number[]; open: number; close: number };
