@@ -52,7 +52,7 @@ export function Navbar() {
   useEffect(() => {
     const tick = () => {
       const s = griddleStatus();
-      setStatus({ open: s.open, label: s.open ? "Open until 9" : "Closed" });
+      setStatus({ open: s.open, label: s.open ? s.detail.replace("Closes at", "Open until").replace("Closes in", "Closing in") : "Closed" });
     };
     tick();
     const id = window.setInterval(tick, 60_000);

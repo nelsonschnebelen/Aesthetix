@@ -147,27 +147,19 @@ export const MOST_LOVED = [
   "chicken-nuggets",
 ];
 
-/** Rotating spotlight — the burger of the month and the cause behind it. */
+/** Rotating spotlight — the burger the month band puts front and centre. */
 export const SPOTLIGHT = {
   month: "This Month",
   name: "Double Ultimate Smash",
   itemId: "double-ultimate-smash",
-  story:
-    "Two 3 oz patties smashed thin with shaved onions pressed straight into the sear, sharp American cheddar melting into the crust, Handcraft sauce on a toasted bun. The one the regulars order without looking at the board.",
-  pairing: {
-    name: "The Wave IPA",
-    note: "Citrus and pine cut straight through two patties of melted cheddar.",
-  },
-  /** A dollar off every burger of the month goes to a rotating local cause. */
-  cause: {
-    name: "City Meals on Wheels",
-    line: "$1 from every burger supports this month's cause",
-  },
 };
 
-/** What to drink with what, for the brew band. */
+/**
+ * What to drink with what, for the brew band. The tap list rotates, so these
+ * are styles rather than named beers — the counter knows what's pouring.
+ */
 export const PAIRINGS = [
-  { burgerId: "og", beer: "The Wave IPA", note: "Citrus and pine cut straight through two patties of melted cheddar." },
-  { burgerId: "double-ultimate-smash", beer: "Cold lager", note: "Sweet shaved onion needs something dry and very cold to argue with." },
-  { burgerId: "spicy-chicken-sandwich", beer: "Amber ale", note: "Malt sweetness is the only thing that talks the hot spice down." },
+  { burgerId: "og", beer: "A cold lager", note: "Clean and crisp against two smashed patties and sharp American cheddar." },
+  { burgerId: "double-ultimate-smash", beer: "An IPA", note: "Hop bite cuts straight through shaved onion, cheddar and Handcraft sauce." },
+  { burgerId: "spicy-chicken-sandwich", beer: "An amber ale", note: "A little malt sweetness to talk the heat down." },
 ];

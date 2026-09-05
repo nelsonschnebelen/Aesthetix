@@ -44,7 +44,7 @@ export function BurgersMeetBrew() {
             meet brew<span className="text-ember">.</span>
           </h2>
 
-          <p className="mt-5 text-lg text-bone/60">Perfect pairings. Every time.</p>
+          <p className="mt-5 text-lg text-bone/60">Craft beer on tap. Ask the counter what&rsquo;s pouring.</p>
 
           <div className="mt-7 border-l-2 border-gold pl-6">
             <p className="font-display text-2xl text-bone uppercase">

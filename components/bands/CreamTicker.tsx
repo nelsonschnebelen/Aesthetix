@@ -8,7 +8,7 @@ export function CreamTicker() {
         items={[
           "Fresh never frozen",
           "100% beef",
-          "Hand-cut fries",
+          "Tots & fries",
           "Craft beer",
           "Full hospitality",
         ]}
