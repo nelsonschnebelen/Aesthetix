@@ -20,8 +20,8 @@ export function PassTheGoodStuff() {
 
         <div className="relative min-h-[320px] lg:min-h-[520px]">
           <Image
-            src={img(IMG.goodStuff, { w: 1400 })}
-            alt="Friends around a table at Handcraft with burgers, fries and beer"
+            src={img(IMG.founders, { w: 1400 })}
+            alt="Chris, Chad and Rev, the founders, with an armful of Handcraft burgers and sides"
             fill
             sizes="(max-width: 1024px) 100vw, 60vw"
             className="object-cover"

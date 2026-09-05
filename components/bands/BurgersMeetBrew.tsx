@@ -14,8 +14,7 @@ export function BurgersMeetBrew() {
   return (
     <section className="bg-soot">
       <div className="mx-auto grid max-w-[1400px] items-center gap-10 lg:grid-cols-2">
-        {/* Two real frames — their burger, and the taps — rather than one
-            composite of a burger next to a can that never existed. */}
+        {/* Two real frames — their burger, and a can off their own counter. */}
         <div className="grid min-h-[300px] grid-cols-2 lg:min-h-[520px]">
           <div className="relative">
             <Image
@@ -28,8 +27,8 @@ export function BurgersMeetBrew() {
           </div>
           <div className="relative">
             <Image
-              src={img(IMG.beerTap, { w: 900 })}
-              alt="A craft beer pouring from the tap"
+              src={img(IMG.beerCan, { w: 900 })}
+              alt="A can of Other Half Green City, a double dry-hopped hazy IPA, on the counter"
               fill
               sizes="(max-width: 1024px) 50vw, 25vw"
               className="object-cover"

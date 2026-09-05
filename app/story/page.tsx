@@ -7,7 +7,7 @@ import { IMG, img } from "@/lib/images";
 export const metadata: Metadata = {
   title: "Story",
   description:
-    "Why we grind every morning, why the patty is 3oz and not 6, and why the flat top never drops below 450°.",
+    "Burger lovers first: who Chris, Chad and Rev are, what Handcraft is for, and how the room works.",
 };
 
 const CHAPTERS = [
@@ -15,7 +15,7 @@ const CHAPTERS = [
     kicker: "Chris, Chad & Rev",
     title: "Burger lovers, first",
     body: "We are burger lovers and we made this place for you. Our founders — Chris, Chad and Rev — each bring decades of NYC restaurant experience and a true love for burgers, and the whole room is built around that one idea.",
-    image: IMG.storefront,
+    image: IMG.founders,
   },
   {
     kicker: "The mission",
@@ -26,7 +26,7 @@ const CHAPTERS = [
   {
     kicker: "The room",
     title: "Quick service, full hospitality",
-    body: "Walk-in only, no reservations, and about four minutes between ordering and holding it. Our focus is delivering a consistently great experience every time you visit — quick service that still behaves like hospitality.",
+    body: "Walk-in only, no reservations. Our focus is delivering a consistently great experience every time you visit — quick service that still behaves like hospitality.",
     image: IMG.smashOg,
   },
 ];

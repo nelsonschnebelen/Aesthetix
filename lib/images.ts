@@ -20,7 +20,6 @@ export const IMG = {
   smashSpicy: "/img/smash-spicy.jpg",
   baconJam: "/img/bacon-jam.jpg",
   brat: "/img/brat.jpg",
-  goodStuff: "/img/good-stuff.jpg",
   loadedTots: "/img/loaded-tots.jpg",
   sauceFlight: "/img/sauce-flight.jpg",
   fries: "/img/fries.jpg",
@@ -34,12 +33,13 @@ export const IMG = {
   friesTray: "/img/fries-tray.jpg",
   spicyChicken: "/img/spicy-chicken.jpg",
   nuggets: "/img/nuggets.jpg",
+  founders: "/img/founders.jpg",
+  beerCan: "/img/beer-can.jpg",
 
   // -------------------------------------------------- licensed stock ----
   baconBlack: "/img/stock/baconBlack.jpg",
   baconLight: "/img/stock/baconLight.jpg",
   basketCombo: "/img/stock/basketCombo.jpg",
-  beerTap: "/img/stock/beerTap.jpg",
   deconstructed: "/img/stock/deconstructed.jpg",
   eggSmash: "/img/stock/eggSmash.jpg",
   griddleDuo: "/img/stock/griddleDuo.jpg",
@@ -72,7 +72,7 @@ export function img(
 export const PENDING_PHOTOS: { path: string; shows: string }[] = [
   { path: "public/img/hangover.jpg", shows: "The Hangover — hash brown, bacon, runny egg" },
   { path: "public/img/dining-room.jpg", shows: "The room — wood slat, subway tile, Get Smashed neon" },
-  { path: "public/img/good-stuff.jpg", shows: "Your own guests at a table (currently licensed stock)" },
+  { path: "public/img/good-stuff.jpg", shows: "Your own guests at a table (the band uses the sauce flight until then)" },
   { path: "public/img/room.jpg", shows: "Your room — wood slat, subway tile, Get Smashed neon" },
   { path: "public/img/smash-spicy.jpg", shows: "The Spicy Ultimate Smash (currently licensed stock)" },
 ];

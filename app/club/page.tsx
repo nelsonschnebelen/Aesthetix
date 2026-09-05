@@ -113,8 +113,8 @@ export default function ClubPage() {
 
           <div className="relative aspect-[4/5] overflow-hidden">
             <Image
-              src={img(IMG.goodStuff, { w: 1000 })}
-              alt="Club members at a table at Handcraft"
+              src={img(IMG.baconJam, { w: 1000 })}
+              alt="A Handcraft burger on the counter, the dining room behind it"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"
               className="object-cover"

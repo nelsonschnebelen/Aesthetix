@@ -43,7 +43,11 @@ food is unchanged), exported at 1600px and graded with one shared recipe
 full-resolution originals, drop them over the same filenames and they replace
 these everywhere.
 
-Also still wanted: `room.jpg` (your room) and `good-stuff.jpg` (your guests).
+Also in: `founders.jpg` (Chris, Chad and Rev — the Pass the Good Stuff band and the
+story page) and `beer-can.jpg` (the Other Half can in the brew band; 500px, so a
+full-size original would be welcome).
+
+Still wanted: `room.jpg` (your room) and `good-stuff.jpg` (your guests).
 
 ## Notes
 
