@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { HeatMeter } from "@/components/menu/HeatMeter";
 import { IMG, img } from "@/lib/images";
-import { BY_ID } from "@/lib/menu";
+import { BY_ID, MOST_LOVED } from "@/lib/menu";
 import { SITE } from "@/lib/site";
 
 /**
@@ -12,18 +12,10 @@ import { SITE } from "@/lib/site";
  * people browse and stop them paying. The deep link is always current, so
  * a change in Toast is a change here with nothing to maintain.
  *
- * Below the handoff, the guest favourites the FAQ names — real names, real
- * photographs, no prices, so nothing can contradict the ordering system.
+ * Below the handoff, the eight items the ordering site marks Most Loved —
+ * real names and descriptions, no prices, so nothing can contradict it.
  */
 
-const FAVOURITES = [
-  "classic-single",
-  "spicy-ultimate",
-  "handcraft-fries",
-  "loaded-tots",
-  "the-ripper",
-  "rotating-ipa",
-];
 
 export function LiveMenu() {
   return (
@@ -75,7 +67,7 @@ export function LiveMenu() {
       <section className="mt-14">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <h2 className="band-head text-bone">
-            Guest favourites<span className="text-ember">.</span>
+            Most loved<span className="text-ember">.</span>
           </h2>
           <a
             href={SITE.orderUrl}
@@ -88,7 +80,7 @@ export function LiveMenu() {
         </div>
 
         <ul className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {FAVOURITES.map((id) => {
+          {MOST_LOVED.map((id) => {
             const item = BY_ID[id];
             if (!item) return null;
             return (

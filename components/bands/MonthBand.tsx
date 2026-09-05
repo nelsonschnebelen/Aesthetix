@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IMG, img } from "@/lib/images";
-import { SPOTLIGHT } from "@/lib/menu";
+import { BY_ID, SPOTLIGHT } from "@/lib/menu";
 
 /** The mustard band: the burger of the month and the cause behind it. */
 export function MonthBand() {
+  const featured = BY_ID[SPOTLIGHT.itemId];
   return (
     <section id="month" className="relative overflow-hidden bg-mustard py-14 md:py-20">
       <div className="mx-auto grid max-w-[1400px] items-center gap-10 px-5 md:px-8 lg:grid-cols-[1fr_1.1fr_0.7fr]">
@@ -32,7 +33,7 @@ export function MonthBand() {
 
         <div className="relative mx-auto aspect-[4/5] w-full max-w-[380px] overflow-hidden">
           <Image
-            src={img(IMG.baconJam, { w: 900 })}
+            src={img(featured?.image ?? IMG.smashOklahoma, { w: 900 })}
             alt={`${SPOTLIGHT.name}, this month's Handcraft`}
             fill
             sizes="(max-width: 1024px) 80vw, 30vw"

@@ -31,16 +31,19 @@ These are the owner's own photographs, resized and cropped on the way in.
 | `three-up.jpg` | Closing CTA |
 | `smash-spicy.jpg` | Stand-in for the Spicy Ultimate |
 
-## Empty slots
+## Photos that would finish the homepage
 
-Nothing here yet. The Hangover renders a "photo on the way" panel rather than
-a wrong picture.
+The homepage now shows the ordering site's eight Most Loved items. Five use
+your own photographs. These four are stand-ins until you send the real one:
 
-| File | Shows |
-|---|---|
-| `hangover.jpg` | Hash brown, bacon, runny egg |
-| `two-up.jpg` | Two OG singles with fries in paper cups |
-| `dining-room.jpg` | The room — wood slat, subway tile, `Get Smashed` neon |
+| Save as | Item | What is there now |
+|---|---|---|
+| `public/img/og-combo.jpg` | The OG Combo — OG, fries and a drink on a plate | the OG on its own |
+| `public/img/hotsy-tots.jpg` | Hotsy Chili Cheese Tots — chili and beer cheese over tots | your plain tots with the cheese cup |
+| `public/img/spicy-chicken.jpg` | Spicy Chicken Sandwich | licensed stock |
+| `public/img/nuggets.jpg` | 6-piece Chicken Nugget | licensed stock |
+
+Also still wanted: `room.jpg` (your room) and `good-stuff.jpg` (your guests).
 
 ## Notes
 

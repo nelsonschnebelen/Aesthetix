@@ -4,18 +4,10 @@ import { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { img } from "@/lib/images";
-import { BY_ID } from "@/lib/menu";
+import { BY_ID, MOST_LOVED } from "@/lib/menu";
 import { SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-const PICKS = [
-  "handcraft-double",
-  "oklahoma",
-  "spicy-ultimate",
-  "bacon-crust",
-  "smoke-show",
-  "char-blue",
-];
 
 /** The deep-red band: a paged rail of the smashes, three up on desktop. */
 export function PickYourSmash() {
@@ -76,7 +68,7 @@ export function PickYourSmash() {
           onScroll={sync}
           className="flex snap-x snap-mandatory gap-6 overflow-x-auto px-5 pb-2 md:px-20 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {PICKS.map((id) => {
+          {MOST_LOVED.map((id) => {
             const item = BY_ID[id];
             if (!item) return null;
             return (
@@ -97,7 +89,7 @@ export function PickYourSmash() {
                 </div>
 
                 <h3 className="font-display mt-6 text-3xl text-bone uppercase md:text-4xl">
-                  {item.name.replace(/^The /, "")}
+                  {item.name}
                 </h3>
 
                 <a
