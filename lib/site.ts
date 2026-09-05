@@ -10,14 +10,17 @@ export const SITE = {
   mapsUrl:
     "https://google.com/maps/place?q=Handcraft+Burgers+%26+Brew%2C+110+W+40th+St%2C+New+York%2C+NY+10018",
   /**
-   * The live ordering menu — deep-linked straight to the pickup board rather
-   * than the bare domain, so a visitor lands on the food.
+   * The live ordering menu. The root URL, deliberately, not the deep
+   * /pickup?menu=<guid> link: the root returns a real 200, the deep link is
+   * a 404 at the origin that only works because the app is a client-routed
+   * SPA (link checkers and link previews choke on it), and the root cannot
+   * go stale if the menu is ever re-published under a new GUID.
    *
    * The menu is managed in Toast and served through a DoorDash (Bbot) Order
    * & Pay front-end. The copy on the site names neither, so it survives a
    * change on either side.
    */
-  orderUrl: "https://handcraftburgers.menu/pickup?menu=7ee8d6e2-6c5f-449a-9177-dc66599af945",
+  orderUrl: "https://handcraftburgers.menu/",
   clubUrl: "https://handcraftburgers.com/hospitality-club",
   priceRange: "$$ · most items $10–18",
 
