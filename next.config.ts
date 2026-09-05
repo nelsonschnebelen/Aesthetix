@@ -8,10 +8,18 @@ import type { NextConfig } from "next";
  */
 const isStaticExport = process.env.STATIC_EXPORT === "1";
 
+/**
+ * GitHub Pages serves a project site under /<repo>/, so the preview build
+ * needs a base path. Netlify and a custom domain serve from /, so they do
+ * not — leave this unset for those.
+ */
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 const nextConfig: NextConfig = {
   ...(isStaticExport
     ? ({ output: "export", trailingSlash: true } as const)
     : {}),
+  ...(basePath ? { basePath } : {}),
 
   turbopack: {
     root: process.cwd(),

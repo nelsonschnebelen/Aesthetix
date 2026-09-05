@@ -47,7 +47,9 @@ export function img(
   src: string,
   { w = 1200, h, q = 72 }: { w?: number; h?: number; q?: number } = {},
 ): string {
-  if (!src.startsWith("http")) return src;
+  // Local files are served under the deploy's base path (empty everywhere
+  // except a GitHub Pages preview, where it is /<repo>).
+  if (!src.startsWith("http")) return (process.env.NEXT_PUBLIC_BASE_PATH ?? "") + src;
   const parts = ["auto=format", "fit=crop", `w=${w}`, `q=${q}`];
   if (h) parts.push(`h=${h}`);
   return `${src}?${parts.join("&")}`;
