@@ -5,7 +5,7 @@ import { Logo } from "@/components/brand/Logo";
 import { IMG, img } from "@/lib/images";
 
 const PERKS: [string, string][] = [
-  ["Free burgers", IMG.smashOg],
+  ["Free burgers", IMG.singleUltimate],
   ["Birthday reward", IMG.fries],
   ["Exclusive perks", IMG.brat],
 ];

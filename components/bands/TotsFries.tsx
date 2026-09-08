@@ -9,8 +9,8 @@ export function TotsFries() {
       <div className="mx-auto grid max-w-[1400px] items-center gap-8 px-5 md:px-8 lg:grid-cols-[1fr_1.25fr_1fr]">
         <div className="relative aspect-[4/3] overflow-hidden">
           <Image
-            src={img(IMG.hotsyTots, { w: 900 })}
-            alt="Hotsy Chili Cheese Tots — chili and beer cheese over crispy tots"
+            src={img(IMG.buffaloTots, { w: 900 })}
+            alt="Buffalo Tots — crispy buffalo chicken, bacon and blue cheese over tots, at the front door"
             fill
             sizes="(max-width: 1024px) 100vw, 33vw"
             className="object-cover"

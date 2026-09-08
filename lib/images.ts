@@ -15,7 +15,6 @@
 export const IMG = {
   // ---------------------------------------------------------- Handcraft --
   heroStreet: "/img/hero-street.jpg",
-  smashOg: "/img/smash-og.jpg",
   smashOklahoma: "/img/smash-oklahoma.jpg",
   smashSpicy: "/img/smash-spicy.jpg",
   baconJam: "/img/bacon-jam.jpg",
@@ -24,12 +23,13 @@ export const IMG = {
   sauceFlight: "/img/sauce-flight.jpg",
   fries: "/img/fries.jpg",
   storefront: "/img/storefront.jpg",
-  // The ordering site's Most Loved set, sent by the owner. Upscaled to 2K,
-  // exported at 1600px, graded with one shared recipe — no crop, no retouch.
+  // The ordering site's Most Loved set, from the owner's Dropbox and phone.
+  // Exported at 1600px, graded with one shared recipe — no crop, no retouch.
   og: "/img/og.jpg",
-  ogCombo: "/img/og-combo.jpg",
+  combo66: "/img/combo-66.jpg",
+  singleUltimate: "/img/single-ultimate.jpg",
   doubleUltimate: "/img/double-ultimate.jpg",
-  hotsyTots: "/img/hotsy-tots.jpg",
+  buffaloTots: "/img/buffalo-tots.jpg",
   friesTray: "/img/fries-tray.jpg",
   spicyChicken: "/img/spicy-chicken.jpg",
   nuggets: "/img/nuggets.jpg",

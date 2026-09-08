@@ -27,7 +27,7 @@ const CHAPTERS = [
     kicker: "The room",
     title: "Quick service, full hospitality",
     body: "Walk-in only, no reservations. Our focus is delivering a consistently great experience every time you visit — quick service that still behaves like hospitality.",
-    image: IMG.smashOg,
+    image: IMG.singleUltimate,
   },
 ];
 

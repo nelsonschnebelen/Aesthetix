@@ -44,13 +44,13 @@ export const MENU: MenuItem[] = [
     badges: ["Most loved"],
   },
   {
-    id: "og-combo",
-    name: "The OG Combo",
+    id: "the-6-6-combo",
+    name: "The 6.6 Combo",
     category: "smash",
-    blurb: "The OG with Handcraft fries and a drink.",
+    blurb: "A Single Ultimate Smash with Handcraft fries and a drink.",
     build: ["The OG", "Handcraft fries", "A drink"],
     heat: 1,
-    image: IMG.ogCombo,
+    image: IMG.combo66,
     badges: ["Most loved"],
   },
   {
@@ -60,7 +60,7 @@ export const MENU: MenuItem[] = [
     blurb: "One 3 oz smashed beef patty with shaved onions, sharp American cheddar cheese, Handcraft sauce.",
     build: ["Toasted crown", "Handcraft sauce", "Shaved onions", "Sharp American cheddar", "3 oz smashed patty", "Heel"],
     heat: 1,
-    image: IMG.smashOg,
+    image: IMG.singleUltimate,
     badges: ["Most loved"],
   },
   {
@@ -83,13 +83,13 @@ export const MENU: MenuItem[] = [
     badges: ["Most loved"],
   },
   {
-    id: "hotsy-chili-cheese-tots",
-    name: "Hotsy Chili Cheese Tots",
+    id: "buffalo-tots",
+    name: "Buffalo Tots",
     category: "sides",
-    blurb: "Tater tots topped with Garden Catering's Hotsy chili and beer cheese.",
-    build: ["Tater tots", "Hotsy chili", "Beer cheese"],
+    blurb: "Tater tots loaded with crispy buffalo chicken, bacon, blue cheese crumbles and celery.",
+    build: ["Tater tots", "Buffalo chicken", "Bacon", "Blue cheese", "Celery"],
     heat: 2,
-    image: IMG.hotsyTots,
+    image: IMG.buffaloTots,
     badges: ["Most loved"],
   },
   {
@@ -137,11 +137,11 @@ export const BY_ID = Object.fromEntries(MENU.map((m) => [m.id, m])) as Record<st
 
 /** The ordering site's "Most Loved" eight, in its order. */
 export const MOST_LOVED = [
-  "og-combo",
+  "the-6-6-combo",
   "og",
   "single-ultimate-smash",
   "double-ultimate-smash",
-  "hotsy-chili-cheese-tots",
+  "buffalo-tots",
   "handcraft-fries",
   "spicy-chicken-sandwich",
   "chicken-nuggets",
