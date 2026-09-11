@@ -111,9 +111,35 @@ will know it. The things you are most likely to want live in four small files:
 Rebuilding is two commands (`npm install`, then `npm run build:static`) and
 produces a fresh `out` folder to drag onto Netlify, exactly like the zip.
 
-If you would rather never touch a zip again, a developer can connect the
-source code to Netlify once (instructions in `DEPLOY.md`) and every change
-they save goes live on its own.
+### Developer path: connect GitHub so changes go live on their own
+
+If you would rather never touch a zip again, have a developer put the source
+code in a GitHub repository and connect it to a host once. After that, every
+change they save goes live by itself, with a preview link for each change
+before it lands.
+
+Either host works and both have a free tier that covers a site this size:
+
+**Vercel** (made by the people who make Next.js, the least setup)
+
+1. Push the source to a GitHub repository.
+2. At <https://vercel.com/new>, import that repository. Vercel detects
+   Next.js and needs no settings changed.
+3. Add `handcraftburgers.com` under **Settings → Domains** and add the DNS
+   records it shows you at the registrar. HTTPS is automatic.
+
+**Netlify** (same as the drag-and-drop route, but automatic)
+
+1. Push the source to a GitHub repository.
+2. **Add new site → Import an existing project → GitHub**, pick the
+   repository. Build command `npm run build:static`, publish directory `out`.
+3. Add the domain under **Domain management** as in section 2.
+
+One thing to get right on either host: **deploy from the branch that holds
+this site.** If the repository also carries older work on another branch,
+make the new site the default branch (or select it explicitly in the host's
+settings) so the host does not build the wrong thing. Details for a
+developer are in `DEPLOY.md`.
 
 ---
 
