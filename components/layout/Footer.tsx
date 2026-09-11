@@ -31,9 +31,8 @@ const COLUMNS: { title: string; links: [string, string][] }[] = [
 ];
 
 const SOCIAL: [string, string][] = [
-  ["Instagram", "https://instagram.com"],
-  ["Facebook", "https://facebook.com"],
-  ["TikTok", "https://tiktok.com"],
+  // Add Facebook / TikTok here as ["Facebook", "https://..."] once the URLs are known.
+  ["Instagram", "https://www.instagram.com/handcraftburgers/"],
 ];
 
 export function Footer() {

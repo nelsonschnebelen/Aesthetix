@@ -1,9 +1,10 @@
 /**
  * Every photograph on the site, in one place — and all of it local.
  *
- * `/img/*` are Handcraft's own photographs. `/img/stock/*` and a few files
- * in `/img/` are licensed Unsplash photography, downloaded into the repo
- * rather than hotlinked so a static export is self-contained.
+ * `/img/*` are Handcraft's own photographs. The one file in `/img/stock/` is
+ * licensed Unsplash photography (the darkened backdrop behind the Build
+ * teaser), downloaded into the repo rather than hotlinked so a static export
+ * is self-contained.
  *
  * There is no AI-generated imagery on this site. Every file here is a real
  * photograph — either the owner's or licensed stock. The seven Most Loved
@@ -16,7 +17,6 @@ export const IMG = {
   // ---------------------------------------------------------- Handcraft --
   heroStreet: "/img/hero-street.jpg",
   smashOklahoma: "/img/smash-oklahoma.jpg",
-  smashSpicy: "/img/smash-spicy.jpg",
   baconJam: "/img/bacon-jam.jpg",
   brat: "/img/brat.jpg",
   loadedTots: "/img/loaded-tots.jpg",
@@ -37,16 +37,7 @@ export const IMG = {
   beerCan: "/img/beer-can.jpg",
 
   // -------------------------------------------------- licensed stock ----
-  baconBlack: "/img/stock/baconBlack.jpg",
-  baconLight: "/img/stock/baconLight.jpg",
-  basketCombo: "/img/stock/basketCombo.jpg",
   deconstructed: "/img/stock/deconstructed.jpg",
-  eggSmash: "/img/stock/eggSmash.jpg",
-  griddleDuo: "/img/stock/griddleDuo.jpg",
-  shakeSplash: "/img/stock/shakeSplash.jpg",
-  shakeStack: "/img/stock/shakeStack.jpg",
-  sliders: "/img/stock/sliders.jpg",
-  stackedDark: "/img/stock/stackedDark.jpg",
 } as const;
 
 /**
@@ -74,5 +65,4 @@ export const PENDING_PHOTOS: { path: string; shows: string }[] = [
   { path: "public/img/dining-room.jpg", shows: "The room — wood slat, subway tile, Get Smashed neon" },
   { path: "public/img/good-stuff.jpg", shows: "Your own guests at a table (the band uses the sauce flight until then)" },
   { path: "public/img/room.jpg", shows: "Your room — wood slat, subway tile, Get Smashed neon" },
-  { path: "public/img/smash-spicy.jpg", shows: "The Spicy Ultimate Smash (currently licensed stock)" },
 ];
