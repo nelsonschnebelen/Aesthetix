@@ -5,6 +5,9 @@ export const SITE = {
   neighbourhood: "Bryant Park",
   phone: "(212) 221-0124",
   phoneHref: "tel:+12122210124",
+  /** The founders read every text to this number. */
+  textPhone: "(877) 713-6436",
+  textHref: "sms:+18777136436",
   street: "110 W 40th St",
   cityLine: "New York, NY 10018",
   mapsUrl:

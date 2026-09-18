@@ -12,7 +12,7 @@ const LINKS = [
   { href: "/menu", label: "Menu" },
   { href: "/build", label: "Build" },
   { href: "/#month", label: "This Month" },
-  { href: "/story", label: "Story" },
+  { href: "/about", label: "About" },
   { href: "/club", label: "Club" },
   { href: "/visit", label: "Visit" },
   { href: "/faq", label: "FAQ" },

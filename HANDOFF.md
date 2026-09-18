@@ -103,9 +103,10 @@ will know it. The things you are most likely to want live in four small files:
 
 | Change | File |
 |---|---|
-| Hours, holiday hours, phone, address, ordering link, club link | `lib/site.ts` |
+| Hours, holiday hours, phone, text number, address, ordering link, club link | `lib/site.ts` |
 | The eight Most Loved items, their descriptions, the burger of the month, the beer pairings | `lib/menu.ts` |
 | The FAQ questions and answers | `lib/faq.ts` |
+| The About page (mission, quality, tots, brew, gratitude, founders) | `app/about/page.tsx` |
 | Which photo goes where | `lib/images.ts` |
 
 Rebuilding is two commands (`npm install`, then `npm run build:static`) and

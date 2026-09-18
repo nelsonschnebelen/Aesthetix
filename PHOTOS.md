@@ -11,7 +11,7 @@ These are the owner's own photographs, resized and cropped on the way in.
 |---|---|
 | `hero-street.jpg` | The hand-held double outside the shop — the hero |
 | `smash-og.jpg` | The OG single: raw onion, pickle, ketchup, mustard |
-| `smash-oklahoma.jpg` | The board shot — onion smashed into the crust |
+| `smash-oklahoma.jpg` | The Double Ultimate Smash, plated (from the Ultimate Smash folder) |
 | `bacon-jam.jpg` | The bacon-jam double, plated in the room |
 | `brat.jpg` | The Kraut Brat at the storefront |
 | `loaded-tots.jpg` | Tots with the cheese sauce |
@@ -37,7 +37,9 @@ All eight Most Loved items use your own photographs: `og.jpg`, `combo-66.jpg`,
 `single-ultimate.jpg`, `double-ultimate.jpg`, `buffalo-tots.jpg`,
 `fries-tray.jpg`, `spicy-chicken.jpg` and `nuggets.jpg`. The OG, Single
 Ultimate, Buffalo Tots, Spicy Chicken and 6.6 Combo are full-resolution from
-your Dropbox and phone; the Double Ultimate, fries tray and nuggets are 500px
+your Dropbox and phone; the Double Ultimate is the hand-held marketing shot
+from the Ultimate Smash folder (the earlier hand-held double was an April
+limited-time burger and is gone); the fries tray and nuggets are 500px
 ordering-site thumbnails upscaled to 2K (sharpening only, food unchanged).
 Everything is exported at 1600px and graded with one shared recipe (warmth and
 a touch of contrast, no crop, no retouch). No cut-out studio shots sit next to

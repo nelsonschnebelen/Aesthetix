@@ -30,7 +30,7 @@ export function HospitalityBand() {
             burger family.
           </p>
           <Link
-            href="/story"
+            href="/about"
             className="label-tech btn mt-7 inline-block border-2 border-char text-char transition-colors hover:bg-char hover:text-bone"
           >
             Meet the team
