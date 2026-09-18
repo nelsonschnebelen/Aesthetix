@@ -9,3 +9,14 @@
   # Next 16 needs Node 20+; pin it so a Netlify default change cannot break
   # the build later.
   NODE_VERSION = "22"
+
+# The About page used to live at /story. Keep old links and search results working.
+[[redirects]]
+  from = "/story"
+  to = "/about/"
+  status = 301
+
+[[redirects]]
+  from = "/story/*"
+  to = "/about/:splat"
+  status = 301

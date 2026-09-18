@@ -1,0 +1,2 @@
+/story  /about/  301
+/story/*  /about/:splat  301
