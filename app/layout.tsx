@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
-import { StickyBookingFooter } from "@/components/booking/StickyBookingFooter";
-import { ChatWidget } from "@/components/chat/ChatWidget";
+import { SiteChrome } from "@/components/layout/SiteChrome";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -35,10 +33,7 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable}`}
     >
       <body className="min-h-screen antialiased bg-[#F9F7F2] font-sans text-[#0f281e]">
-        <Navbar />
-        {children}
-        <StickyBookingFooter />
-        <ChatWidget />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );
